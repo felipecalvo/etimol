@@ -266,6 +266,27 @@ header {
   border-radius: 10px;
   padding: 1.5rem 1.25rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  animation: slideDown 0.5s ease-out both;
+  transform-origin: top center;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1.5rem);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 30rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .result-banner h2 {
