@@ -11,28 +11,28 @@ const todayWord: WordData = {
   hints: [
     {
       type: "etymology",
-      previewLabel: "Origen más antiguo",
-      revealedContent: "Proviene del latín «butticŭla»",
+      template: "Proviene del latín «{spoiler}»",
+      spoilerText: "butticŭla",
     },
     {
       type: "letter_count",
-      previewLabel: "Número de letras: ?",
-      revealedContent: "Tiene 7 letras",
+      template: "Tiene {spoiler} letras",
+      spoilerText: "7",
     },
     {
       type: "starts_with",
-      previewLabel: "Empieza por: ?",
-      revealedContent: "Empieza por B",
+      template: "Empieza por {spoiler}",
+      spoilerText: "b",
     },
     {
       type: "etymology",
-      previewLabel: "Origen intermedio: ? (francés)",
-      revealedContent: "Viene del francés «bouteille»",
+      template: "Viene del francés «{spoiler}»",
+      spoilerText: "bouteille",
     },
     {
       type: "ends_with",
-      previewLabel: "Termina en: ?",
-      revealedContent: "Termina en A",
+      template: "Termina en {spoiler}",
+      spoilerText: "a",
     },
   ],
 };

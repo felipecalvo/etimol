@@ -14,10 +14,10 @@ export type HintType = "etymology" | "letter_count" | "starts_with" | "ends_with
 
 export interface HintDefinition {
   type: HintType;
-  /** Label shown before the hint is revealed */
-  previewLabel: string;
-  /** Full hint content shown after a wrong guess */
-  revealedContent: string;
+  /** Text with a {spoiler} placeholder for the hidden part, e.g. "Tiene {spoiler} letras" */
+  template: string;
+  /** The actual text that replaces {spoiler} when revealed */
+  spoilerText: string;
 }
 
 export type GameStatus = "playing" | "won" | "lost";

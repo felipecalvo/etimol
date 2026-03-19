@@ -217,11 +217,16 @@ export default function App() {
         <ol className="hints-list">
           {wordData.hints.map((hint, i) => {
             const isRevealed = i < revealedHints;
+            const parts = hint.template.split("{spoiler}");
             return (
               <li key={i} className={`hint ${isRevealed ? "revealed" : "locked"}`}>
                 <span className="hint-number">{i + 1}.</span>
                 <span className="hint-text">
-                  {isRevealed ? hint.revealedContent : hint.previewLabel}
+                  {parts[0]}
+                  <span className={`spoiler ${isRevealed ? "open" : ""}`}>
+                    {isRevealed ? hint.spoilerText : hint.spoilerText.replace(/./g, "•")}
+                  </span>
+                  {parts[1]}
                 </span>
               </li>
             );

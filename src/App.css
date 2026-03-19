@@ -67,7 +67,6 @@ header {
 
 .hint.locked {
   color: var(--ink-light);
-  font-style: italic;
   opacity: 0.7;
 }
 
@@ -81,6 +80,24 @@ header {
 
 .hint-text {
   font-size: 0.95rem;
+}
+
+.spoiler {
+  display: inline-block;
+  background: var(--ink-light);
+  color: transparent;
+  border-radius: 3px;
+  padding: 0 0.3em;
+  cursor: default;
+  user-select: none;
+  transition: all 0.35s ease;
+}
+
+.spoiler.open {
+  background: transparent;
+  color: var(--accent);
+  padding: 0;
+  font-weight: 600;
 }
 
 /* ── Word input (front and center) ── */
