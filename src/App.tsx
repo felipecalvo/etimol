@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { getTodayWord } from "./data";
 import { useGame } from "./useGame";
 import type { EtymologyStep } from "./types";
@@ -25,15 +26,92 @@ function EtymologyChain({
   );
 }
 
+/**
+ * Build a per-character "template" for the word.
+ * Each position is either a fixed letter (from hints) or null (editable).
+ */
+function buildTemplate(
+  answer: string,
+  revealedTypes: Set<string>
+): (string | null)[] {
+  const len = answer.length;
+  return Array.from(answer).map((ch, i) => {
+    if (i === 0 && revealedTypes.has("starts_with")) return ch;
+    if (i === len - 1 && revealedTypes.has("ends_with")) return ch;
+    return null;
+  });
+}
+
+/**
+ * Merge the user's typed characters into the editable slots of the template.
+ * Returns the full displayed word (fixed + typed), and the editable-only string.
+ */
+function mergeGuessIntoTemplate(
+  template: (string | null)[],
+  typed: string
+): string[] {
+  let ti = 0;
+  return template.map((fixed) => {
+    if (fixed !== null) return fixed;
+    return ti < typed.length ? typed[ti++] : "";
+  });
+}
+
+function fullGuessFromTemplate(
+  template: (string | null)[],
+  typed: string
+): string {
+  let ti = 0;
+  return template
+    .map((fixed) => {
+      if (fixed !== null) return fixed;
+      return ti < typed.length ? typed[ti++] : "";
+    })
+    .join("");
+}
+
 export default function App() {
   const wordData = getTodayWord();
   const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData);
   const { guesses, currentGuess, revealedHints, status } = state;
   const attemptsLeft = maxGuesses - guesses.length;
+  const hiddenInputRef = useRef<HTMLInputElement>(null);
+
+  const answer = wordData.answer;
+  const revealedTypes = new Set(
+    wordData.hints.slice(0, revealedHints).map((h) => h.type)
+  );
+  const knowLength = revealedTypes.has("letter_count");
+
+  // Template: array of fixed-letter | null per position
+  const template = knowLength ? buildTemplate(answer, revealedTypes) : null;
+  const editableSlots = template
+    ? template.filter((x) => x === null).length
+    : Infinity;
+
+  // The current guess stored in state is the "editable" portion only
+  const displayCells = template
+    ? mergeGuessIntoTemplate(template, currentGuess)
+    : null;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    submitGuess();
+    if (template) {
+      const full = fullGuessFromTemplate(template, currentGuess);
+      submitGuess(full);
+    } else {
+      submitGuess();
+    }
+  }
+
+  function handleTyping(value: string) {
+    // Limit length to editable slots
+    const clamped = value.slice(0, editableSlots);
+    setCurrentGuess(clamped);
+  }
+
+  function focusInput() {
+    hiddenInputRef.current?.focus();
   }
 
   return (
@@ -46,16 +124,45 @@ export default function App() {
       {status === "playing" && (
         <section className="word-input-section">
           <form onSubmit={handleSubmit} className="word-input-form">
-            <input
-              type="text"
-              className="word-input"
-              value={currentGuess}
-              onChange={(e) => setCurrentGuess(e.target.value)}
-              placeholder="..."
-              autoFocus
-              autoComplete="off"
-              autoCapitalize="off"
-            />
+            {template ? (
+              /* Cell-based input: fixed + editable in one row */
+              <div className="word-cells" onClick={focusInput}>
+                {displayCells!.map((ch, i) => {
+                  const isFixed = template[i] !== null;
+                  const isEmpty = ch === "";
+                  return (
+                    <span
+                      key={i}
+                      className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}`}
+                    >
+                      {isEmpty ? "_" : ch}
+                    </span>
+                  );
+                })}
+                <input
+                  ref={hiddenInputRef}
+                  type="text"
+                  className="hidden-input"
+                  value={currentGuess}
+                  onChange={(e) => handleTyping(e.target.value)}
+                  autoFocus
+                  autoComplete="off"
+                  autoCapitalize="off"
+                />
+              </div>
+            ) : (
+              /* Free-form input before letter count is known */
+              <input
+                type="text"
+                className="word-input"
+                value={currentGuess}
+                onChange={(e) => setCurrentGuess(e.target.value)}
+                placeholder="..."
+                autoFocus
+                autoComplete="off"
+                autoCapitalize="off"
+              />
+            )}
             <button type="submit" className="guess-button">
               Adivinar
             </button>

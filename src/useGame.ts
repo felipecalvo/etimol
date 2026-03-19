@@ -27,10 +27,10 @@ export function useGame(wordData: WordData) {
     });
   }, []);
 
-  const submitGuess = useCallback(() => {
+  const submitGuess = useCallback((fullGuessOverride?: string) => {
     setState((prev) => {
       if (prev.status !== "playing") return prev;
-      const guess = prev.currentGuess.trim();
+      const guess = (fullGuessOverride ?? prev.currentGuess).trim();
       if (guess.length === 0) return prev;
 
       const isCorrect = normalize(guess) === normalize(prev.wordData.answer);
