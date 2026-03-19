@@ -164,7 +164,7 @@ export default function App() {
     <div className="container">
       <header>
         <h1 className="title">etimol</h1>
-        <p className="subtitle">Adivina la palabra por su etimología</p>
+        <p className="subtitle">Adivina la palabra del día por su etimología</p>
       </header>
 
       {status === "playing" ? (
