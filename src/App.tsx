@@ -36,8 +36,8 @@ function buildTemplate(
 ): (string | null)[] {
   const len = answer.length;
   return Array.from(answer).map((ch, i) => {
-    if (i === 0 && revealedTypes.has("starts_with")) return ch;
-    if (i === len - 1 && revealedTypes.has("ends_with")) return ch;
+    if (i === 0 && revealedTypes.has("starts_with")) return ch.toLowerCase();
+    if (i === len - 1 && revealedTypes.has("ends_with")) return ch.toLowerCase();
     return null;
   });
 }
@@ -105,8 +105,7 @@ export default function App() {
   }
 
   function handleTyping(value: string) {
-    // Limit length to editable slots
-    const clamped = value.slice(0, editableSlots);
+    const clamped = value.toLowerCase().slice(0, editableSlots);
     setCurrentGuess(clamped);
   }
 
@@ -156,7 +155,7 @@ export default function App() {
                 type="text"
                 className="word-input"
                 value={currentGuess}
-                onChange={(e) => setCurrentGuess(e.target.value)}
+                onChange={(e) => setCurrentGuess(e.target.value.toLowerCase())}
                 placeholder="..."
                 autoFocus
                 autoComplete="off"
