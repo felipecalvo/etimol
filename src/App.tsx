@@ -179,6 +179,15 @@ export default function App() {
             {attemptsLeft === 1
               ? "¡Último intento!"
               : `${attemptsLeft} intentos restantes`}
+            {guesses.length > 0 && (
+              <span className="guess-chips">
+                {guesses.map((g, i) => (
+                  <span key={i} className={`chip ${g === "" ? "skipped" : "wrong"}`}>
+                    {g === "" ? "—" : g}
+                  </span>
+                ))}
+              </span>
+            )}
           </p>
         </section>
       ) : (
@@ -233,24 +242,6 @@ export default function App() {
           })}
         </ol>
       </section>
-
-      {guesses.length > 0 && (
-        <section className="guesses-section">
-          <h2>Intentos</h2>
-          <ul className="guesses-list">
-            {guesses.map((g, i) => (
-              <li
-                key={i}
-                className={`guess-item ${
-                  i === guesses.length - 1 && status === "won" ? "correct" : "wrong"
-                }`}
-              >
-                {g}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </div>
   );
 }

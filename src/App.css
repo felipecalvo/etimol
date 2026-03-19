@@ -31,8 +31,7 @@ header {
 }
 
 /* ── Hints ── */
-.hints-section h2,
-.guesses-section h2 {
+.hints-section h2 {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -229,37 +228,33 @@ header {
   margin-top: 0.25rem;
 }
 
-/* ── Guesses list ── */
-.guesses-section {
-  margin-bottom: 1.75rem;
-}
-
-.guesses-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+/* ── Guess chips (inline) ── */
+.guess-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
 }
 
-.guess-item {
-  font-family: var(--serif);
-  font-size: 1rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: 4px;
-  border-left: 3px solid transparent;
+.chip {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  line-height: 1.4;
 }
 
-.guess-item.wrong {
-  border-left-color: var(--red);
+.chip.wrong {
+  background: #fdf0f0;
+  color: var(--red);
+  text-decoration: line-through;
+  text-decoration-color: rgba(160, 64, 64, 0.4);
+}
+
+.chip.skipped {
+  background: var(--cream-dark);
   color: var(--ink-light);
-  background: #fdf6f6;
-}
-
-.guess-item.correct {
-  border-left-color: var(--green);
-  color: var(--green);
-  background: #f3faf5;
-  font-weight: 600;
 }
 
 /* ── Result card (replaces input area) ── */
