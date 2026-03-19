@@ -11,7 +11,7 @@ const todayWord: WordData = {
   hints: [
     {
       type: "etymology",
-      template: "Proviene del latín «{spoiler}»",
+      template: "Del latín «{spoiler}»",
       spoilerText: "butticŭla",
     },
     {
@@ -26,7 +26,7 @@ const todayWord: WordData = {
     },
     {
       type: "etymology",
-      template: "Viene del francés «{spoiler}»",
+      template: "Del francés «{spoiler}»",
       spoilerText: "bouteille",
     },
     {
