@@ -21,7 +21,7 @@ const todayWord: WordData = {
     },
     {
       type: "starts_with",
-      template: "Empieza por {spoiler}",
+      template: "Empieza con {spoiler}",
       spoilerText: "b",
     },
     {
@@ -31,7 +31,7 @@ const todayWord: WordData = {
     },
     {
       type: "ends_with",
-      template: "Termina en {spoiler}",
+      template: "Termina con {spoiler}",
       spoilerText: "a",
     },
   ],
