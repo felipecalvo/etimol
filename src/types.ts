@@ -13,11 +13,11 @@ export interface WordData {
 export type HintType = "etymology" | "letter_count" | "starts_with" | "ends_with";
 
 export interface HintDefinition {
-  type: HintType;
-  /** Text with a {spoiler} placeholder for the hidden part, e.g. "Tiene {spoiler} letras" */
+  type: HintType | HintType[];
+  /** Text with {spoiler} placeholder(s) for the hidden part(s) */
   template: string;
-  /** The actual text that replaces {spoiler} when revealed */
-  spoilerText: string;
+  /** The text that replaces {spoiler} when revealed. Array for multiple spoilers. */
+  spoilerText: string | string[];
 }
 
 export type GameStatus = "playing" | "won" | "lost";

@@ -200,6 +200,43 @@ header {
   border-bottom-color: var(--accent-light);
 }
 
+/* ── Free-form row (prefix + input + suffix) ── */
+.free-input-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  border-bottom: 2px solid var(--cream-dark);
+  transition: border-color 0.2s;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.free-input-row:focus-within {
+  border-bottom-color: var(--accent-light);
+}
+
+.free-input-row .word-input {
+  border-bottom: none;
+  max-width: none;
+  width: auto;
+  text-align: center;
+  padding: 0.4rem 0;
+}
+
+.free-input-row .word-input:focus {
+  border-bottom-color: transparent;
+}
+
+.free-fixed {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+}
+
 .word-input::placeholder {
   color: #d0c8bc;
   font-family: var(--serif);

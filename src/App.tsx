@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { Fragment, useRef, useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
 import { getTodayWord } from "./data";
 import { useGame } from "./useGame";
@@ -83,15 +83,23 @@ export default function App() {
 
   const answer = wordData.answer;
   const revealedTypes = new Set(
-    wordData.hints.slice(0, revealedHints).map((h) => h.type)
+    wordData.hints.slice(0, revealedHints).flatMap((h) =>
+      Array.isArray(h.type) ? h.type : [h.type]
+    )
   );
   const knowLength = revealedTypes.has("letter_count");
+  const knowStart = revealedTypes.has("starts_with");
+  const knowEnd = revealedTypes.has("ends_with");
 
   // Template: array of fixed-letter | null per position
   const template = knowLength ? buildTemplate(answer, revealedTypes) : null;
   const editableSlots = template
     ? template.filter((x) => x === null).length
     : Infinity;
+
+  // Known letters for free-form mode (before letter_count is revealed)
+  const freePrefix = !knowLength && knowStart ? answer[0].toLowerCase() : "";
+  const freeSuffix = !knowLength && knowEnd ? answer[answer.length - 1].toLowerCase() : "";
 
   // The current guess stored in state is the "editable" portion only
   const displayCells = template
@@ -111,7 +119,7 @@ export default function App() {
       submitGuess(full);
     } else {
       if (currentGuess.trim().length === 0) return; // nothing typed → do nothing
-      submitGuess();
+      submitGuess(freePrefix + currentGuess + freeSuffix);
     }
   }
 
@@ -201,16 +209,21 @@ export default function App() {
               </div>
             ) : (
               /* Free-form input before letter count is known */
-              <input
-                type="text"
-                className="word-input"
-                value={currentGuess}
-                onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ]/gi, "").toLowerCase())}
-                placeholder="..."
-                autoFocus
-                autoComplete="off"
-                autoCapitalize="off"
-              />
+              <div className="free-input-row">
+                {freePrefix && <span className="free-fixed">{freePrefix}</span>}
+                <input
+                  type="text"
+                  className="word-input free-middle"
+                  value={currentGuess}
+                  onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ]/gi, "").toLowerCase())}
+                  placeholder="..."
+                  size={Math.max(3, currentGuess.length + 1)}
+                  autoFocus
+                  autoComplete="off"
+                  autoCapitalize="off"
+                />
+                {freeSuffix && <span className="free-fixed">{freeSuffix}</span>}
+              </div>
             )}
             <div className="action-buttons">
               <button type="submit" className="guess-button">
@@ -291,16 +304,26 @@ export default function App() {
         <ol className="hints-list">
           {wordData.hints.map((hint, i) => {
             const isRevealed = i < revealedHints;
+            const spoilers = Array.isArray(hint.spoilerText)
+              ? hint.spoilerText
+              : [hint.spoilerText];
             const parts = hint.template.split("{spoiler}");
             return (
               <li key={i} className={`hint ${isRevealed ? "revealed" : "locked"}`}>
                 <span className="hint-number">{i + 1}.</span>
                 <span className="hint-text">
-                  {parts[0]}
-                  <span className={`spoiler ${isRevealed ? "open" : ""}`}>
-                    {isRevealed ? hint.spoilerText : hint.spoilerText.replace(/./g, "•")}
-                  </span>
-                  {parts[1]}
+                  {parts.map((part, j) => (
+                    <Fragment key={j}>
+                      {part}
+                      {j < spoilers.length && (
+                        <span className={`spoiler ${isRevealed ? "open" : ""}`}>
+                          {isRevealed
+                            ? spoilers[j]
+                            : spoilers[j].replace(/./g, "•")}
+                        </span>
+                      )}
+                    </Fragment>
+                  ))}
                 </span>
               </li>
             );

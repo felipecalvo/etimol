@@ -45,6 +45,86 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-03-20",
+    word: {
+      answer: "café",
+      definition:
+        "m. Bebida que se hace por infusión con la semilla tostada y molida del cafeto.",
+      etymology: [
+        { word: "qahwah", language: "árabe clásico" },
+        { word: "kahve", language: "turco" },
+        { word: "caffe", language: "italiano" },
+      ],
+      hints: [
+        {
+          type: "etymology",
+          template: "Del árabe clásico «{spoiler}»",
+          spoilerText: "qahwah",
+        },
+        {
+          type: "starts_with",
+          template: "Empieza con {spoiler}",
+          spoilerText: "c",
+        },
+        {
+          type: "etymology",
+          template: "Del turco «{spoiler}»",
+          spoilerText: "kahve",
+        },
+        {
+          type: "letter_count",
+          template: "Tiene {spoiler} letras",
+          spoilerText: "4",
+        },
+        {
+          type: "etymology",
+          template: "Del italiano «{spoiler}»",
+          spoilerText: "caffe",
+        },
+      ],
+    },
+  },
+  {
+    date: "2026-03-21",
+    word: {
+      answer: "persona",
+      definition:
+        "f. Individuo de la especie humana.",
+      etymology: [
+        { word: "πρόσωπον (prósōpon)", language: "griego" },
+        { word: "φersu", language: "etrusco" },
+        { word: "persōna", language: "latín" },
+      ],
+      hints: [
+        {
+          type: "etymology",
+          template: "Del griego «{spoiler}»",
+          spoilerText: "πρόσωπον (prósōpon)",
+        },
+        {
+          type: ["starts_with", "ends_with"],
+          template: "Empieza con {spoiler} y termina con {spoiler}",
+          spoilerText: ["P", "A"],
+        },
+        {
+          type: "etymology",
+          template: "Del etrusco «{spoiler}»",
+          spoilerText: "φersu",
+        },
+        {
+          type: "letter_count",
+          template: "Tiene {spoiler} letras",
+          spoilerText: "7",
+        },
+        {
+          type: "etymology",
+          template: "Del latín «{spoiler}»",
+          spoilerText: "persōna",
+        },
+      ],
+    },
+  },
 ];
 
 function getLocalDateString(): string {
