@@ -121,7 +121,7 @@ export default function App() {
         <p className="subtitle">Adivina la palabra por su etimología</p>
       </header>
 
-      {status === "playing" && (
+      {status === "playing" ? (
         <section className="word-input-section">
           <form onSubmit={handleSubmit} className="word-input-form">
             {template ? (
@@ -173,6 +173,35 @@ export default function App() {
               : `${attemptsLeft} intentos restantes`}
           </p>
         </section>
+      ) : (
+        <section className="result-card">
+          <div className={`result-banner ${status}`}>
+            {status === "won" ? (
+              <>
+                <h2>¡Correcto! 🎉</h2>
+                <p>
+                  Adivinaste en {guesses.length}{" "}
+                  {guesses.length === 1 ? "intento" : "intentos"}.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2>¡Se acabaron los intentos!</h2>
+                <p>
+                  La palabra era: <strong>{wordData.answer}</strong>
+                </p>
+              </>
+            )}
+          </div>
+          <div className="word-detail">
+            <h3>{wordData.answer}</h3>
+            <p className="definition">{wordData.definition}</p>
+            <EtymologyChain
+              etymology={wordData.etymology}
+              answer={wordData.answer}
+            />
+          </div>
+        </section>
       )}
 
       <section className="hints-section">
@@ -207,36 +236,6 @@ export default function App() {
               </li>
             ))}
           </ul>
-        </section>
-      )}
-
-      {status !== "playing" && (
-        <section className="result-section">
-          {status === "won" ? (
-            <div className="result won">
-              <h2>¡Correcto! 🎉</h2>
-              <p>
-                Adivinaste en {guesses.length}{" "}
-                {guesses.length === 1 ? "intento" : "intentos"}.
-              </p>
-            </div>
-          ) : (
-            <div className="result lost">
-              <h2>¡Se acabaron los intentos!</h2>
-              <p>
-                La palabra era: <strong>{wordData.answer}</strong>
-              </p>
-            </div>
-          )}
-
-          <div className="word-detail">
-            <h3>{wordData.answer}</h3>
-            <p className="definition">{wordData.definition}</p>
-            <EtymologyChain
-              etymology={wordData.etymology}
-              answer={wordData.answer}
-            />
-          </div>
         </section>
       )}
     </div>
