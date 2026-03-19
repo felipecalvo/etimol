@@ -104,8 +104,13 @@ export default function App() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (template) {
-      const full = fullGuessFromTemplate(template, currentGuess);
-      submitGuess(full);
+      // If user typed nothing into the editable slots, treat as skip
+      if (currentGuess.trim().length === 0) {
+        submitGuess("");
+      } else {
+        const full = fullGuessFromTemplate(template, currentGuess);
+        submitGuess(full);
+      }
     } else {
       submitGuess();
     }
