@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #faf6f0;
+  --cream-dark: #f0e9df;
+  --ink: #2c2420;
+  --ink-light: #6b5e54;
+  --accent: #8b6914;
+  --accent-light: #c4a35a;
+  --green: #4a7c59;
+  --red: #a04040;
+  --serif: "Lora", "Georgia", "Times New Roman", serif;
+  --sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  background-color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}

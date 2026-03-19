@@ -1,0 +1,276 @@
+/* ── Layout ── */
+.container {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  min-height: 100dvh;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  font-weight: 400;
+}
+
+/* ── Hints ── */
+.hints-section h2,
+.guesses-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+}
+
+.hints-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.hint {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--cream-dark);
+  background: white;
+  transition: all 0.25s ease;
+}
+
+.hint.revealed {
+  border-color: var(--accent-light);
+  background: linear-gradient(135deg, #fffcf5, #fff9ed);
+}
+
+.hint.locked {
+  color: var(--ink-light);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.hint-number {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--accent);
+  min-width: 1.2rem;
+}
+
+.hint-text {
+  font-size: 0.95rem;
+}
+
+/* ── Guess input ── */
+.guess-section {
+  margin-bottom: 1.75rem;
+}
+
+.attempts-left {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.guess-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.guess-input {
+  flex: 1;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 0.6rem 0.85rem;
+  border: 2px solid var(--cream-dark);
+  border-radius: 6px;
+  background: white;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.guess-input:focus {
+  border-color: var(--accent-light);
+}
+
+.guess-input::placeholder {
+  color: #c0b8ad;
+  font-style: italic;
+}
+
+.guess-button {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--cream);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.guess-button:hover {
+  background: #3d342e;
+}
+
+/* ── Guesses list ── */
+.guesses-section {
+  margin-bottom: 1.75rem;
+}
+
+.guesses-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.guess-item {
+  font-family: var(--serif);
+  font-size: 1rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 4px;
+  border-left: 3px solid transparent;
+}
+
+.guess-item.wrong {
+  border-left-color: var(--red);
+  color: var(--ink-light);
+  background: #fdf6f6;
+}
+
+.guess-item.correct {
+  border-left-color: var(--green);
+  color: var(--green);
+  background: #f3faf5;
+  font-weight: 600;
+}
+
+/* ── Result ── */
+.result-section {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.result h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.result.won h2 {
+  color: var(--green);
+}
+
+.result.lost h2 {
+  color: var(--red);
+}
+
+.result p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  margin-bottom: 1.25rem;
+}
+
+.result.lost p strong {
+  color: var(--ink);
+}
+
+/* ── Word detail (shown after game ends) ── */
+.word-detail {
+  background: white;
+  border: 1px solid var(--cream-dark);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.word-detail h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: capitalize;
+}
+
+.definition {
+  font-size: 0.92rem;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+  line-height: 1.55;
+}
+
+.etymology-chain {
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  background: var(--cream);
+  border-radius: 4px;
+  line-height: 1.7;
+}
+
+.etymology-chain em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.etymology-chain .lang {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-light);
+}
+
+.etymology-chain .arrow {
+  color: var(--ink-light);
+}
+
+.etymology-chain strong {
+  color: var(--ink);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .guess-form {
+    flex-direction: column;
+  }
+
+  .guess-button {
+    width: 100%;
+  }
+}

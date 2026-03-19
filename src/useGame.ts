@@ -1,0 +1,67 @@
+import { useState, useCallback } from "react";
+import type { GameState, GameStatus, WordData } from "./types";
+
+function normalize(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+export function useGame(wordData: WordData) {
+  const [state, setState] = useState<GameState>({
+    wordData,
+    guesses: [],
+    currentGuess: "",
+    revealedHints: 1, // first hint is always shown
+    status: "playing",
+  });
+
+  const maxGuesses = wordData.hints.length; // 5
+
+  const setCurrentGuess = useCallback((value: string) => {
+    setState((prev) => {
+      if (prev.status !== "playing") return prev;
+      return { ...prev, currentGuess: value };
+    });
+  }, []);
+
+  const submitGuess = useCallback(() => {
+    setState((prev) => {
+      if (prev.status !== "playing") return prev;
+      const guess = prev.currentGuess.trim();
+      if (guess.length === 0) return prev;
+
+      const isCorrect = normalize(guess) === normalize(prev.wordData.answer);
+      const newGuesses = [...prev.guesses, guess];
+
+      let newStatus: GameStatus = "playing";
+      let newRevealed = prev.revealedHints;
+
+      if (isCorrect) {
+        newStatus = "won";
+      } else if (newGuesses.length >= maxGuesses) {
+        newStatus = "lost";
+      } else {
+        // Reveal next hint
+        newRevealed = Math.min(prev.revealedHints + 1, maxGuesses);
+      }
+
+      return {
+        ...prev,
+        guesses: newGuesses,
+        currentGuess: "",
+        revealedHints: newRevealed,
+        status: newStatus,
+      };
+    });
+  }, [maxGuesses]);
+
+  return {
+    state,
+    setCurrentGuess,
+    submitGuess,
+    maxGuesses,
+  };
+}
