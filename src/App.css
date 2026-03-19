@@ -230,13 +230,13 @@ header {
   margin-top: 0.25rem;
 }
 
-/* ── Guess chips (inline) ── */
+/* ── Guess chips (below attempts) ── */
 .guess-chips {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.35rem;
-  margin-left: 0.5rem;
-  vertical-align: middle;
+  margin-top: 0.75rem;
 }
 
 .chip {
