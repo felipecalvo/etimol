@@ -339,11 +339,18 @@ header {
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
   margin-bottom: 1rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.share-button:hover {
-  background: var(--cream-dark);
-  border-color: var(--accent-light);
+@media (hover: hover) {
+  .share-button:hover {
+    background: var(--cream-dark);
+    border-color: var(--accent-light);
+  }
+}
+
+.share-button:focus {
+  outline: none;
 }
 
 /* ── Word detail (shown after game ends) ── */
@@ -360,7 +367,6 @@ header {
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
-  text-transform: capitalize;
 }
 
 .definition {

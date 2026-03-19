@@ -119,7 +119,8 @@ export default function App() {
   }
 
   function handleTyping(value: string) {
-    const clamped = value.toLowerCase().slice(0, editableSlots);
+    const lettersOnly = value.replace(/[^a-záéíóúüñ]/gi, "");
+    const clamped = lettersOnly.toLowerCase().slice(0, editableSlots);
     setCurrentGuess(clamped);
   }
 
@@ -137,6 +138,8 @@ export default function App() {
     }
   }, [status]);
 
+  const shareButtonRef = useRef<HTMLButtonElement>(null);
+
   const shareResult = useCallback(() => {
     const emojiLine = guesses
       .map((g) => {
@@ -149,6 +152,7 @@ export default function App() {
       .join("");
     const url = `${window.location.origin}${window.location.pathname}`;
     const text = `Etimol del día: ${guesses.length}/${maxGuesses}\n${emojiLine}\n${url}`;
+    shareButtonRef.current?.blur();
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -158,7 +162,7 @@ export default function App() {
   return (
     <div className="container">
       <header>
-        <h1 className="title">Etimol</h1>
+        <h1 className="title">etimol</h1>
         <p className="subtitle">Adivina la palabra por su etimología</p>
       </header>
 
@@ -200,7 +204,7 @@ export default function App() {
                 type="text"
                 className="word-input"
                 value={currentGuess}
-                onChange={(e) => setCurrentGuess(e.target.value.toLowerCase())}
+                onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ]/gi, "").toLowerCase())}
                 placeholder="..."
                 autoFocus
                 autoComplete="off"
@@ -262,8 +266,8 @@ export default function App() {
               );
             })}
           </div>
-          <button className="share-button" onClick={shareResult}>
-            {copied ? "✅ Copiado al portapapeles" : "Compartir mi resultado"}
+          <button ref={shareButtonRef} className="share-button" onClick={shareResult}>
+            {copied ? "✅ Copiado al portapapeles" : "🔗 Compartir mi resultado"}
           </button>
           <div className="word-detail">
             <h3>{wordData.answer}</h3>
