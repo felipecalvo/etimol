@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 import { getTodayWord } from "./data";
 import { useGame } from "./useGame";
 import type { EtymologyStep } from "./types";
@@ -118,6 +119,16 @@ export default function App() {
   function focusInput() {
     hiddenInputRef.current?.focus();
   }
+
+  useEffect(() => {
+    if (status === "won") {
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+      });
+    }
+  }, [status]);
 
   return (
     <div className="container">
