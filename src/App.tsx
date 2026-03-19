@@ -43,6 +43,31 @@ export default function App() {
         <p className="subtitle">Adivina la palabra por su etimología</p>
       </header>
 
+      {status === "playing" && (
+        <section className="word-input-section">
+          <form onSubmit={handleSubmit} className="word-input-form">
+            <input
+              type="text"
+              className="word-input"
+              value={currentGuess}
+              onChange={(e) => setCurrentGuess(e.target.value)}
+              placeholder="..."
+              autoFocus
+              autoComplete="off"
+              autoCapitalize="off"
+            />
+            <button type="submit" className="guess-button">
+              Adivinar
+            </button>
+          </form>
+          <p className="attempts-left">
+            {attemptsLeft === 1
+              ? "¡Último intento!"
+              : `${attemptsLeft} intentos restantes`}
+          </p>
+        </section>
+      )}
+
       <section className="hints-section">
         <h2>Pistas</h2>
         <ol className="hints-list">
@@ -59,31 +84,6 @@ export default function App() {
           })}
         </ol>
       </section>
-
-      {status === "playing" && (
-        <section className="guess-section">
-          <p className="attempts-left">
-            {attemptsLeft === 1
-              ? "¡Último intento!"
-              : `${attemptsLeft} intentos restantes`}
-          </p>
-          <form onSubmit={handleSubmit} className="guess-form">
-            <input
-              type="text"
-              className="guess-input"
-              value={currentGuess}
-              onChange={(e) => setCurrentGuess(e.target.value)}
-              placeholder="Escribe tu respuesta..."
-              autoFocus
-              autoComplete="off"
-              autoCapitalize="off"
-            />
-            <button type="submit" className="guess-button">
-              Adivinar
-            </button>
-          </form>
-        </section>
-      )}
 
       {guesses.length > 0 && (
         <section className="guesses-section">
