@@ -259,6 +259,17 @@ header {
   color: var(--ink-light);
 }
 
+.chip.correct {
+  background: #ecf7ef;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.result-chips {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 /* ── Result card (replaces input area) ── */
 .result-card {
   text-align: center;
@@ -313,6 +324,26 @@ header {
 
 .result-banner.lost p strong {
   color: var(--ink);
+}
+
+.share-button {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 14rem;
+  padding: 0.55rem 1.25rem;
+  border: 1px solid var(--cream-dark);
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.share-button:hover {
+  background: var(--cream-dark);
+  border-color: var(--accent-light);
 }
 
 /* ── Word detail (shown after game ends) ── */

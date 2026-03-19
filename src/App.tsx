@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
 import { getTodayWord } from "./data";
 import { useGame } from "./useGame";
@@ -79,6 +79,8 @@ export default function App() {
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const [inputFocused, setInputFocused] = useState(true);
 
+  const [copied, setCopied] = useState(false);
+
   const answer = wordData.answer;
   const revealedTypes = new Set(
     wordData.hints.slice(0, revealedHints).map((h) => h.type)
@@ -134,6 +136,24 @@ export default function App() {
       });
     }
   }, [status]);
+
+  const shareResult = useCallback(() => {
+    const emojiLine = guesses
+      .map((g) => {
+        if (g === "") return "➖";
+        const isWin =
+          g.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
+          answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return isWin ? "✅" : "❌";
+      })
+      .join("");
+    const url = `${window.location.origin}${window.location.pathname}`;
+    const text = `Etimol del día: ${guesses.length}/${maxGuesses}\n${emojiLine}\n${url}`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [guesses, answer, maxGuesses, status]);
 
   return (
     <div className="container">
@@ -226,6 +246,25 @@ export default function App() {
               </>
             )}
           </div>
+          <div className="guess-chips result-chips">
+            {guesses.map((g, i) => {
+              const isCorrect =
+                g.length > 0 &&
+                g.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
+                  answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+              return (
+                <span
+                  key={i}
+                  className={`chip ${g === "" ? "skipped" : isCorrect ? "correct" : "wrong"}`}
+                >
+                  {g === "" ? "—" : g}
+                </span>
+              );
+            })}
+          </div>
+          <button className="share-button" onClick={shareResult}>
+            {copied ? "✅ Copiado al portapapeles" : "Compartir mi resultado"}
+          </button>
           <div className="word-detail">
             <h3>{wordData.answer}</h3>
             <p className="definition">{wordData.definition}</p>

@@ -40,6 +40,7 @@ export function useGame(wordData: WordData) {
 
       if (isCorrect) {
         newStatus = "won";
+        newRevealed = maxGuesses; // reveal all hints on win
       } else if (newGuesses.length >= maxGuesses) {
         newStatus = "lost";
       } else {
