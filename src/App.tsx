@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { getTodayWord } from "./data";
 import { useGame } from "./useGame";
 import type { EtymologyStep } from "./types";
@@ -76,6 +76,7 @@ export default function App() {
   const { guesses, currentGuess, revealedHints, status } = state;
   const attemptsLeft = maxGuesses - guesses.length;
   const hiddenInputRef = useRef<HTMLInputElement>(null);
+  const [inputFocused, setInputFocused] = useState(true);
 
   const answer = wordData.answer;
   const revealedTypes = new Set(
@@ -93,6 +94,11 @@ export default function App() {
   const displayCells = template
     ? mergeGuessIntoTemplate(template, currentGuess)
     : null;
+
+  // Find the caret position: first empty editable cell
+  const caretIndex = displayCells
+    ? displayCells.findIndex((ch, i) => template![i] === null && ch === "")
+    : -1;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -129,10 +135,11 @@ export default function App() {
                 {displayCells!.map((ch, i) => {
                   const isFixed = template[i] !== null;
                   const isEmpty = ch === "";
+                  const isCaret = inputFocused && i === caretIndex;
                   return (
                     <span
                       key={i}
-                      className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}`}
+                      className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}${isCaret ? " caret" : ""}`}
                     >
                       {isEmpty ? "_" : ch}
                     </span>
@@ -144,6 +151,8 @@ export default function App() {
                   className="hidden-input"
                   value={currentGuess}
                   onChange={(e) => handleTyping(e.target.value)}
+                  onFocus={() => setInputFocused(true)}
+                  onBlur={() => setInputFocused(false)}
                   autoFocus
                   autoComplete="off"
                   autoCapitalize="off"

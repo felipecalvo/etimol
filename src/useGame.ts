@@ -31,10 +31,9 @@ export function useGame(wordData: WordData) {
     setState((prev) => {
       if (prev.status !== "playing") return prev;
       const guess = (fullGuessOverride ?? prev.currentGuess).trim();
-      if (guess.length === 0) return prev;
 
-      const isCorrect = normalize(guess) === normalize(prev.wordData.answer);
-      const newGuesses = [...prev.guesses, guess];
+      const isCorrect = guess.length > 0 && normalize(guess) === normalize(prev.wordData.answer);
+      const newGuesses = [...prev.guesses, guess.length > 0 ? guess : ""];
 
       let newStatus: GameStatus = "playing";
       let newRevealed = prev.revealedHints;

@@ -126,6 +126,26 @@ header {
   opacity: 0.35;
 }
 
+.cell.caret {
+  position: relative;
+}
+
+.cell.caret::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 2px;
+  height: 1.1em;
+  background: var(--ink);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .hidden-input {
   position: absolute;
   opacity: 0;
