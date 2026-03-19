@@ -107,7 +107,7 @@ header {
 }
 
 .cell {
-  font-family: var(--serif);
+  font-family: var(--mono);
   font-size: 2rem;
   font-weight: 700;
   width: 1.6rem;
@@ -162,7 +162,7 @@ header {
 }
 
 .word-input {
-  font-family: var(--serif);
+  font-family: var(--mono);
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
