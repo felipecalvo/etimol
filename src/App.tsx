@@ -106,16 +106,17 @@ export default function App() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (template) {
-      // If user typed nothing into the editable slots, treat as skip
-      if (currentGuess.trim().length === 0) {
-        submitGuess("");
-      } else {
-        const full = fullGuessFromTemplate(template, currentGuess);
-        submitGuess(full);
-      }
+      if (currentGuess.trim().length === 0) return; // nothing typed → do nothing
+      const full = fullGuessFromTemplate(template, currentGuess);
+      submitGuess(full);
     } else {
+      if (currentGuess.trim().length === 0) return; // nothing typed → do nothing
       submitGuess();
     }
+  }
+
+  function handleSkip() {
+    submitGuess("");
   }
 
   function handleTyping(value: string) {
@@ -211,9 +212,14 @@ export default function App() {
                 autoCapitalize="off"
               />
             )}
-            <button type="submit" className="guess-button">
-              Adivinar
-            </button>
+            <div className="action-buttons">
+              <button type="submit" className="guess-button">
+                Adivinar
+              </button>
+              <button type="button" className="skip-button" onClick={handleSkip}>
+                Saltar
+              </button>
+            </div>
           </form>
           <p className="attempts-left">
             {attemptsLeft === 1
