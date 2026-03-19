@@ -10,7 +10,7 @@ export interface WordData {
   hints: HintDefinition[];
 }
 
-export type HintType = "etymology_ancient" | "letter_count" | "starts_with" | "etymology_recent" | "ends_with";
+export type HintType = "etymology" | "letter_count" | "starts_with" | "ends_with";
 
 export interface HintDefinition {
   type: HintType;

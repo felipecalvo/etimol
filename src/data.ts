@@ -10,7 +10,7 @@ const todayWord: WordData = {
   ],
   hints: [
     {
-      type: "etymology_ancient",
+      type: "etymology",
       previewLabel: "Origen más antiguo",
       revealedContent: "Proviene del latín «butticŭla»",
     },
@@ -25,7 +25,7 @@ const todayWord: WordData = {
       revealedContent: "Empieza por B",
     },
     {
-      type: "etymology_recent",
+      type: "etymology",
       previewLabel: "Origen intermedio: ? (francés)",
       revealedContent: "Viene del francés «bouteille»",
     },
