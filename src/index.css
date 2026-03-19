@@ -17,7 +17,7 @@
   --red: #a04040;
   --serif: "Lora", "Georgia", "Times New Roman", serif;
   --sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --mono: "Courier New", Courier, monospace;
+  --mono: "IBM Plex Mono", "Courier New", Courier, monospace;
 }
 
 html {

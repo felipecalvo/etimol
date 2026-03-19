@@ -202,6 +202,7 @@ header {
 
 .word-input::placeholder {
   color: #d0c8bc;
+  font-family: var(--serif);
   font-weight: 400;
 }
 
