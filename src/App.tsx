@@ -41,6 +41,26 @@ function EtymologyPath({
   return (
     <div className="etymology-path">
       {etymology.map((step, i) => {
+        if (step.parts) {
+          // Compound etymology: render each part separately with "+"
+          return (
+            <span key={i}>
+              {i > 0 && <span className="arrow"> → </span>}
+              {step.parts.map((part, j) => {
+                const isRevealed = revealedWords.has(part);
+                return (
+                  <span key={j}>
+                    {j > 0 && <span className="compound-join"> + </span>}
+                    <span className={`spoiler ${isRevealed ? "open" : ""}`}>
+                      {isRevealed ? part : part.replace(/./g, "•")}
+                    </span>
+                  </span>
+                );
+              })}
+              <span className="lang"> ({step.language})</span>
+            </span>
+          );
+        }
         const isRevealed = revealedWords.has(step.word);
         return (
           <span key={i}>

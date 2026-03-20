@@ -1,6 +1,8 @@
 export interface EtymologyStep {
   word: string;
   language: string;
+  /** For compound etymologies (e.g. xoco + atl = xocoatl). Each part is revealed independently in the path. */
+  parts?: string[];
 }
 
 export interface WordData {
@@ -10,7 +12,7 @@ export interface WordData {
   hints: HintDefinition[];
 }
 
-export type HintType = "etymology" | "letter_count" | "starts_with" | "ends_with";
+export type HintType = "etymology" | "letter_count" | "starts_with" | "ends_with" | "definition";
 
 export interface HintDefinition {
   type: HintType | HintType[];
