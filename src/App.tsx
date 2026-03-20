@@ -1,9 +1,151 @@
 import { Fragment, useRef, useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
-import { getTodayWord } from "./data";
+import { getLocalDateString, getWordByDate, GAME_START_DATE } from "./data";
 import { useGame } from "./useGame";
-import type { EtymologyStep } from "./types";
+import type { EtymologyStep, WordData } from "./types";
 import "./App.css";
+
+// ── Date utilities ─────────────────────────────────────────────────────────
+
+const SPANISH_MONTHS = [
+  "enero", "febrero", "marzo", "abril", "mayo", "junio",
+  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+];
+
+function formatSpanishDate(date: string) {
+  const [y, m, d] = date.split("-").map(Number);
+  return `${d} de ${SPANISH_MONTHS[m - 1]} de ${y}`;
+}
+
+function formatShortDate(date: string) {
+  const [, m, d] = date.split("-").map(Number);
+  return `${d} de ${SPANISH_MONTHS[m - 1]}`;
+}
+
+function addDays(date: string, n: number): string {
+  const d = new Date(date + "T00:00:00");
+  d.setDate(d.getDate() + n);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function diffDays(a: string, b: string): number {
+  return (new Date(a + "T00:00:00").getTime() - new Date(b + "T00:00:00").getTime()) / 86_400_000;
+}
+
+function isValidGameDate(date: string, today: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return false;
+  if (date > today) return false;
+  if (date < GAME_START_DATE) return false;
+  return diffDays(today, date) < 7;
+}
+
+function getCalendarDays(today: string): string[] {
+  const days: string[] = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = addDays(today, -i);
+    if (d >= GAME_START_DATE) days.push(d);
+  }
+  return days;
+}
+
+function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" | "not_played" {
+  try {
+    const raw = localStorage.getItem(`etimol-${date}`);
+    if (!raw) return "not_played";
+    const data = JSON.parse(raw);
+    const guesses: string[] = Array.isArray(data.guesses) ? data.guesses : [];
+    if (guesses.length === 0) return "not_played";
+    const norm = (s: string) =>
+      s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    if (guesses.some((g) => g.length > 0 && norm(g) === norm(wordData.answer))) return "won";
+    if (guesses.length >= wordData.hints.length) return "lost";
+  } catch { /* ignore */ }
+  return "not_played";
+}
+
+function dateFromHash(today: string): string {
+  const hash = window.location.hash.replace(/^#/, "");
+  return isValidGameDate(hash, today) ? hash : today;
+}
+
+// ── Calendar history icon ──────────────────────────────────────────────────
+
+function CalendarHistoryIcon() {
+  return (
+    <svg
+      width="18" height="18" viewBox="0 0 20 20"
+      fill="none" stroke="currentColor"
+      strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="4" width="16" height="14" rx="2" />
+      <line x1="2" y1="8.5" x2="18" y2="8.5" />
+      <line x1="6.5" y1="2" x2="6.5" y2="6" />
+      <line x1="13.5" y1="2" x2="13.5" y2="6" />
+      <circle cx="5.5" cy="13" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="13" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="13" r="1.1" fill="currentColor" stroke="none" opacity="0.35" />
+    </svg>
+  );
+}
+
+// ── Calendar modal ─────────────────────────────────────────────────────────
+
+function CalendarModal({
+  today,
+  currentDate,
+  onSelect,
+  onClose,
+}: {
+  today: string;
+  currentDate: string;
+  onSelect: (date: string) => void;
+  onClose: () => void;
+}) {
+  const days = getCalendarDays(today);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div className="calendar-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Palabras anteriores">
+      <div className="calendar-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="calendar-header">
+          <span className="calendar-title">Palabras anteriores</span>
+          <button className="calendar-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        </div>
+        <div className="calendar-days">
+          {days.map((date) => {
+            const wordData = getWordByDate(date);
+            const isToday = date === today;
+            const isSelected = date === currentDate;
+            const result = wordData ? getStoredGameResult(date, wordData) : "not_played";
+            const emoji = result === "won" ? "✅" : result === "lost" ? "❌" : "➖";
+            const dayNum = parseInt(date.split("-")[2], 10);
+            const showWord = result !== "not_played" && wordData;
+
+            return (
+              <button
+                key={date}
+                className={`calendar-day${isSelected ? " selected" : ""}${isToday ? " today" : ""}`}
+                onClick={() => onSelect(date)}
+              >
+                <span className="cal-day-num">{isToday ? "hoy" : dayNum}</span>
+                <span className="cal-emoji">{emoji}</span>
+                <span className="cal-word">{showWord ? wordData!.answer : "?"}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function EtymologyChain({
   etymology,
@@ -126,9 +268,19 @@ function fullGuessFromTemplate(
     .join("");
 }
 
-export default function App() {
-  const wordData = getTodayWord();
-  const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData);
+// ── GameView ───────────────────────────────────────────────────────────────
+// Mounted with key={date} so state always resets when date changes.
+
+function GameView({
+  wordData,
+  date,
+  isToday,
+}: {
+  wordData: WordData;
+  date: string;
+  isToday: boolean;
+}) {
+  const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData, date);
   const { guesses, currentGuess, revealedHints, status } = state;
   const attemptsLeft = maxGuesses - guesses.length;
   const hiddenInputRef = useRef<HTMLInputElement>(null);
@@ -244,8 +396,11 @@ export default function App() {
         return isWin ? "✅" : "❌";
       })
       .join("");
-    const url = `${window.location.origin}${window.location.pathname}`;
-    const text = `Etimol del día: ${guesses.length}/${maxGuesses}\n${emojiLine}\n${url}`;
+    const url = isToday
+      ? `${window.location.origin}${window.location.pathname}`
+      : `${window.location.origin}${window.location.pathname}#${date}`;
+    const title = isToday ? "Etimol del día" : `Etimol del ${formatShortDate(date)}`;
+    const text = `${title}: ${guesses.length}/${maxGuesses}\n${emojiLine}\n${url}`;
     shareButtonRef.current?.blur();
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
@@ -254,12 +409,7 @@ export default function App() {
   }, [guesses, answer, maxGuesses, status]);
 
   return (
-    <div className="container">
-      <header>
-        <h1 className="title">etimol</h1>
-        <p className="subtitle">Adivina la palabra del día por su etimología</p>
-      </header>
-
+    <>
       {status === "playing" ? (
         <section className="word-input-section">
           <form onSubmit={handleSubmit} className="word-input-form">
@@ -382,8 +532,14 @@ export default function App() {
             />
           </div>
           <div className="next-word-timer">
-            <p>Próxima palabra en:</p>
-            <p className="countdown">{countdown}</p>
+            {isToday ? (
+              <>
+                <p>Próxima palabra en:</p>
+                <p className="countdown">{countdown}</p>
+              </>
+            ) : (
+              <p className="past-day-note">{formatSpanishDate(date)}</p>
+            )}
           </div>
         </section>
       )}
@@ -430,6 +586,69 @@ export default function App() {
           })}
         </ol>
       </section>
+    </>
+  );
+}
+
+// ── App shell (routing) ────────────────────────────────────────────────────
+
+export default function App() {
+  const today = getLocalDateString();
+
+  const [currentDate, setCurrentDate] = useState<string>(() => dateFromHash(today));
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  // Keep in sync with browser hash (back/forward navigation)
+  useEffect(() => {
+    function onHashChange() {
+      setCurrentDate(dateFromHash(today));
+    }
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [today]);
+
+  function navigateToDate(date: string) {
+    const hash = date === today ? "" : date;
+    window.location.hash = hash;
+    setCurrentDate(date);
+    setShowCalendar(false);
+  }
+
+  const wordData = getWordByDate(currentDate);
+  const isToday = currentDate === today;
+
+  return (
+    <div className="container">
+      <header>
+        <h1 className="title">etimol</h1>
+        <p className="subtitle">Adivina la palabra del día por su etimología</p>
+        <div className="header-date-row">
+          <span className="header-date">{formatSpanishDate(currentDate)}</span>
+          <button
+            className="calendar-open-btn"
+            onClick={() => setShowCalendar(true)}
+            aria-label="Ver palabras anteriores"
+            title="Palabras anteriores"
+          >
+            <CalendarHistoryIcon />
+          </button>
+        </div>
+      </header>
+
+      {wordData ? (
+        <GameView key={currentDate} wordData={wordData} date={currentDate} isToday={isToday} />
+      ) : (
+        <p className="no-word-msg">No hay palabra para este día.</p>
+      )}
+
+      {showCalendar && (
+        <CalendarModal
+          today={today}
+          currentDate={currentDate}
+          onSelect={navigateToDate}
+          onClose={() => setShowCalendar(false)}
+        />
+      )}
     </div>
   );
 }

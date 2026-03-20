@@ -1,21 +1,44 @@
 import { useState, useCallback } from "react";
-import { getLocalDateString } from "./data";
 import type { GameState, GameStatus, WordData } from "./types";
 
-const STORAGE_KEY = "etimol-guesses";
+const OLD_STORAGE_KEY = "etimol-guesses";
+
+function storageKey(date: string) {
+  return `etimol-${date}`;
+}
+
+// One-time migration from the old single-entry format to per-date keys
+let _migrated = false;
+function migrateIfNeeded() {
+  if (_migrated) return;
+  _migrated = true;
+  try {
+    const raw = localStorage.getItem(OLD_STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.date && Array.isArray(data.guesses)) {
+      const key = storageKey(data.date);
+      if (!localStorage.getItem(key)) {
+        localStorage.setItem(key, JSON.stringify({ guesses: data.guesses }));
+      }
+    }
+    localStorage.removeItem(OLD_STORAGE_KEY);
+  } catch { /* ignore */ }
+}
 
 function loadGuesses(date: string): string[] {
+  migrateIfNeeded();
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(storageKey(date));
     if (!raw) return [];
     const data = JSON.parse(raw);
-    if (data.date === date && Array.isArray(data.guesses)) return data.guesses;
+    if (Array.isArray(data.guesses)) return data.guesses;
   } catch { /* ignore */ }
   return [];
 }
 
 function saveGuesses(date: string, guesses: string[]) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ date, guesses }));
+  localStorage.setItem(storageKey(date), JSON.stringify({ guesses }));
 }
 
 function normalize(s: string): string {
@@ -26,8 +49,7 @@ function normalize(s: string): string {
     .trim();
 }
 
-export function useGame(wordData: WordData) {
-  const date = getLocalDateString();
+export function useGame(wordData: WordData, date: string) {
   const saved = loadGuesses(date);
 
   // Replay saved guesses to compute initial state
