@@ -48,7 +48,7 @@ function getCalendarDays(today: string): string[] {
   return days;
 }
 
-function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" | "not_played" {
+function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" | "in_progress" | "not_played" {
   try {
     const raw = localStorage.getItem(`etimol-${date}`);
     if (!raw) return "not_played";
@@ -59,6 +59,7 @@ function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" |
       s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
     if (guesses.some((g) => g.length > 0 && norm(g) === norm(wordData.answer))) return "won";
     if (guesses.length >= wordData.hints.length) return "lost";
+    return "in_progress";
   } catch { /* ignore */ }
   return "not_played";
 }
@@ -125,9 +126,9 @@ function CalendarModal({
             const isToday = date === today;
             const isSelected = date === currentDate;
             const result = wordData ? getStoredGameResult(date, wordData) : "not_played";
-            const emoji = result === "won" ? "✅" : result === "lost" ? "❌" : "➖";
+            const emoji = result === "won" ? "✅" : result === "lost" ? "❌" : result === "in_progress" ? "⋯" : "➖";
             const dayNum = parseInt(date.split("-")[2], 10);
-            const showWord = result !== "not_played" && wordData;
+            const showWord = (result === "won" || result === "lost") && wordData;
 
             return (
               <button
@@ -400,7 +401,8 @@ function GameView({
       ? `${window.location.origin}${window.location.pathname}`
       : `${window.location.origin}${window.location.pathname}#${date}`;
     const title = isToday ? "Etimol del día" : `Etimol del ${formatShortDate(date)}`;
-    const text = `${title}: ${guesses.length}/${maxGuesses}\n${emojiLine}\n${url}`;
+    const score = status === "lost" ? "x" : guesses.length;
+    const text = `${title}: ${score}/${maxGuesses}\n${emojiLine}\n${url}`;
     shareButtonRef.current?.blur();
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
