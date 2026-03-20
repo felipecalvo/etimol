@@ -1,5 +1,22 @@
 import { useState, useCallback } from "react";
+import { getLocalDateString } from "./data";
 import type { GameState, GameStatus, WordData } from "./types";
+
+const STORAGE_KEY = "etimol-guesses";
+
+function loadGuesses(date: string): string[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const data = JSON.parse(raw);
+    if (data.date === date && Array.isArray(data.guesses)) return data.guesses;
+  } catch { /* ignore */ }
+  return [];
+}
+
+function saveGuesses(date: string, guesses: string[]) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ date, guesses }));
+}
 
 function normalize(s: string): string {
   return s
@@ -10,13 +27,40 @@ function normalize(s: string): string {
 }
 
 export function useGame(wordData: WordData) {
-  const [state, setState] = useState<GameState>({
-    wordData,
-    guesses: [],
-    currentGuess: "",
-    revealedHints: 1, // first hint is always shown
-    status: "playing",
-  });
+  const date = getLocalDateString();
+  const saved = loadGuesses(date);
+
+  // Replay saved guesses to compute initial state
+  const initialState = (() => {
+    let guesses: string[] = [];
+    let revealedHints = 1;
+    let status: GameStatus = "playing";
+    const max = wordData.hints.length;
+
+    for (const guess of saved) {
+      guesses = [...guesses, guess];
+      const isCorrect = guess.length > 0 && normalize(guess) === normalize(wordData.answer);
+      if (isCorrect) {
+        status = "won";
+        revealedHints = max;
+        break;
+      } else if (guesses.length >= max) {
+        status = "lost";
+      } else {
+        revealedHints = Math.min(revealedHints + 1, max);
+      }
+    }
+
+    return {
+      wordData,
+      guesses,
+      currentGuess: "",
+      revealedHints,
+      status,
+    } satisfies GameState;
+  })();
+
+  const [state, setState] = useState<GameState>(initialState);
 
   const maxGuesses = wordData.hints.length; // 5
 
@@ -48,13 +92,17 @@ export function useGame(wordData: WordData) {
         newRevealed = Math.min(prev.revealedHints + 1, maxGuesses);
       }
 
-      return {
+      const nextState = {
         ...prev,
         guesses: newGuesses,
         currentGuess: "",
         revealedHints: newRevealed,
         status: newStatus,
       };
+
+      saveGuesses(date, nextState.guesses);
+
+      return nextState;
     });
   }, [maxGuesses]);
 

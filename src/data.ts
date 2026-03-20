@@ -127,7 +127,7 @@ const words: DailyWord[] = [
   },
 ];
 
-function getLocalDateString(): string {
+export function getLocalDateString(): string {
   const d = new Date();
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
