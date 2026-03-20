@@ -355,7 +355,7 @@ header {
   to {
     opacity: 1;
     transform: translateY(0);
-    max-height: 30rem;
+    max-height: 60rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
@@ -421,6 +421,23 @@ header {
   padding: 1.25rem;
   text-align: left;
   margin-top: 0.5rem;
+}
+
+/* ── Next word countdown ── */
+.next-word-timer {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: var(--sans);
+  color: var(--ink-light);
+  font-size: 0.85rem;
+}
+
+.next-word-timer .countdown {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.2rem;
 }
 
 .word-detail h3 {

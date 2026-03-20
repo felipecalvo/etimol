@@ -147,6 +147,24 @@ export default function App() {
     }
   }, [status]);
 
+  const [countdown, setCountdown] = useState("");
+
+  useEffect(() => {
+    if (status === "playing") return;
+    function tick() {
+      const now = new Date();
+      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      const diff = tomorrow.getTime() - now.getTime();
+      const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+      setCountdown(`${h}:${m}:${s}`);
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [status]);
+
   const shareButtonRef = useRef<HTMLButtonElement>(null);
 
   const shareResult = useCallback(() => {
@@ -295,6 +313,10 @@ export default function App() {
               etymology={wordData.etymology}
               answer={wordData.answer}
             />
+          </div>
+          <div className="next-word-timer">
+            <p>Próxima palabra en:</p>
+            <p className="countdown">{countdown}</p>
           </div>
         </section>
       )}
