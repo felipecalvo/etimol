@@ -480,6 +480,42 @@ header {
   color: var(--ink);
 }
 
+/* ── Etymology path (progressive reveal) ── */
+.etymology-path-section {
+  margin-bottom: 1.5rem;
+}
+
+.etymology-path {
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  background: var(--cream);
+  border-radius: 6px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.etymology-path .spoiler {
+  line-height: 1.4;
+}
+
+.etymology-path .spoiler.open {
+  font-style: italic;
+}
+
+.etymology-path .lang {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-light);
+}
+
+.etymology-path .arrow {
+  color: var(--ink-light);
+}
+
+.etymology-path strong {
+  color: var(--ink);
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .container {

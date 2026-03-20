@@ -27,6 +27,41 @@ function EtymologyChain({
   );
 }
 
+function EtymologyPath({
+  etymology,
+  answer,
+  revealedWords,
+  showAnswer,
+}: {
+  etymology: EtymologyStep[];
+  answer: string;
+  revealedWords: Set<string>;
+  showAnswer: boolean;
+}) {
+  return (
+    <div className="etymology-path">
+      {etymology.map((step, i) => {
+        const isRevealed = revealedWords.has(step.word);
+        return (
+          <span key={i}>
+            {i > 0 && <span className="arrow"> → </span>}
+            <span className={`spoiler ${isRevealed ? "open" : ""}`}>
+              {isRevealed ? step.word : step.word.replace(/./g, "•")}
+            </span>
+            <span className="lang"> ({step.language})</span>
+          </span>
+        );
+      })}
+      <span className="arrow"> → </span>
+      {showAnswer ? (
+        <strong>{answer}</strong>
+      ) : (
+        <span className="spoiler">{answer.replace(/./g, "•")}</span>
+      )}
+    </div>
+  );
+}
+
 /**
  * Build a per-character "template" for the word.
  * Each position is either a fixed letter (from hints) or null (editable).
@@ -87,6 +122,18 @@ export default function App() {
       Array.isArray(h.type) ? h.type : [h.type]
     )
   );
+
+  const revealedEtymWords = new Set<string>();
+  wordData.hints.slice(0, revealedHints).forEach((hint) => {
+    const types = Array.isArray(hint.type) ? hint.type : [hint.type];
+    if (types.includes("etymology")) {
+      const spoilers = Array.isArray(hint.spoilerText)
+        ? hint.spoilerText
+        : [hint.spoilerText];
+      spoilers.forEach((s) => revealedEtymWords.add(s));
+    }
+  });
+
   const knowLength = revealedTypes.has("letter_count");
   const knowStart = revealedTypes.has("starts_with");
   const knowEnd = revealedTypes.has("ends_with");
@@ -318,6 +365,17 @@ export default function App() {
             <p>Próxima palabra en:</p>
             <p className="countdown">{countdown}</p>
           </div>
+        </section>
+      )}
+
+      {status === "playing" && (
+        <section className="etymology-path-section">
+          <EtymologyPath
+            etymology={wordData.etymology}
+            answer={answer}
+            revealedWords={revealedEtymWords}
+            showAnswer={false}
+          />
         </section>
       )}
 
