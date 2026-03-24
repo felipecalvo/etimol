@@ -551,6 +551,13 @@ header {
   border-color: var(--accent-light);
 }
 
+.calendar-open-btn-label {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  margin-left: 0.3rem;
+  color: inherit;
+}
+
 /* ── Calendar modal ── */
 .calendar-overlay {
   position: fixed;

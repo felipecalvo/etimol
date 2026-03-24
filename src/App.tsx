@@ -630,9 +630,10 @@ export default function App() {
             className="calendar-open-btn"
             onClick={() => setShowCalendar(true)}
             aria-label="Ver palabras anteriores"
-            title="Palabras anteriores"
+            title="Ver anteriores"
           >
             <CalendarHistoryIcon />
+            <span className="calendar-open-btn-label">Ver anteriores</span>
           </button>
         </div>
       </header>
