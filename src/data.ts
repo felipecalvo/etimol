@@ -588,8 +588,8 @@ const words: DailyWord[] = [
         {
           type: "definition",
           template:
-            "En latín originalmente significaba «{spoiler}»",
-          spoilerText: "broma o chanza",
+            "En latín originalmente significaba «{spoiler}» o «{spoiler}»",
+          spoilerText: ["broma", "chanza"],
         },
       ],
     },
@@ -999,7 +999,7 @@ const words: DailyWord[] = [
           type: "etymology",
           template:
             "Del latín vulgar «{spoiler}», y este del latín «{spoiler}»",
-          spoilerText: ["alĭcer», «alĕcris", "alăcer"],
+          spoilerText: ["alĭcer, alĕcris", "alăcer"],
         },
         {
           type: "letter_count",
@@ -1154,8 +1154,8 @@ const words: DailyWord[] = [
         {
           type: "etymology",
           template:
-            "Del árabe hispánico «{spoiler}», y este del árabe {spoiler}",
-          spoilerText: ["muharráǧ", "«muharriǧ» (bufón)"],
+            "Del árabe hispánico «{spoiler}», y este del árabe «{spoiler}» {spoiler}",
+          spoilerText: ["muharráǧ", "muharriǧ", "(bufón)"],
         },
         {
           type: "letter_count",
@@ -1289,8 +1289,8 @@ const words: DailyWord[] = [
         {
           type: "definition",
           template:
-            "En latín originalmente significaba «{spoiler}»",
-          spoilerText: "decreto o sentencia",
+            "En latín originalmente significaba «{spoiler}» o «{spoiler}»",
+          spoilerText: ["decreto", "sentencia"],
         },
       ],
     },
@@ -1351,8 +1351,8 @@ const words: DailyWord[] = [
         {
           type: "etymology",
           template:
-            "Del latín vulgar «{spoiler}», este del latín «platĕa», y este del griego «πλατεῖα» (plateîa)",
-          spoilerText: "plattĕa",
+            "Del latín vulgar «{spoiler}», este del latín «{spoiler}», y este del griego «{spoiler}»",
+          spoilerText: ["plattĕa", "platĕa", "πλατεῖα (plateîa)"],
         },
         {
           type: "letter_count",
@@ -1552,8 +1552,8 @@ const words: DailyWord[] = [
         {
           type: "etymology",
           template:
-            "Del latín «{spoiler}», y este del griego «πάπυρος» (pápyros)",
-          spoilerText: "papȳrus",
+            "Del latín «{spoiler}», y este del griego «{spoiler}»",
+          spoilerText: ["papȳrus", "πάπυρος (pápyros)"],
         },
         {
           type: "starts_with",
@@ -1633,8 +1633,8 @@ const words: DailyWord[] = [
       hints: [
         {
           type: "etymology",
-          template: "Del latín «{spoiler}» (propio del bosque)",
-          spoilerText: "silvatĭcus",
+          template: "Del latín «{spoiler}» {spoiler}",
+          spoilerText: ["silvatĭcus", "(propio del bosque)"],
         },
         {
           type: "letter_count",
@@ -1673,8 +1673,8 @@ const words: DailyWord[] = [
         {
           type: "etymology",
           template:
-            "Del árabe hispánico «{spoiler}», y este del árabe clásico «ǧarrah»",
-          spoilerText: "ǧárra",
+            "Del árabe hispánico «{spoiler}», y este del árabe clásico «{spoiler}»",
+          spoilerText: ["ǧárra", "ǧarrah"],
         },
         {
           type: "letter_count",
@@ -1861,39 +1861,38 @@ const words: DailyWord[] = [
   {
     date: "2026-05-05",
     word: {
-      answer: "góndola",
-      definition:
-        "f. Embarcación pequeña de recreo, sin palos ni cubierta, que se usa principalmente en Venecia.",
+      answer: "niño",
+      definition: "m. y f. Persona que se halla en la niñez.",
       etymology: [
-        { word: "κοντούρα (kontoúra)", language: "griego bizantino" },
-        { word: "gondola", language: "italiano" },
+        { word: "nin", language: "catalán y occitano" },
+        { word: "ninnu", language: "napolitano" },
       ],
       hints: [
         {
           type: "etymology",
-          template: "Del griego bizantino «{spoiler}»",
-          spoilerText: "κοντούρα (kontoúra)",
+          template:
+            "Voz expresiva del romance; comparar con el catalán y occitano «{spoiler}»",
+          spoilerText: "nin",
         },
         {
           type: "letter_count",
           template: "Tiene {spoiler} letras",
-          spoilerText: "7",
+          spoilerText: "4",
+        },
+        {
+          type: "etymology",
+          template: "Comparar con el napolitano «{spoiler}»",
+          spoilerText: "ninnu",
         },
         {
           type: ["starts_with", "ends_with"],
           template: "Empieza con {spoiler} y termina con {spoiler}",
-          spoilerText: ["G", "A"],
+          spoilerText: ["N", "O"],
         },
         {
           type: "definition",
-          template:
-            "En griego originalmente significaba «{spoiler}»",
-          spoilerText: "barca de cola corta",
-        },
-        {
-          type: "etymology",
-          template: "Del italiano «{spoiler}»",
-          spoilerText: "gondola",
+          template: "Contiene una letra {spoiler}",
+          spoilerText: "Ñ",
         },
       ],
     },
@@ -1987,8 +1986,8 @@ const words: DailyWord[] = [
       hints: [
         {
           type: "etymology",
-          template: "Alteración del latín «{spoiler}» (caos)",
-          spoilerText: "chaos",
+          template: "Alteración del latín «{spoiler}» {spoiler}",
+          spoilerText: ["chaos", "(caos)"],
         },
         {
           type: "letter_count",
@@ -2017,38 +2016,39 @@ const words: DailyWord[] = [
   {
     date: "2026-05-09",
     word: {
-      answer: "niño",
-      definition: "m. y f. Persona que se halla en la niñez.",
+      answer: "góndola",
+      definition:
+        "f. Embarcación pequeña de recreo, sin palos ni cubierta, que se usa principalmente en Venecia.",
       etymology: [
-        { word: "nin", language: "catalán y occitano" },
-        { word: "ninnu", language: "napolitano" },
+        { word: "κοντούρα (kontoúra)", language: "griego bizantino" },
+        { word: "gondola", language: "italiano" },
       ],
       hints: [
         {
           type: "etymology",
-          template:
-            "Voz expresiva del romance; comparar con el catalán y occitano «{spoiler}»",
-          spoilerText: "nin",
+          template: "Del griego bizantino «{spoiler}»",
+          spoilerText: "κοντούρα (kontoúra)",
         },
         {
           type: "letter_count",
           template: "Tiene {spoiler} letras",
-          spoilerText: "4",
-        },
-        {
-          type: "etymology",
-          template: "Comparar con el napolitano «{spoiler}»",
-          spoilerText: "ninnu",
+          spoilerText: "7",
         },
         {
           type: ["starts_with", "ends_with"],
           template: "Empieza con {spoiler} y termina con {spoiler}",
-          spoilerText: ["N", "O"],
+          spoilerText: ["G", "A"],
         },
         {
           type: "definition",
-          template: "Contiene una letra {spoiler}",
-          spoilerText: "Ñ",
+          template:
+            "En griego originalmente significaba «{spoiler}»",
+          spoilerText: "barca de cola corta",
+        },
+        {
+          type: "etymology",
+          template: "Del italiano «{spoiler}»",
+          spoilerText: "gondola",
         },
       ],
     },
