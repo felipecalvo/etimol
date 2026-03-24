@@ -82,7 +82,7 @@ header {
 }
 
 .spoiler {
-  display: inline-block;
+  display: inline;
   background: var(--ink-light);
   color: transparent;
   border-radius: 3px;
@@ -90,6 +90,8 @@ header {
   cursor: default;
   user-select: none;
   transition: all 0.35s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .spoiler.open {

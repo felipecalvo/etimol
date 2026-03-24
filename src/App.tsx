@@ -226,17 +226,43 @@ function EtymologyPath({
 }
 
 /**
+ * Extract the longest revealed prefix and suffix from the revealed hints.
+ */
+function extractRevealedPrefixSuffix(
+  hints: WordData["hints"],
+  revealedHints: number
+): { prefix: string; suffix: string } {
+  let prefix = "";
+  let suffix = "";
+  for (let i = 0; i < revealedHints; i++) {
+    const hint = hints[i];
+    const types = Array.isArray(hint.type) ? hint.type : [hint.type];
+    const spoilers = Array.isArray(hint.spoilerText) ? hint.spoilerText : [hint.spoilerText];
+    types.forEach((t, idx) => {
+      if (t === "starts_with" && idx < spoilers.length && spoilers[idx].length > prefix.length) {
+        prefix = spoilers[idx];
+      }
+      if (t === "ends_with" && idx < spoilers.length && spoilers[idx].length > suffix.length) {
+        suffix = spoilers[idx];
+      }
+    });
+  }
+  return { prefix: prefix.toLowerCase(), suffix: suffix.toLowerCase() };
+}
+
+/**
  * Build a per-character "template" for the word.
  * Each position is either a fixed letter (from hints) or null (editable).
  */
 function buildTemplate(
   answer: string,
-  revealedTypes: Set<string>
+  prefix: string,
+  suffix: string
 ): (string | null)[] {
   const len = answer.length;
   return Array.from(answer).map((ch, i) => {
-    if (i === 0 && revealedTypes.has("starts_with")) return ch.toLowerCase();
-    if (i === len - 1 && revealedTypes.has("ends_with")) return ch.toLowerCase();
+    if (i < prefix.length) return ch.toLowerCase();
+    if (i >= len - suffix.length) return ch.toLowerCase();
     return null;
   });
 }
@@ -308,18 +334,21 @@ function GameView({
   });
 
   const knowLength = revealedTypes.has("letter_count");
-  const knowStart = revealedTypes.has("starts_with");
-  const knowEnd = revealedTypes.has("ends_with");
+
+  // Extract multi-character prefix/suffix from revealed hints
+  const { prefix: revealedPrefix, suffix: revealedSuffix } = extractRevealedPrefixSuffix(
+    wordData.hints, revealedHints
+  );
 
   // Template: array of fixed-letter | null per position
-  const template = knowLength ? buildTemplate(answer, revealedTypes) : null;
+  const template = knowLength ? buildTemplate(answer, revealedPrefix, revealedSuffix) : null;
   const editableSlots = template
     ? template.filter((x) => x === null).length
     : Infinity;
 
   // Known letters for free-form mode (before letter_count is revealed)
-  const freePrefix = !knowLength && knowStart ? answer[0].toLowerCase() : "";
-  const freeSuffix = !knowLength && knowEnd ? answer[answer.length - 1].toLowerCase() : "";
+  const freePrefix = !knowLength && revealedPrefix ? revealedPrefix : "";
+  const freeSuffix = !knowLength && revealedSuffix ? revealedSuffix : "";
 
   // The current guess stored in state is the "editable" portion only
   const displayCells = template
@@ -577,7 +606,7 @@ function GameView({
                         <span className={`spoiler ${isRevealed ? "open" : ""}`}>
                           {isRevealed
                             ? spoilers[j]
-                            : spoilers[j].replace(/./g, "•")}
+                            : spoilers[j].replace(/\S/g, "•")}
                         </span>
                       )}
                     </Fragment>
