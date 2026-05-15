@@ -12,6 +12,7 @@ const words: DailyWord[] = [
       answer: "botella",
       definition:
         "f. Recipiente de cristal, vidrio, plástico u otro material, con el cuello estrecho, que sirve para contener líquidos.",
+      difficulty: 3,
       etymology: [
         { word: "butticŭla", language: "latín" },
         { word: "bouteille", language: "francés" },
@@ -51,6 +52,7 @@ const words: DailyWord[] = [
       answer: "café",
       definition:
         "m. Bebida que se hace por infusión con la semilla tostada y molida del cafeto.",
+      difficulty: 3,
       etymology: [
         { word: "qahwah", language: "árabe clásico" },
         { word: "kahve", language: "turco" },
@@ -91,6 +93,7 @@ const words: DailyWord[] = [
       answer: "persona",
       definition:
         "f. Individuo de la especie humana.",
+      difficulty: 3,
       etymology: [
         { word: "πρόσωπον (prósōpon)", language: "griego" },
         { word: "φersu", language: "etrusco" },
@@ -131,6 +134,7 @@ const words: DailyWord[] = [
       answer: "leche",
       definition:
         "f. Líquido blanco que segregan las mamas de las hembras de los mamíferos para alimento de sus crías.",
+      difficulty: 3,
       etymology: [{ word: "lac, lactis", language: "latín" }],
       hints: [
         {
@@ -167,6 +171,7 @@ const words: DailyWord[] = [
       answer: "cerrar",
       definition:
         "tr. Asegurar con cerradura, pasador, pestillo, tranca u otro instrumento, una puerta, ventana, tapa, etc., para impedir que se abra.",
+      difficulty: 3,
       etymology: [
         { word: "sera", language: "latín" },
         { word: "serāre", language: "latín tardío" },
@@ -208,6 +213,7 @@ const words: DailyWord[] = [
       answer: "hermano",
       definition:
         "m. y f. Persona o animal que tiene en común con otra u otro el mismo padre y la misma madre, o solo uno de ellos.",
+      difficulty: 3,
       etymology: [
         { word: "germen", language: "latín" },
         { word: "germānus", language: "latín" },
@@ -247,6 +253,7 @@ const words: DailyWord[] = [
       answer: "chocolate",
       definition:
         "m. Pasta hecha con cacao y azúcar molidos, a la que generalmente se añade canela o vainilla.",
+      difficulty: 3,
       etymology: [
         {
           word: "xocoatl",
@@ -289,6 +296,7 @@ const words: DailyWord[] = [
       answer: "máquina",
       definition:
         "f. Artificio para aprovechar, dirigir o regular la acción de una fuerza.",
+      difficulty: 3,
       etymology: [
         { word: "μαχανά (machaná)", language: "griego dórico" },
         { word: "machĭna", language: "latín" },
@@ -327,6 +335,7 @@ const words: DailyWord[] = [
     word: {
       answer: "arte",
       definition: "m. o f. Capacidad, habilidad para hacer algo.",
+      difficulty: 3,
       etymology: [
         { word: "τέχνη (téchnē)", language: "griego" },
         { word: "ars, artis", language: "latín" },
@@ -366,6 +375,7 @@ const words: DailyWord[] = [
       answer: "alcohol",
       definition:
         "m. Bebida que contiene alcohol, en oposición implícita a las que no lo contienen.",
+      difficulty: 3,
       etymology: [
         { word: "kuḥl", language: "árabe clásico" },
         { word: "al-kuḥúl", language: "árabe hispánico" },
@@ -405,6 +415,7 @@ const words: DailyWord[] = [
     word: {
       answer: "pasión",
       definition: "f. Apetito de algo o afición vehemente a ello.",
+      difficulty: 3,
       etymology: [
         { word: "πάθος (páthos)", language: "griego" },
         { word: "passio", language: "latín" },
@@ -443,6 +454,7 @@ const words: DailyWord[] = [
     word: {
       answer: "amanecer",
       definition: "intr. impers. Empezar a aparecer la luz del día.",
+      difficulty: 3,
       etymology: [
         { word: "mane", language: "latín" },
         { word: "admanescĕre", language: "latín hispánico" },
@@ -482,6 +494,7 @@ const words: DailyWord[] = [
       answer: "azúcar",
       definition:
         "m. o f. Sustancia cristalina perteneciente al grupo químico de los hidratos de carbono, de sabor dulce y de color blanco en estado puro, soluble en el agua, que se obtiene de la caña dulce, de la remolacha y de otros vegetales.",
+      difficulty: 3,
       etymology: [
         { word: "śarkarā", language: "sánscrito" },
         { word: "šakar", language: "pelvi" },
@@ -524,6 +537,7 @@ const words: DailyWord[] = [
       answer: "teatro",
       definition:
         "m. Edificio o sitio destinado a la representación de obras dramáticas o a otros espectáculos públicos propios de la escena.",
+      difficulty: 3,
       etymology: [
         { word: "θεᾶσθαι (theâsthai)", language: "griego" },
         { word: "θέατρον (théatron)", language: "griego" },
@@ -563,6 +577,7 @@ const words: DailyWord[] = [
     word: {
       answer: "juego",
       definition: "m. Acción y efecto de jugar por entretenimiento.",
+      difficulty: 3,
       etymology: [{ word: "iocus", language: "latín" }],
       hints: [
         {
@@ -600,6 +615,7 @@ const words: DailyWord[] = [
       answer: "pijama",
       definition:
         "m. Prenda para dormir, generalmente compuesta de pantalón y chaqueta de tela ligera.",
+      difficulty: 3,
       etymology: [
         { word: "pāyǧāme", language: "persa" },
         { word: "pāeǧāma", language: "hindi" },
@@ -640,6 +656,7 @@ const words: DailyWord[] = [
       answer: "yeso",
       definition:
         "m. Sulfato de calcio hidratado, de color blanco, usado en construcción y en escultura por su propiedad de endurecerse rápidamente al mezclarse con agua.",
+      difficulty: 3,
       etymology: [
         { word: "γύψος (gýpsos)", language: "griego" },
         { word: "gypsum", language: "latín" },
@@ -678,6 +695,7 @@ const words: DailyWord[] = [
     word: {
       answer: "cráneo",
       definition: "m. Caja ósea en que está contenido el encéfalo.",
+      difficulty: 3,
       etymology: [
         { word: "κράνος (krános)", language: "griego" },
         { word: "κρανίον (kraníon)", language: "griego" },
@@ -717,6 +735,7 @@ const words: DailyWord[] = [
     word: {
       answer: "alquiler",
       definition: "m. Acción y efecto de alquilar.",
+      difficulty: 3,
       etymology: [
         { word: "kirā'", language: "árabe clásico" },
         { word: "alkirá", language: "árabe hispánico" },
@@ -756,6 +775,7 @@ const words: DailyWord[] = [
       answer: "alfombra",
       definition:
         "f. Tejido de lana o de otras materias, y de varios dibujos y colores, con que se cubre el piso de las habitaciones y escaleras para abrigo y adorno.",
+      difficulty: 3,
       etymology: [
         { word: "ḥanbal", language: "árabe clásico" },
         { word: "alḥánbal", language: "árabe hispánico" },
@@ -794,6 +814,7 @@ const words: DailyWord[] = [
     word: {
       answer: "pomelo",
       definition: "m. Toronja.",
+      difficulty: 3,
       etymology: [
         { word: "pompelmous", language: "neerlandés" },
         { word: "pommelo", language: "inglés" },
@@ -833,6 +854,7 @@ const words: DailyWord[] = [
       answer: "espalda",
       definition:
         "f. Parte posterior del cuerpo humano, desde los hombros hasta la cintura.",
+      difficulty: 3,
       etymology: [
         { word: "spatha", language: "latín" },
         { word: "spathŭla", language: "latín tardío" },
@@ -871,6 +893,7 @@ const words: DailyWord[] = [
     word: {
       answer: "tamaño",
       definition: "m. Mayor o menor volumen o dimensión de algo.",
+      difficulty: 3,
       etymology: [
         {
           word: "tam magnus",
@@ -913,6 +936,7 @@ const words: DailyWord[] = [
       answer: "correo",
       definition:
         "m. Servicio público que tiene por objeto el transporte de la correspondencia oficial y privada.",
+      difficulty: 3,
       etymology: [
         { word: "corlieu", language: "francés antiguo" },
         { word: "correu", language: "catalán" },
@@ -952,6 +976,7 @@ const words: DailyWord[] = [
       answer: "palanca",
       definition:
         "f. Máquina simple que consiste esencialmente en una barra rígida que se apoya y puede girar sobre un punto, y que sirve para transmitir una fuerza.",
+      difficulty: 3,
       etymology: [
         { word: "φάλαγξ (phálanx)", language: "griego" },
         { word: "palanga", language: "latín" },
@@ -990,6 +1015,7 @@ const words: DailyWord[] = [
     word: {
       answer: "alegre",
       definition: "adj. Poseído o lleno de alegría.",
+      difficulty: 3,
       etymology: [
         { word: "alăcer", language: "latín" },
         { word: "alĭcer, alĕcris", language: "latín vulgar" },
@@ -1032,6 +1058,7 @@ const words: DailyWord[] = [
       answer: "oreja",
       definition:
         "f. Cartílago que en el ser humano y en muchos animales forma la parte exterior del órgano del oído.",
+      difficulty: 3,
       etymology: [{ word: "auricŭla", language: "latín" }],
       hints: [
         {
@@ -1068,6 +1095,7 @@ const words: DailyWord[] = [
       answer: "palabra",
       definition:
         "f. Unidad lingüística, dotada generalmente de significado, que se separa de las demás mediante pausas potenciales en la pronunciación y blancos en la escritura.",
+      difficulty: 3,
       etymology: [
         { word: "παραβολή (parabolḗ)", language: "griego" },
         { word: "parabŏla", language: "latín" },
@@ -1107,6 +1135,7 @@ const words: DailyWord[] = [
       answer: "manzana",
       definition:
         "f. Fruto del manzano, de forma globosa algo hundida por los extremos del eje, de epicarpio delgado, liso y de color verde claro, amarillo pálido o encarnado.",
+      difficulty: 3,
       etymology: [
         { word: "Mattiāna", language: "latín" },
         { word: "mazana", language: "español desusado" },
@@ -1146,6 +1175,7 @@ const words: DailyWord[] = [
     word: {
       answer: "mamarracho",
       definition: "m. y f. coloq. Persona estrafalaria o ridícula.",
+      difficulty: 3,
       etymology: [
         { word: "muharriǧ", language: "árabe" },
         { word: "muharráǧ", language: "árabe hispánico" },
@@ -1185,6 +1215,7 @@ const words: DailyWord[] = [
     word: {
       answer: "pena",
       definition: "f. Sentimiento grande de tristeza.",
+      difficulty: 3,
       etymology: [
         { word: "ποινή (poinḗ)", language: "griego" },
         { word: "poena", language: "latín" },
@@ -1224,6 +1255,7 @@ const words: DailyWord[] = [
       answer: "arroz",
       definition:
         "m. Planta anual propia de terrenos muy húmedos, cuyo fruto es un grano oval rico en almidón.",
+      difficulty: 3,
       etymology: [
         { word: "arici", language: "tamil" },
         { word: "ὄρυζα (óryza)", language: "griego" },
@@ -1264,6 +1296,7 @@ const words: DailyWord[] = [
       answer: "pleito",
       definition:
         "m. Contienda, diferencia, disputa, litigio judicial entre partes.",
+      difficulty: 3,
       etymology: [{ word: "placĭtum", language: "latín" }],
       hints: [
         {
@@ -1301,6 +1334,7 @@ const words: DailyWord[] = [
       answer: "guitarra",
       definition:
         "f. Instrumento musical de cuerda compuesto por una caja de resonancia en forma de ocho, un mástil largo con trastes, y cuerdas, generalmente seis, que se hacen sonar con los dedos.",
+      difficulty: 3,
       etymology: [
         { word: "κιθάρα (kithára)", language: "griego" },
         { word: "qiṯārā", language: "arameo" },
@@ -1342,6 +1376,7 @@ const words: DailyWord[] = [
       answer: "plaza",
       definition:
         "f. Lugar ancho y espacioso dentro de un poblado, al que suelen afluir varias calles.",
+      difficulty: 3,
       etymology: [
         { word: "πλατεῖα (plateîa)", language: "griego" },
         { word: "platĕa", language: "latín" },
@@ -1383,6 +1418,7 @@ const words: DailyWord[] = [
     word: {
       answer: "ojalá",
       definition: "interj. Denota vivo deseo de que suceda algo.",
+      difficulty: 3,
       etymology: [{ word: "wa šá lláh", language: "árabe hispánico" }],
       hints: [
         {
@@ -1420,6 +1456,7 @@ const words: DailyWord[] = [
       answer: "limón",
       definition:
         "m. Fruto del limonero, de corteza lisa y frecuentemente de color amarillo, pulpa amarillenta dividida en gajos, comestible, jugosa y de sabor ácido.",
+      difficulty: 3,
       etymology: [
         { word: "nimbū", language: "sánscrito" },
         { word: "limu", language: "persa" },
@@ -1462,6 +1499,7 @@ const words: DailyWord[] = [
       answer: "carácter",
       definition:
         "m. Conjunto de cualidades o circunstancias propias de una cosa, de una persona o de una colectividad, que las distingue de las demás.",
+      difficulty: 3,
       etymology: [
         { word: "χαράττειν (charáttein)", language: "griego" },
         { word: "χαρακτήρ (charaktḗr)", language: "griego" },
@@ -1503,6 +1541,7 @@ const words: DailyWord[] = [
       answer: "química",
       definition:
         "f. Ciencia que estudia la estructura, propiedades y transformaciones de los cuerpos a partir de su composición.",
+      difficulty: 3,
       etymology: [
         { word: "χυμεία (chymeía)", language: "griego" },
         { word: "kīmiyā'", language: "árabe clásico" },
@@ -1543,6 +1582,7 @@ const words: DailyWord[] = [
       answer: "papel",
       definition:
         "m. Hoja delgada hecha con pasta de fibras vegetales obtenidas de trapos, madera, paja, etc., molidas, blanqueadas y desleídas en agua, que se hace secar y endurecer por procedimientos especiales.",
+      difficulty: 3,
       etymology: [
         { word: "πάπυρος (pápyros)", language: "griego" },
         { word: "papȳrus", language: "latín" },
@@ -1584,6 +1624,7 @@ const words: DailyWord[] = [
       answer: "azul",
       definition:
         "adj. Dicho de un color: Semejante al del cielo sin nubes y el mar en un día soleado.",
+      difficulty: 3,
       etymology: [
         { word: "rājāvarta", language: "sánscrito" },
         { word: "laǧvard", language: "persa" },
@@ -1626,6 +1667,7 @@ const words: DailyWord[] = [
       answer: "salvaje",
       definition:
         "adj. Dicho de una planta: Que ha crecido sin ser cultivada, o dicho de un animal: Que no es doméstico.",
+      difficulty: 3,
       etymology: [
         { word: "silvatĭcus", language: "latín" },
         { word: "salvatge", language: "catalán" },
@@ -1665,6 +1707,7 @@ const words: DailyWord[] = [
       answer: "jarra",
       definition:
         "f. Vasija de barro, porcelana, loza, cristal, etc., con cuello y boca anchos y una o dos asas.",
+      difficulty: 3,
       etymology: [
         { word: "ǧarrah", language: "árabe clásico" },
         { word: "ǧárra", language: "árabe hispánico" },
@@ -1705,6 +1748,7 @@ const words: DailyWord[] = [
       answer: "lágrima",
       definition:
         "f. Cada una de las gotas que segrega la glándula lagrimal.",
+      difficulty: 3,
       etymology: [
         { word: "δάκρυμα (dákryma)", language: "griego" },
         { word: "lacrĭma", language: "latín" },
@@ -1744,6 +1788,7 @@ const words: DailyWord[] = [
       answer: "bailar",
       definition:
         "intr. Ejecutar movimientos acompasados con el cuerpo, brazos y pies.",
+      difficulty: 3,
       etymology: [
         { word: "πάλλειν (pállein)", language: "griego" },
         { word: "ballāre", language: "latín tardío" },
@@ -1783,6 +1828,7 @@ const words: DailyWord[] = [
       answer: "aceite",
       definition:
         "m. Líquido graso que se obtiene de frutos o semillas.",
+      difficulty: 3,
       etymology: [
         { word: "zaytā", language: "arameo" },
         { word: "azzayt", language: "árabe clásico" },
@@ -1824,6 +1870,7 @@ const words: DailyWord[] = [
       answer: "espada",
       definition:
         "f. Arma blanca, larga, recta, aguda y cortante, con guarnición y empuñadura.",
+      difficulty: 3,
       etymology: [
         { word: "σπάθη (spáthē)", language: "griego" },
         { word: "spatha", language: "latín" },
@@ -1863,6 +1910,7 @@ const words: DailyWord[] = [
     word: {
       answer: "niño",
       definition: "m. y f. Persona que se halla en la niñez.",
+      difficulty: 3,
       etymology: [
         { word: "nin", language: "catalán y occitano" },
         { word: "ninnu", language: "napolitano" },
@@ -1903,6 +1951,7 @@ const words: DailyWord[] = [
       answer: "cuchillo",
       definition:
         "m. Instrumento para cortar formado por una hoja de metal de un corte solo y con mango.",
+      difficulty: 3,
       etymology: [
         { word: "culter", language: "latín" },
         { word: "cultellus", language: "latín" },
@@ -1941,6 +1990,7 @@ const words: DailyWord[] = [
     word: {
       answer: "cansar",
       definition: "tr. Causar cansancio a alguien.",
+      difficulty: 3,
       etymology: [
         { word: "κάμψαι (kámpsai)", language: "griego" },
         { word: "campsāre", language: "latín" },
@@ -1980,6 +2030,7 @@ const words: DailyWord[] = [
       answer: "gas",
       definition:
         "m. Fluido que tiende a expandirse y que se caracteriza por su baja densidad.",
+      difficulty: 3,
       etymology: [
         { word: "chaos", language: "latín" },
       ],
@@ -2019,6 +2070,7 @@ const words: DailyWord[] = [
       answer: "góndola",
       definition:
         "f. Embarcación pequeña de recreo, sin palos ni cubierta, que se usa principalmente en Venecia.",
+      difficulty: 3,
       etymology: [
         { word: "κοντούρα (kontoúra)", language: "griego bizantino" },
         { word: "gondola", language: "italiano" },
@@ -2059,6 +2111,7 @@ const words: DailyWord[] = [
       answer: "roncar",
       definition:
         "intr. Hacer ruido bronco con el resuello cuando se duerme.",
+      difficulty: 3,
       etymology: [
         { word: "ῥόγχος (rónchos)", language: "griego" },
         { word: "rhonchāre", language: "latín tardío" },
@@ -2098,6 +2151,7 @@ const words: DailyWord[] = [
       answer: "toalla",
       definition:
         "f. Pieza de felpa, algodón u otro material, por lo general rectangular, para secarse el cuerpo.",
+      difficulty: 3,
       etymology: [
         { word: "thwahljô", language: "germánico" },
         { word: "tobaja", language: "español antiguo" },
@@ -2137,6 +2191,7 @@ const words: DailyWord[] = [
       answer: "jirafa",
       definition:
         "f. Mamífero artiodáctilo rumiante, originario de África, de hasta cinco metros de altura.",
+      difficulty: 3,
       etymology: [
         { word: "zurāfah", language: "árabe clásico" },
         { word: "giraffa", language: "italiano" },
@@ -2176,6 +2231,7 @@ const words: DailyWord[] = [
       answer: "pistola",
       definition:
         "f. Arma de fuego corta que se puede disparar con una sola mano.",
+      difficulty: 3,
       etymology: [
         { word: "pišt'al", language: "checo" },
         { word: "Pistole", language: "alemán" },
@@ -2216,6 +2272,7 @@ const words: DailyWord[] = [
       answer: "macarrón",
       definition:
         "m. Pasta alimenticia de harina que tiene forma de canuto más o menos alargado.",
+      difficulty: 3,
       etymology: [
         { word: "μακαρώνεια (makarṓneia)", language: "griego bizantino" },
         { word: "maccarone", language: "italiano dialectal" },
@@ -2255,6 +2312,7 @@ const words: DailyWord[] = [
       answer: "hebilla",
       definition:
         "f. Pieza de metal o de otra materia, generalmente con uno o varios clavos articulados en una varilla, que sujeta la correa o cinta que pasa por ella.",
+      difficulty: 5,
       etymology: [
         { word: "fibŭla", language: "latín" },
         { word: "fibella", language: "latín vulgar" },

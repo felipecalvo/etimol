@@ -5,9 +5,13 @@ export interface EtymologyStep {
   parts?: string[];
 }
 
+export type Difficulty = 1 | 2 | 3 | 4 | 5;
+
 export interface WordData {
   answer: string;
   definition: string;
+  /** Expected number of guesses needed (1 = muy fácil … 5 = muy difícil). */
+  difficulty: Difficulty;
   etymology: EtymologyStep[]; // ordered from most ancient to most recent (before the answer)
   hints: HintDefinition[];
 }

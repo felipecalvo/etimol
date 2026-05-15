@@ -2,7 +2,7 @@ import { Fragment, useRef, useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
 import { getLocalDateString, getWordByDate, GAME_START_DATE } from "./data";
 import { useGame } from "./useGame";
-import type { EtymologyStep, WordData } from "./types";
+import type { Difficulty, EtymologyStep, WordData } from "./types";
 import "./App.css";
 
 // ── Date utilities ─────────────────────────────────────────────────────────
@@ -16,6 +16,14 @@ function formatSpanishDate(date: string) {
   const [y, m, d] = date.split("-").map(Number);
   return `${d} de ${SPANISH_MONTHS[m - 1]} de ${y}`;
 }
+
+const DIFFICULTY_LABELS: Record<Difficulty, string> = {
+  1: "muy fácil (1 pista)",
+  2: "fácil (2 pistas)",
+  3: "media (3 pistas)",
+  4: "difícil (4 pistas)",
+  5: "muy difícil (5 pistas)",
+};
 
 function formatShortDate(date: string) {
   const [, m, d] = date.split("-").map(Number);
@@ -302,10 +310,12 @@ function GameView({
   wordData,
   date,
   isToday,
+  onOpenCalendar,
 }: {
   wordData: WordData;
   date: string;
   isToday: boolean;
+  onOpenCalendar: () => void;
 }) {
   const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData, date);
   const { guesses, currentGuess, revealedHints, status } = state;
@@ -572,6 +582,15 @@ function GameView({
               <p className="past-day-note">{formatSpanishDate(date)}</p>
             )}
           </div>
+          <button
+            className="calendar-open-btn result-calendar-btn"
+            onClick={onOpenCalendar}
+            aria-label="Ver palabras anteriores"
+            title="Ver palabras anteriores"
+          >
+            <CalendarHistoryIcon />
+            <span className="calendar-open-btn-label">Ver palabras anteriores</span>
+          </button>
         </section>
       )}
 
@@ -655,20 +674,39 @@ export default function App() {
         <p className="subtitle">Adivina la palabra del día por su etimología</p>
         <div className="header-date-row">
           <span className="header-date">{formatSpanishDate(currentDate)}</span>
+          {wordData && (
+            <>
+              <span className="header-sep" aria-hidden="true">|</span>
+              <span className="header-difficulty">
+                Dificultad:{" "}
+                <span className={`difficulty-label difficulty-${wordData.difficulty}`}>
+                  {DIFFICULTY_LABELS[wordData.difficulty]}
+                </span>
+              </span>
+            </>
+          )}
+        </div>
+        <div className="header-actions-row">
           <button
             className="calendar-open-btn"
             onClick={() => setShowCalendar(true)}
             aria-label="Ver palabras anteriores"
-            title="Ver anteriores"
+            title="Ver palabras anteriores"
           >
             <CalendarHistoryIcon />
-            <span className="calendar-open-btn-label">Ver anteriores</span>
+            <span className="calendar-open-btn-label">Ver palabras anteriores</span>
           </button>
         </div>
       </header>
 
       {wordData ? (
-        <GameView key={currentDate} wordData={wordData} date={currentDate} isToday={isToday} />
+        <GameView
+          key={currentDate}
+          wordData={wordData}
+          date={currentDate}
+          isToday={isToday}
+          onOpenCalendar={() => setShowCalendar(true)}
+        />
       ) : (
         <p className="no-word-msg">No hay palabra para este día.</p>
       )}

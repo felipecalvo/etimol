@@ -532,11 +532,46 @@ header {
   font-weight: 600;
 }
 
+.header-sep {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--cream-dark);
+  user-select: none;
+}
+
+.header-difficulty {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--ink-light);
+  font-weight: 400;
+}
+
+.difficulty-label {
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.difficulty-1 { color: #2d6a3d; }
+.difficulty-2 { color: #6b9b6b; }
+.difficulty-3 { color: #b8893b; }
+.difficulty-4 { color: #c47a2c; }
+.difficulty-5 { color: var(--red); }
+
+.header-actions-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.result-calendar-btn {
+  margin-top: 1rem;
+}
+
 .calendar-open-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem 0.4rem;
+  padding: 0.25rem 0.55rem;
   background: transparent;
   border: 1px solid var(--cream-dark);
   border-radius: 6px;
