@@ -201,7 +201,7 @@ function EtymologyPath({
                 const isRevealed = revealedWords.has(part);
                 return (
                   <span key={j}>
-                    {j > 0 && <span className="compound-join"> + </span>}
+                    {j > 0 && <span className="compound-join"> {step.joiner ?? "+"} </span>}
                     <span className={`spoiler ${isRevealed ? "open" : ""}`}>
                       {isRevealed ? part : part.replace(/./g, "•")}
                     </span>

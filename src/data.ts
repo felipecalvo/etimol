@@ -2347,6 +2347,144 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-05-16",
+    word: {
+      answer: "zapato",
+      definition:
+        "m. Calzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine.",
+      difficulty: 1,
+      etymology: [
+        { word: "zabata", language: "turco" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del turco «{spoiler}»", spoilerText: "zabata" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "z" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "calzado que no pasa del tobillo" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-17",
+    word: {
+      answer: "meñique",
+      definition:
+        "m. El quinto y más pequeño de los dedos de la mano.",
+      difficulty: 4,
+      etymology: [
+        { word: "margariz", language: "francés antiguo" },
+        { word: "menino ✕ mermellique", language: "dialectal", parts: ["menino", "mermellique"], joiner: "✕" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "margariz" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "etymology", template: "Cruce de «{spoiler}» y el dialectal «{spoiler}»", spoilerText: ["menino", "mermellique"] },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["m", "e"] },
+      ],
+    },
+  },
+  {
+    date: "2026-05-18",
+    word: {
+      answer: "flecha",
+      definition:
+        "f. Arma arrojadiza compuesta de un asta delgada con una punta afilada en uno de sus extremos y en el opuesto algunas plumas cortas que sirven para que mantenga la dirección al ser disparada.",
+      difficulty: 4,
+      etymology: [
+        { word: "fleukka", language: "fráncico" },
+        { word: "flèche", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del fráncico «{spoiler}»", spoilerText: "fleukka" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "flèche" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un arma arrojadiza con punta afilada" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-19",
+    word: {
+      answer: "ángulo",
+      definition:
+        "m. Figura geométrica formada bien por dos líneas planas que concurren en un punto, bien por dos semiplanos en el espacio que parten de una misma recta, o bien por tres o más planos en el espacio que se cortan en un punto.",
+      difficulty: 4,
+      etymology: [
+        { word: "ἀγκύλος (ankýlos)", language: "griego" },
+        { word: "angŭlus", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "ἀγκύλος (ankýlos)" },
+        { type: "definition", template: "En griego originalmente significaba «{spoiler}»", spoilerText: "encorvado" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "angŭlus" },
+        { type: "starts_with", template: "Empieza con la letra {spoiler}", spoilerText: "á" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-20",
+    word: {
+      answer: "cocina",
+      definition:
+        "f. Pieza o sitio de la casa en el cual se guisa la comida.",
+      difficulty: 3,
+      etymology: [
+        { word: "coquĕre", language: "latín" },
+        { word: "coquīna", language: "latín tardío" },
+        { word: "cocīna", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "coquĕre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "coquīna" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "cocīna" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-21",
+    word: {
+      answer: "feo",
+      definition:
+        "adj. Desprovisto de belleza y hermosura.",
+      difficulty: 2,
+      etymology: [
+        { word: "foedus", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "foedus" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "3" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "desprovisto de belleza" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-22",
+    word: {
+      answer: "cigarro",
+      definition:
+        "m. Rollo de hojas de tabaco, que se enciende por un extremo y se chupa o fuma por el opuesto.",
+      difficulty: 4,
+      etymology: [
+        { word: "siyar", language: "maya" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del maya «{spoiler}»", spoilerText: "siyar" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un rollo de hojas de tabaco para fumar" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
 ];
 
 export const GAME_START_DATE = "2026-03-19";
