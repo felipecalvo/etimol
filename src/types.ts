@@ -3,6 +3,8 @@ export interface EtymologyStep {
   language: string;
   /** For compound etymologies (e.g. xoco + atl = xocoatl). Each part is revealed independently in the path. */
   parts?: string[];
+  /** Separator rendered between parts. Defaults to "+". Use "✕" for a cruce (crossing of words). */
+  joiner?: string;
 }
 
 export type Difficulty = 1 | 2 | 3 | 4 | 5;
