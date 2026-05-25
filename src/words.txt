@@ -1,0 +1,1028 @@
+// ──────────────────────────────────────────────────────────────────────────
+// Word drafts for review. Format mirrors data.ts entries (minus the date)
+// so you can copy-paste straight in once approved.
+//
+// Definitions are taken verbatim from dle.rae.es (first acepción) unless the
+// first sense is clearly not the common one — flagged inline with `// NOTE:`.
+// Etymology arrays are ordered oldest → most recent (data.ts convention),
+// which is the REVERSE of how RAE prints them.
+// ──────────────────────────────────────────────────────────────────────────
+
+// 1. zapato
+{
+  answer: "zapato",
+  definition:
+    "m. Calzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine.",
+  difficulty: 4,
+  etymology: [
+    { word: "zabata", language: "turco" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del turco «{spoiler}»", spoilerText: "zabata" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "z" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "calzado que no pasa del tobillo" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+  ],
+},
+
+// 2. meñique — NOTE: skipped RAE def 1 ("adj. Muy pequeño") in favor of the
+//    common noun sense (the pinky finger).
+{
+  answer: "meñique",
+  definition:
+    "m. El quinto y más pequeño de los dedos de la mano.",
+  difficulty: 4,
+  etymology: [
+    { word: "margariz", language: "francés antiguo" },
+    { word: "menino ✕ mermellique", language: "dialectal" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "margariz" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Cruce de «{spoiler}» y el dialectal «{spoiler}»", spoilerText: ["menino, "mermellique"] },
+    { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+    { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["m", "e"]
+  ],
+},
+
+// 3. flecha
+{
+  answer: "flecha",
+  definition:
+    "f. Arma arrojadiza compuesta de un asta delgada con una punta afilada en uno de sus extremos y en el opuesto algunas plumas cortas que sirven para que mantenga la dirección al ser disparada.",
+  difficulty: 4,
+  etymology: [
+    { word: "fleukka", language: "fráncico" },
+    { word: "flèche", language: "francés" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del fráncico «{spoiler}»", spoilerText: "fleukka" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "flèche" },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "un arma arrojadiza con punta afilada" },
+  ],
+},
+
+// 4. ángulo
+{
+  answer: "ángulo",
+  definition:
+    "m. Figura geométrica formada bien por dos líneas planas que concurren en un punto, bien por dos semiplanos en el espacio que parten de una misma recta, o bien por tres o más planos en el espacio que se cortan en un punto.",
+  difficulty: 4,
+  etymology: [
+    { word: "ἀγκύλος (ankýlos)", language: "griego" },
+    { word: "angŭlus", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "ἀγκύλος (ankýlos)" },
+    { type: "definition", template: "En griego originalmente significaba «{spoiler}»", spoilerText: "encorvado" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "angŭlus" },
+    { type: "definition", template: "Empieza con la letra {spoiler}", spoilerText: "á" },
+  ],
+},
+
+// 5. cocina
+{
+  answer: "cocina",
+  definition:
+    "f. Pieza o sitio de la casa en el cual se guisa la comida.",
+  difficulty: 3,
+  etymology: [
+    { word: "coquĕre", language: "latín" },
+    { word: "coquīna", language: "latín tardío" },
+    { word: "cocīna", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "coquĕre" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "coquīna" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "cocīna" },
+  ],
+},
+
+// 6. feo
+{
+  answer: "feo",
+  definition:
+    "adj. Desprovisto de belleza y hermosura.",
+  difficulty: 3,
+  etymology: [
+    { word: "foedus", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "foedus" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "3" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "desprovisto de belleza" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+  ],
+},
+
+// 7. cigarro
+{
+  answer: "cigarro",
+  definition:
+    "m. Rollo de hojas de tabaco, que se enciende por un extremo y se chupa o fuma por el opuesto.",
+  difficulty: 4,
+  etymology: [
+    { word: "siyar", language: "maya" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del maya «{spoiler}»", spoilerText: "siyar" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "rollo de hojas de tabaco para fumar" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+  ],
+},
+
+// 8. imán
+{
+  answer: "imán",
+  definition:
+    "m. Mineral de hierro de color negruzco, opaco, casi tan duro como el vidrio, cinco veces más pesado que el agua, y que tiene la propiedad de atraer el hierro, el acero y en grado menor algunos otros cuerpos.",
+  difficulty: 4,
+  etymology: [
+    { word: "aimant", language: "francés" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "aimant" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "i" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "mineral que atrae el hierro" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "n" },
+  ],
+},
+
+// 9. zanahoria
+{
+  answer: "zanahoria",
+  definition:
+    "f. Planta herbácea umbelífera, con flores blancas y purpúrea la central de la umbela, con fruto seco y comprimido y raíz fusiforme, de unos 20 cm de largo, amarilla o rojiza, jugosa y comestible.",
+  difficulty: 4,
+  etymology: [
+    { word: "σταφυλίνη ἀγρία (staphylínē agría)", language: "griego" },
+    { word: "safunnárya", language: "árabe hispánico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "σταφυλίνη ἀγρία (staphylínē agría)" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+    { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "safunnárya" },
+    { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["z", "a"] },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una planta de raíz comestible naranja" },
+  ],
+},
+
+// 10. cerda — las dos etimologías son casi iguales (cirrus/cirra), se combinan
+{
+  answer: "cerda",
+  definition:
+    "f. Pelo grueso, duro y largo que tienen las caballerías en la cola y en la crin.",
+  difficulty: 5,
+  etymology: [
+    { word: "cirrus", language: "latín" },
+    { word: "cirra", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», y de su variante vulgar «{spoiler}»", spoilerText: ["cirrus", "cirra"] },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["rizo", "mechón de crin"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "pelo grueso de caballerías" },
+  ],
+},
+
+// 11. peine
+{
+  answer: "peine",
+  definition:
+    "m. Utensilio de madera, marfil, concha u otra materia, provisto de dientes muy juntos, con el cual se desenreda y compone el pelo.",
+  difficulty: 5,
+  etymology: [
+    { word: "pecten, -ĭnis", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "pecten, -ĭnis" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "utensilio para desenredar el pelo" },
+  ],
+},
+
+// 12. bota — NOTE: skipped RAE def 1 (wineskin) in favor of def 4 (footwear),
+//    el sentido moderno común. Usé la segunda etimología RAE (Del fr. botte),
+//    que corresponde al sentido del calzado.
+{
+  answer: "bota",
+  definition:
+    "f. Calzado, generalmente de cuero, que resguarda el pie, el tobillo y, a veces, una parte de la pierna.",
+  difficulty: 1,
+  etymology: [
+    { word: "botte", language: "francés" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "botte" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "calzado de cuero que cubre el tobillo" },
+  ],
+},
+
+// 13. buzo — sense kept as def 1 (diver). Etym 1 used. Etym 2 ("de abusado")
+//    es para el sentido sudamericano de "prenda de vestir" — flagged.
+{
+  answer: "buzo",
+  definition:
+    "m. y f. Persona que hace inmersiones bajo el agua con un equipo adecuado para respirar.",
+  difficulty: 2,
+  etymology: [
+    { word: "bucĭna", language: "latín" },
+    { word: "búzio", language: "portugués" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bucĭna" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "etymology", template: "Del portugués «{spoiler}»", spoilerText: "búzio" },
+    { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["b", "o"] },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una persona que hace inmersiones bajo el agua" },
+  ],
+},
+
+// 14. tsunami — palabra ≈ etimón, orden especial
+{
+  answer: "tsunami",
+  definition:
+    "m. Ola gigantesca producida por un maremoto o una erupción volcánica en el fondo del mar.",
+  difficulty: 2,
+  etymology: [
+    { word: "tsunami", language: "japonés", parts: ["tsu", "nami"] },
+    { word: "tsunami", language: "inglés" },
+  ],
+  hints: [
+    { type: "definition", template: "En japonés es una composición de «{spoiler}» + «{spoiler}»", spoilerText: ["puerto", "ola"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Del japonés «{spoiler}» + …", spoilerText: "tsu" },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una ola gigantesca por maremoto" },
+    { type: "etymology", template: "… + del japonés «{spoiler}»", spoilerText: "nami" },
+  ],
+},
+
+// 15. jinete
+{
+  answer: "jinete",
+  definition:
+    "m. y f. Persona diestra en la equitación.",
+  difficulty: 4,
+  etymology: [
+    { word: "zanáti", language: "árabe hispánico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "zanáti" },
+    { type: "definition", template: "Es gentilicio de «{spoiler}», una confederación de tribus bereberes", spoilerText: "Zanāta" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "j" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "persona diestra en la equitación" },
+  ],
+},
+
+// 16. sandía
+{
+  answer: "sandía",
+  definition:
+    "f. Planta herbácea anual, de la familia de las cucurbitáceas, con tallo velloso, flexible, rastrero, de tres a cuatro metros de largo, hojas partidas en segmentos redondeados y de color verde oscuro.",
+  difficulty: 4,
+  etymology: [
+    { word: "sindiyyah", language: "árabe clásico" },
+    { word: "sandíyya", language: "árabe hispánico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "sindiyyah" },
+    { type: "definition", template: "En árabe clásico originalmente significaba «{spoiler}», región de Pakistán", spoilerText: "de Sind" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "sandíyya" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "planta cucurbitácea de fruto rojo" },
+  ],
+},
+
+// 17. costumbre
+{
+  answer: "costumbre",
+  definition:
+    "f. Manera habitual de actuar o comportarse.",
+  difficulty: 5,
+  etymology: [
+    { word: "consuetūdo, -ĭnis", language: "latín" },
+    { word: "cosuetumen", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "consuetūdo, -ĭnis" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+    { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "cosuetumen" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "manera habitual de actuar" },
+  ],
+},
+
+// 18. cetro
+{
+  answer: "cetro",
+  definition:
+    "m. Vara de oro u otra materia preciosa, labrada con primor, que usaban solamente emperadores y reyes por insignia de su dignidad.",
+  difficulty: 4,
+  etymology: [
+    { word: "σκῆπτρον (skêptron)", language: "griego" },
+    { word: "sceptrum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "σκῆπτρον (skêptron)" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "sceptrum" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una vara de oro, insignia de reyes" },
+  ],
+},
+
+// 19. rascar
+{
+  answer: "rascar",
+  definition:
+    "tr. Refregar o frotar fuertemente la piel con algo agudo o áspero, y por lo regular con las uñas.",
+  difficulty: 4,
+  etymology: [
+    { word: "radĕre", language: "latín" },
+    { word: "rasicāre", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "radĕre" },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["raer", "afeitar"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "rasicāre" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "frotar la piel con las uñas" },
+  ],
+},
+
+// 20. llave
+{
+  answer: "llave",
+  definition:
+    "f. Instrumento, comúnmente metálico, que, introducido en una cerradura, permite activar el mecanismo que la abre y la cierra.",
+  difficulty: 3,
+  etymology: [
+    { word: "clavis", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "clavis" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "ll" },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "un instrumento que abre cerraduras" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+  ],
+},
+
+// 21. buche
+{
+  answer: "buche",
+  definition:
+    "m. Bolsa membranosa que comunica con el esófago de las aves, en la cual se reblandece el alimento.",
+  difficulty: 5,
+  etymology: [
+    { word: "bucca", language: "latín" },
+    { word: "buccŭla", language: "latín vulgar" },
+    { word: "bucŭla", language: "latín tardío" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bucca" },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["boca", "carrillo"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "etymology", template: "Del latín vulgar «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["buccŭla", "bucŭla"] },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una bolsa en el esófago de las aves, o coloquialmente, el estómago de las personas" },
+  ],
+},
+
+// 22. sembrar
+{
+  answer: "sembrar",
+  definition:
+    "tr. Arrojar y esparcir las semillas en la tierra preparada para este fin.",
+  difficulty: 4 ,
+  etymology: [
+    { word: "semināre", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "semināre" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "s" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "esparcir semillas en la tierra" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+  ],
+},
+
+// 23. tecla — etimología cruzada (latín + bereber/árabe). Combino los dos
+//    latines y los dos eslabones árabe-bereber para no gastar 4 hints en etym.
+{
+  answer: "tecla",
+  definition:
+    "f. Cada una de las piezas que, por la presión de los dedos, hacen sonar ciertos instrumentos musicales.",
+  difficulty: 3,
+  etymology: [
+    { word: "theca", language: "latín" },
+    { word: "tegra", language: "bereber" },
+    { word: "táqra", language: "árabe hispánico" },
+    { word: "thecula", language: "latín bajo" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», dim. «{spoiler}»", spoilerText: ["theca", "thecula"] },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}»", spoilerText: "caja" },
+    { type: "etymology", template: "Y del bereber «{spoiler}», pasado al árabe hispánico como «{spoiler}»", spoilerText: ["tegra", "táqra"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "pieza que se presiona con los dedos" },
+  ],
+},
+
+// 24. espejo
+{
+  answer: "espejo",
+  definition:
+    "m. Tabla de cristal azogado por la parte posterior, y también de acero u otro material bruñido, para que se reflejen en él los objetos que tenga delante.",
+  difficulty: 2,
+  etymology: [
+    { word: "specŭlum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "specŭlum" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "e" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "tabla de cristal que refleja imágenes" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+  ],
+},
+
+// 25. chico — etimón ciccum ≈ palabra, lo trato como "originalmente significaba"
+{
+  answer: "chico",
+  definition:
+    "adj. De tamaño pequeño o menor que otros de su especie o tipo.",
+  difficulty: 2,
+  etymology: [
+    { word: "ciccum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Quizá del latín «{spoiler}»", spoilerText: "ciccum" },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}»", spoilerText: "cosa de poquísimo valor" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "ch" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "de tamaño pequeño" },
+  ],
+},
+
+// 26. almendra
+{
+  answer: "almendra",
+  definition:
+    "f. Fruto del almendro. Es una drupa oblonga, con pericarpio formado por un epicarpio membranoso, un mesocarpio coriáceo y un endocarpio leñoso, o hueso, que contiene la semilla, envuelta en una película.",
+  difficulty: 2,
+  etymology: [
+    { word: "ἀμυγδάλη (amygdálē)", language: "griego" },
+    { word: "amygdăla", language: "latín" },
+    { word: "amyndŭla", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "ἀμυγδάλη (amygdálē)" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+    { type: "etymology", template: "Del latín «{spoiler}», y del latín vulgar «{spoiler}»", spoilerText: ["amygdăla", "amyndŭla"] },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+    { type: "definition", template: "Es el {spoiler}", spoilerText: "fruto del almendro" },
+  ],
+},
+
+// 27. mochila
+{
+  answer: "mochila",
+  definition:
+    "f. Bolsa de lona o de otro material resistente que, provista de correas para ser cargada a la espalda, sirve para llevar provisiones o equipos en excursiones, expediciones, viajes, etc.",
+  difficulty: 3,
+  etymology: [
+    { word: "mochil", language: "castellano" },
+  ],
+  hints: [
+    { type: "etymology", template: "Derivada de «{spoiler}»", spoilerText: "mochil" },
+    { type: "definition", template: "«Mochil» originalmente designaba al {spoiler}", spoilerText: "mozo de los labradores" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "bolsa que se carga a la espalda" },
+  ],
+},
+
+// 28. tortuga — etimología sorprendente (¡del Tártaro/infierno!)
+{
+  answer: "tortuga",
+  definition:
+    "f. Reptil marino del orden de los quelonios, que llega a tener hasta dos metros y medio de largo y uno de ancho, con las extremidades torácicas más desarrolladas que las abdominales.",
+  difficulty: 4,
+  etymology: [
+    { word: "ταρταροῦχος (tartaroûchos)", language: "griego" },
+    { word: "tartarūchus", language: "latín tardío" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "ταρταροῦχος (tartaroûchos)" },
+    { type: "definition", template: "En griego originalmente significaba «{spoiler}»", spoilerText: "habitante del Tártaro o infierno" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "tartarūchus" },
+    { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["t", "a"] },
+  ],
+},
+
+// 29. techo — los dos latines son afines, los combino
+{
+  answer: "techo",
+  definition:
+    "m. Parte superior de un edificio, construcción, habitáculo, etc., que lo cubre y cierra.",
+  difficulty: 2,
+  etymology: [
+    { word: "tegĕre", language: "latín" },
+    { word: "tectum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», derivado de «{spoiler}»", spoilerText: ["tectum", "tegĕre"] },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["cubrir", "proteger"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+    { type: "definition", template: "Es la {spoiler}", spoilerText: "parte superior que cubre un edificio" },
+  ],
+},
+
+// 30. pulgar — NOTE: la def 1 de RAE es "dedo pulgar" (auto-referencial);
+//    parafraseé a una descripción concreta.
+{
+  answer: "pulgar",
+  definition:
+    "m. El primero y más grueso de los dedos de la mano.",
+  difficulty: 2,
+  etymology: [
+    { word: "pollex, -ĭcis", language: "latín" },
+    { word: "pollicāris", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», derivado de «{spoiler}»", spoilerText: ["pollicāris", "pollex, -ĭcis"] },
+    { type: "definition", template: "«pollicāris» en latín significaba «{spoiler}»", spoilerText: "de una pulgada" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+    { type: "definition", template: "Es el {spoiler}", spoilerText: "primero y más grueso de los dedos" },
+  ],
+},
+
+// 31. golpe — tres etimones próximos fonéticamente; combino lat + lat vulg
+{
+  answer: "golpe",
+  definition:
+    "m. Acción de dar con violencia un cuerpo contra otro.",
+  difficulty: 3,
+  etymology: [
+    { word: "κόλαφος (kólaphos)", language: "griego" },
+    { word: "colăphus", language: "latín" },
+    { word: "colŭpus", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κόλαφος (kólaphos)" },
+    { type: "definition", template: "En griego originalmente significaba «{spoiler}»", spoilerText: "bofetón" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "etymology", template: "Del latín «{spoiler}», y del latín vulgar «{spoiler}»", spoilerText: ["colăphus", "colŭpus"] },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+  ],
+},
+
+// 32. burbuja
+{
+  answer: "burbuja",
+  definition:
+    "f. Glóbulo de aire u otro gas que se forma en el interior de algún líquido y sale a la superficie.",
+  difficulty: 2,
+  etymology: [
+    { word: "bulla", language: "latín" },
+    { word: "bulbulliare", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bulla" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "bulbulliare" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "glóbulo de aire en un líquido" },
+  ],
+},
+
+// 33. alhaja — etimones casi iguales, combino
+{
+  answer: "alhaja",
+  definition:
+    "f. Adorno o mueble precioso.",
+  difficulty: 3,
+  etymology: [
+    { word: "ḥāǧah", language: "árabe clásico" },
+    { word: "alḥáǧa", language: "árabe hispánico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del árabe clásico «{spoiler}», y del árabe hispánico «{spoiler}»", spoilerText: ["ḥāǧah", "alḥáǧa"] },
+    { type: "definition", template: "En árabe clásico originalmente significaba «{spoiler}»", spoilerText: "cosa necesaria o valiosa" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "al" },
+    { type: "definition", template: "Es sinónimo de «{spoiler}»", spoilerText: "joya" },
+  ],
+},
+
+// 34. tabaco — NOTE: RAE def 1 describe la planta; usé la del producto (def 2).
+{
+  answer: "tabaco",
+  definition:
+    "m. Producto elaborado con las hojas curadas del tabaco y que suele fumarse.",
+  difficulty: 3,
+  etymology: [
+    { word: "ṭub[b]āq", language: "árabe clásico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "ṭub[b]āq" },
+    { type: "definition", template: "Antes del descubrimiento de América designaba {spoiler}", spoilerText: "hierbas medicinales que adormecían" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "producto de hojas curadas que se fuma" },
+  ],
+},
+
+// 35. reír
+{
+  answer: "reír",
+  definition:
+    "intr. Manifestar regocijo mediante determinados movimientos del rostro, acompañados frecuentemente por sacudidas del cuerpo y emisión de peculiares sonidos inarticulados.",
+  difficulty: 1,
+  etymology: [
+    { word: "ridēre", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "ridēre" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "r" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "manifestar regocijo" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+  ],
+},
+
+// 36. pizarra — etimología vasca muy inesperada
+{
+  answer: "pizarra",
+  definition:
+    "f. Roca homogénea, de grano muy fino, comúnmente de color negro azulado, opaca, tenaz, que se divide con facilidad en hojas planas y delgadas.",
+  difficulty: 4,
+  etymology: [
+    { word: "lapideus", language: "latín" },
+    { word: "lapitzarri", language: "vasco" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del vasco «{spoiler}»", spoilerText: "lapitzarri" },
+    { type: "definition", template: "En vasco originalmente significaba «{spoiler}»", spoilerText: "piedra de pizarra" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "lapideus" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "roca negra que se divide en hojas planas" },
+  ],
+},
+
+// 37. sapo
+{
+  answer: "sapo",
+  definition:
+    "m. Anfibio anuro de cuerpo rechoncho y robusto, ojos saltones, extremidades cortas y piel de aspecto verrugoso.",
+  difficulty: 2,
+  etymology: [
+    { word: "sapo", language: "prerromano" },
+  ],
+  hints: [
+    { type: "etymology", template: "Voz {spoiler}, de origen onomatopéyico", spoilerText: "prerromana" },
+    { type: "definition", template: "La onomatopeya imita el ruido que hace al caer en {spoiler}", spoilerText: "un charco o tierra mojada" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "s" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "anfibio anuro de piel verrugosa" },
+  ],
+},
+
+// 38. guerra
+{
+  answer: "guerra",
+  definition:
+    "f. Desavenencia y rompimiento de la paz entre dos o más potencias.",
+  difficulty: 2,
+  etymology: [
+    { word: "werra", language: "germánico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del germánico «{spoiler}»", spoilerText: "werra" },
+    { type: "definition", template: "En germánico originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["pelea", "discordia"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "rompimiento de la paz" },
+  ],
+},
+
+// 39. goma — gummi/gumma muy parecidos; los combino
+{
+  answer: "goma",
+  definition:
+    "f. Sustancia viscosa e incristalizable que naturalmente, o mediante incisiones, fluye de diversos vegetales, después de seca es soluble en agua e insoluble en el alcohol y el éter.",
+  difficulty: 2,
+  etymology: [
+    { word: "κόμμι (kómmi)", language: "griego" },
+    { word: "gummi", language: "latín" },
+    { word: "gumma", language: "latín vulgar" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κόμμι (kómmi)" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "etymology", template: "Del latín «{spoiler}», y del latín vulgar «{spoiler}»", spoilerText: ["gummi", "gumma"] },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "sustancia viscosa que fluye de los vegetales" },
+  ],
+},
+
+// 40. ducha
+{
+  answer: "ducha",
+  definition:
+    "f. Proyección de agua que, en forma de lluvia o de chorro, se hace caer en el cuerpo para limpiarlo o refrescarlo, o con propósito medicinal.",
+  difficulty: 2,
+  etymology: [
+    { word: "doccia", language: "italiano" },
+    { word: "douche", language: "francés" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del italiano «{spoiler}»", spoilerText: "doccia" },
+    { type: "definition", template: "En italiano originalmente significaba «{spoiler}»", spoilerText: "caño de agua" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "douche" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "proyección de agua sobre el cuerpo" },
+  ],
+},
+
+// 41. hermético
+{
+  answer: "hermético",
+  definition:
+    "adj. Que se cierra de tal modo que no deja pasar el aire u otros fluidos.",
+  difficulty: 3,
+  etymology: [
+    { word: "Hermes Trismegistus", language: "latín tardío" },
+    { word: "hermeticus", language: "latín medieval" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "Hermes Trismegistus" },
+    { type: "definition", template: "Era el nombre griego del dios egipcio «{spoiler}», al que se atribuían conocimientos esotéricos", spoilerText: "Tot" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+    { type: "etymology", template: "Del latín medieval «{spoiler}»", spoilerText: "hermeticus" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "que no deja pasar el aire" },
+  ],
+},
+
+// 42. pieza
+{
+  answer: "pieza",
+  definition:
+    "f. Pedazo o parte de una cosa.",
+  difficulty: 3,
+  etymology: [
+    { word: "pĕttĭa", language: "celta" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del celta «{spoiler}»", spoilerText: "pĕttĭa" },
+    { type: "definition", template: "En celta originalmente significaba «{spoiler}»", spoilerText: "pedazo" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "pedazo o parte de una cosa" },
+  ],
+},
+
+// 43. flanco
+{
+  answer: "flanco",
+  definition:
+    "m. Cada una de las dos partes laterales de un cuerpo considerado de frente.",
+  difficulty: 3,
+  etymology: [
+    { word: "hlanca", language: "alto alemán antiguo" },
+    { word: "flanc", language: "francés" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del alto alemán antiguo «{spoiler}»", spoilerText: "hlanca" },
+    { type: "definition", template: "En alto alemán antiguo originalmente significaba «{spoiler}»", spoilerText: "cadera" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "flanc" },
+    { type: "definition", template: "Es {spoiler}", spoilerText: "una de las dos partes laterales del cuerpo" },
+  ],
+},
+
+// 44. faraón — cadena de cuatro lenguas; etim "casa grande" es el highlight
+{
+  answer: "faraón",
+  definition:
+    "m. y f. Cada uno de los antiguos reyes de Egipto anteriores a la conquista de este país por los persas.",
+  difficulty: 3,
+  etymology: [
+    { word: "pr-‘", language: "egipcio" },
+    { word: "par‘oh", language: "hebreo" },
+    { word: "Φαραώ (Pharaṓ)", language: "griego" },
+    { word: "Pharăo, -ōnis", language: "latín tardío" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del egipcio «{spoiler}»", spoilerText: "pr-‘" },
+    { type: "definition", template: "En egipcio originalmente significaba «{spoiler}»", spoilerText: "casa grande" },
+    { type: "etymology", template: "Del hebreo «{spoiler}», y del griego «{spoiler}»", spoilerText: ["par‘oh", "Φαραώ (Pharaṓ)"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "Pharăo, -ōnis" },
+  ],
+},
+
+// 45. naipe
+{
+  answer: "naipe",
+  definition:
+    "m. Carta de la baraja.",
+  difficulty: 3,
+  etymology: [
+    { word: "ma‘íb", language: "árabe" },
+    { word: "naip", language: "catalán" },
+  ],
+  hints: [
+    { type: "etymology", template: "Quizá del árabe «{spoiler}»", spoilerText: "ma‘íb" },
+    { type: "definition", template: "En árabe originalmente significaba «{spoiler}»", spoilerText: "censurable" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "etymology", template: "Del catalán «{spoiler}»", spoilerText: "naip" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "carta de la baraja" },
+  ],
+},
+
+// 46. tejer
+{
+  answer: "tejer",
+  definition:
+    "tr. Formar en el telar la tela con la trama y la urdimbre.",
+  difficulty: 2,
+  etymology: [
+    { word: "texĕre", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "texĕre" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "formar tela en el telar" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+  ],
+},
+
+// 47. punto — pungere/punctum afines, los combino
+{
+  answer: "punto",
+  definition:
+    "m. Señal de dimensiones pequeñas, ordinariamente circular, que, por contraste de color o de relieve, es perceptible en una superficie.",
+  difficulty: 2,
+  etymology: [
+    { word: "pungĕre", language: "latín" },
+    { word: "punctum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», derivado de «{spoiler}»", spoilerText: ["punctum", "pungĕre"] },
+    { type: "definition", template: "En latín «pungĕre» significaba «{spoiler}» o «{spoiler}»", spoilerText: ["punzar", "pinchar"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+    { type: "definition", template: "Es una {spoiler}", spoilerText: "señal pequeña y circular en una superficie" },
+  ],
+},
+
+// 48. colmillo
+{
+  answer: "colmillo",
+  definition:
+    "m. Diente agudo y fuerte, colocado en cada uno de los lados de las hileras que forman los dientes incisivos de los mamíferos, entre el más lateral de aquellos y la primera muela.",
+  difficulty: 2,
+  etymology: [
+    { word: "columella", language: "latín" },
+    { word: "columellus", language: "latín tardío" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["columella", "columellus"] },
+    { type: "definition", template: "«columella» en latín significaba «{spoiler}»", spoilerText: "columnita" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "diente agudo y fuerte" },
+  ],
+},
+
+// 49. jugo
+{
+  answer: "jugo",
+  definition:
+    "m. Zumo de las sustancias animales o vegetales sacado por presión, cocción o destilación.",
+  difficulty: 2,
+  etymology: [
+    { word: "sucus", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "sucus" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "j" },
+    { type: "definition", template: "Es sinónimo de «{spoiler}»", spoilerText: "zumo" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+  ],
+},
+
+// 50. emplear
+{
+  answer: "emplear",
+  definition:
+    "tr. Ocupar a alguien, encargándole un negocio, comisión o puesto.",
+  difficulty: 2,
+  etymology: [
+    { word: "implicāre", language: "latín" },
+    { word: "empleiier", language: "francés antiguo" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "implicāre" },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["entrelazar", "enredar"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+    { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "empleiier" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "dar un puesto a alguien" },
+  ],
+},
+
+// 51. brote
+{
+  answer: "brote",
+  definition:
+    "m. Pimpollo o renuevo que empieza a desarrollarse.",
+  difficulty: 2,
+  etymology: [
+    { word: "brŭt", language: "gótico" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del gótico «{spoiler}»", spoilerText: "brŭt" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "renuevo o pimpollo que empieza a desarrollarse" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+  ],
+},
+
+// 52. fe
+{
+  answer: "fe",
+  definition:
+    "f. Conjunto de creencias de una religión.",
+  difficulty: 1,
+  etymology: [
+    { word: "fides", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "fides" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "2" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+    { type: "definition", template: "Es un {spoiler}", spoilerText: "conjunto de creencias religiosas" },
+    { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+  ],
+},
+
+// 53. centro
+{
+  answer: "centro",
+  definition:
+    "m. Punto interior que se toma como equidistante de los límites de una línea, superficie o cuerpo.",
+  difficulty: 2,
+  etymology: [
+    { word: "κέντρον (kéntron)", language: "griego" },
+    { word: "centrum", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κέντρον (kéntron)" },
+    { type: "definition", template: "En griego originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["aguijón", "punta del compás"] },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+    { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "centrum" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+  ],
+},
+
+// 54. hueco
+{
+  answer: "hueco",
+  definition:
+    "adj. Que tiene vacío el interior.",
+  difficulty: 3,
+  etymology: [
+    { word: "occāre", language: "latín" },
+  ],
+  hints: [
+    { type: "etymology", template: "Derivado del latín «{spoiler}»", spoilerText: "occāre" },
+    { type: "definition", template: "En latín originalmente significaba «{spoiler}»", spoilerText: "ahuecar la tierra rastrillándola" },
+    { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+    { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "h" },
+    { type: "definition", template: "Significa «{spoiler}»", spoilerText: "que tiene vacío el interior" },
+  ],
+},
