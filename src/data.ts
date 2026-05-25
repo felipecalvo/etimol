@@ -2485,6 +2485,343 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-05-25",
+    word: {
+      answer: "ajedrez",
+      definition:
+        "m. Juego de mesa entre dos personas que se practica sobre un damero en el que se disponen las 16 piezas de cada jugador, desiguales en importancia y valor, que se desplazan y comen las del contrario según ciertas reglas.",
+      difficulty: 5,
+      etymology: [
+        { word: "chaturaṅga", language: "sánscrito" },
+        { word: "čatrang", language: "pelvi" },
+        { word: "šiṭranǧ", language: "árabe clásico" },
+        { word: "aššaṭranǧ", language: "árabe hispánico" },
+      ],
+      hints: [
+        {
+          type: "etymology",
+          template: "Del sánscrito «{spoiler}», y del pelvi «{spoiler}»",
+          spoilerText: ["chaturaṅga", "čatrang"],
+        },
+        {
+          type: "etymology",
+          template: "Del árabe clásico «{spoiler}», y del árabe hispánico «{spoiler}»",
+          spoilerText: ["šiṭranǧ", "aššaṭranǧ"],
+        },
+        {
+          type: "letter_count",
+          template: "Tiene {spoiler} letras",
+          spoilerText: "7",
+        },
+        {
+          type: "definition",
+          template: "Es {spoiler}",
+          spoilerText: "un juego de mesa",
+        },
+        {
+          type: ["starts_with", "ends_with"],
+          template: "Empieza con {spoiler} y termina con {spoiler}",
+          spoilerText: ["a", "z"],
+        },
+      ],
+    },
+  },
+  {
+    date: "2026-05-26",
+    word: {
+      answer: "imán",
+      definition:
+        "m. Mineral de hierro de color negruzco, opaco, casi tan duro como el vidrio, cinco veces más pesado que el agua, y que tiene la propiedad de atraer el hierro, el acero y en grado menor algunos otros cuerpos.",
+      difficulty: 3,
+      etymology: [
+        { word: "aimant", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "aimant" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "i" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un mineral que atrae el hierro" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "n" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-27",
+    word: {
+      answer: "zanahoria",
+      definition:
+        "f. Planta herbácea umbelífera, con flores blancas y purpúrea la central de la umbela, con fruto seco y comprimido y raíz fusiforme, de unos 20 cm de largo, amarilla o rojiza, jugosa y comestible.",
+      difficulty: 4,
+      etymology: [
+        { word: "σταφυλίνη ἀγρία (staphylínē agría)", language: "griego" },
+        { word: "safunnárya", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "σταφυλίνη ἀγρία (staphylínē agría)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "safunnárya" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["z", "a"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una planta de raíz comestible naranja" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-28",
+    word: {
+      answer: "cerda",
+      definition:
+        "f. Pelo grueso, duro y largo que tienen las caballerías en la cola y en la crin.",
+      difficulty: 5,
+      etymology: [
+        { word: "cirrus", language: "latín" },
+        { word: "cirra", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}», y de su variante vulgar «{spoiler}»", spoilerText: ["cirrus", "cirra"] },
+        { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["rizo", "mechón de crin"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "pelo grueso de caballerías" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-29",
+    word: {
+      answer: "tsunami",
+      definition:
+        "m. Ola gigantesca producida por un maremoto o una erupción volcánica en el fondo del mar.",
+      difficulty: 2,
+      etymology: [
+        { word: "tsunami", language: "japonés", parts: ["tsu", "nami"] },
+        { word: "tsunami", language: "inglés" },
+      ],
+      hints: [
+        { type: "definition", template: "En japonés es una composición de «{spoiler}» + «{spoiler}»", spoilerText: ["puerto", "ola"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "etymology", template: "Del japonés «{spoiler}» + …", spoilerText: "tsu" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una ola gigantesca por maremoto" },
+        { type: "etymology", template: "… + del japonés «{spoiler}»", spoilerText: "nami" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-30",
+    word: {
+      answer: "bota",
+      definition:
+        "f. Calzado, generalmente de cuero, que resguarda el pie, el tobillo y, a veces, una parte de la pierna.",
+      difficulty: 1,
+      etymology: [
+        { word: "botte", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "botte" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "calzado de cuero que cubre el tobillo" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-31",
+    word: {
+      answer: "buzo",
+      definition:
+        "m. y f. Persona que hace inmersiones bajo el agua con un equipo adecuado para respirar.",
+      difficulty: 2,
+      etymology: [
+        { word: "bucĭna", language: "latín" },
+        { word: "búzio", language: "portugués" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bucĭna" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "etymology", template: "Del portugués «{spoiler}»", spoilerText: "búzio" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["b", "o"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una persona que hace inmersiones bajo el agua" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-01",
+    word: {
+      answer: "peine",
+      definition:
+        "m. Utensilio de madera, marfil, concha u otra materia, provisto de dientes muy juntos, con el cual se desenreda y compone el pelo.",
+      difficulty: 5,
+      etymology: [
+        { word: "pecten, -ĭnis", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "pecten, -ĭnis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "utensilio para desenredar el pelo" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-02",
+    word: {
+      answer: "jinete",
+      definition:
+        "m. y f. Persona diestra en la equitación.",
+      difficulty: 5,
+      etymology: [
+        { word: "zanáti", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "zanáti" },
+        { type: "definition", template: "«{spoiler}»", spoilerText: "...el cual es gentilicio de Zanāta, una confederación de tribus bereberes" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "j" },
+        { type: "definition", template: "Es una {spoiler}", spoilerText: "persona diestra en la equitación" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-03",
+    word: {
+      answer: "sandía",
+      definition:
+        "f. Planta herbácea anual, de la familia de las cucurbitáceas, con tallo velloso, flexible, rastrero, de tres a cuatro metros de largo, hojas partidas en segmentos redondeados y de color verde oscuro.",
+      difficulty: 4,
+      etymology: [
+        { word: "sindiyyah", language: "árabe clásico" },
+        { word: "sandíyya", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "sindiyyah" },
+        { type: "definition", template: "En árabe clásico originalmente significaba «{spoiler}»", spoilerText: "de Sind, región de Pakistán" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "sandíyya" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una planta cucurbitácea de fruto rojo" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-04",
+    word: {
+      answer: "costumbre",
+      definition:
+        "f. Manera habitual de actuar o comportarse.",
+      difficulty: 5,
+      etymology: [
+        { word: "consuetūdo, -ĭnis", language: "latín" },
+        { word: "cosuetumen", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "consuetūdo, -ĭnis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "cosuetumen" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "manera habitual de actuar" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-05",
+    word: {
+      answer: "cetro",
+      definition:
+        "m. Vara de oro u otra materia preciosa, labrada con primor, que usaban solamente emperadores y reyes por insignia de su dignidad.",
+      difficulty: 4,
+      etymology: [
+        { word: "σκῆπτρον (skêptron)", language: "griego" },
+        { word: "sceptrum", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "σκῆπτρον (skêptron)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "sceptrum" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una vara de oro, insignia de reyes" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-06",
+    word: {
+      answer: "rascar",
+      definition:
+        "tr. Refregar o frotar fuertemente la piel con algo agudo o áspero, y por lo regular con las uñas.",
+      difficulty: 4,
+      etymology: [
+        { word: "radĕre", language: "latín" },
+        { word: "rasicāre", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "radĕre" },
+        { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["raer", "afeitar"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "rasicāre" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "frotar la piel con las uñas" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-07",
+    word: {
+      answer: "llave",
+      definition:
+        "f. Instrumento, comúnmente metálico, que, introducido en una cerradura, permite activar el mecanismo que la abre y la cierra.",
+      difficulty: 3,
+      etymology: [
+        { word: "clavis", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "clavis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "l" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un instrumento que abre cerraduras" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-08",
+    word: {
+      answer: "buche",
+      definition:
+        "m. Bolsa membranosa que comunica con el esófago de las aves, en la cual se reblandece el alimento.",
+      difficulty: 5,
+      etymology: [
+        { word: "bucca", language: "latín" },
+        { word: "buccŭla", language: "latín vulgar" },
+        { word: "bucŭla", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bucca" },
+        { type: "definition", template: "En latín originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["boca", "carrillo"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["buccŭla", "bucŭla"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una bolsa en el esófago de las aves, o coloquialmente, el estómago de las personas" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-09",
+    word: {
+      answer: "sembrar",
+      definition:
+        "tr. Arrojar y esparcir las semillas en la tierra preparada para este fin.",
+      difficulty: 4,
+      etymology: [
+        { word: "semināre", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "semināre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "s" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "esparcir semillas en la tierra" },
+      ],
+    },
+  },
 ];
 
 export const GAME_START_DATE = "2026-03-19";
