@@ -3,6 +3,7 @@ import confetti from "canvas-confetti";
 import { getLocalDateString, getWordByDate, GAME_START_DATE } from "./data";
 import { useGame } from "./useGame";
 import type { Difficulty, EtymologyStep, WordData } from "./types";
+import { isRevealGuess, getRevealedLetter } from "./types";
 import "./App.css";
 
 // ── Date utilities ─────────────────────────────────────────────────────────
@@ -40,6 +41,11 @@ function diffDays(a: string, b: string): number {
   return (new Date(a + "T00:00:00").getTime() - new Date(b + "T00:00:00").getTime()) / 86_400_000;
 }
 
+function ordinalPista(n: number): string {
+  const ordinals = ["primera", "segunda", "tercera", "cuarta", "quinta", "sexta", "séptima", "octava"];
+  return ordinals[n - 1] ?? `${n}ª`;
+}
+
 function isValidGameDate(date: string, today: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return false;
   if (date > today) return false;
@@ -65,7 +71,7 @@ function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" |
     if (guesses.length === 0) return "not_played";
     const norm = (s: string) =>
       s.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC").trim();
-    if (guesses.some((g) => g.length > 0 && norm(g) === norm(wordData.answer))) return "won";
+    if (guesses.some((g) => g.length > 0 && !g.startsWith("!") && norm(g) === norm(wordData.answer))) return "won";
     if (guesses.length >= wordData.hints.length) return "lost";
     return "in_progress";
   } catch { /* ignore */ }
@@ -259,18 +265,38 @@ function extractRevealedPrefixSuffix(
 }
 
 /**
+ * Strip diacritics for matching purposes, but preserve ñ as distinct from n.
+ */
+function stripAccents(ch: string): string {
+  if (ch === "ñ") return "ñ";
+  return ch.normalize("NFD").replace(/[\u0300-\u036f]/g, "").normalize("NFC");
+}
+
+/**
+ * Check if a base letter (from alphabet) appears in the answer,
+ * treating accented variants as the same letter (except ñ ≠ n).
+ */
+function letterInAnswer(letter: string, answer: string): boolean {
+  return Array.from(answer.toLowerCase()).some((ch) => stripAccents(ch) === letter.toLowerCase());
+}
+
+/**
  * Build a per-character "template" for the word.
- * Each position is either a fixed letter (from hints) or null (editable).
+ * Each position is either a fixed letter (from hints or revealed letters) or null (editable).
  */
 function buildTemplate(
   answer: string,
   prefix: string,
-  suffix: string
+  suffix: string,
+  revealedLetters: string[]
 ): (string | null)[] {
   const len = answer.length;
-  return Array.from(answer).map((ch, i) => {
-    if (i < prefix.length) return ch.toLowerCase();
-    if (i >= len - suffix.length) return ch.toLowerCase();
+  const normalizedAnswer = answer.toLowerCase();
+  const revealedSet = new Set(revealedLetters.map((l) => l.toLowerCase()));
+  return Array.from(normalizedAnswer).map((ch, i) => {
+    if (i < prefix.length) return ch;
+    if (i >= len - suffix.length) return ch;
+    if (revealedSet.has(stripAccents(ch))) return ch;
     return null;
   });
 }
@@ -303,6 +329,9 @@ function fullGuessFromTemplate(
     .join("");
 }
 
+// ── Spanish alphabet for letter reveal ─────────────────────────────────────
+const SPANISH_ALPHABET = "abcdefghijklmnñopqrstuvwxyz".split("");
+
 // ── GameView ───────────────────────────────────────────────────────────────
 // Mounted with key={date} so state always resets when date changes.
 
@@ -315,7 +344,7 @@ function GameView({
   date: string;
   isToday: boolean;
 }) {
-  const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData, date);
+  const { state, setCurrentGuess, submitGuess, revealLetter, maxGuesses } = useGame(wordData, date);
   const { guesses, currentGuess, revealedHints, status } = state;
   const attemptsLeft = maxGuesses - guesses.length;
   const hiddenInputRef = useRef<HTMLInputElement>(null);
@@ -349,13 +378,36 @@ function GameView({
 
   const knowLength = revealedTypes.has("letter_count");
 
+  // Compute revealed letters from guesses
+  const revealedLetters = guesses
+    .filter(isRevealGuess)
+    .map(getRevealedLetter);
+
+  // Determine if the "Revelar una letra" button should exist and its state
+  const hasLetterCountHint = wordData.hints.some((h) => {
+    const types = Array.isArray(h.type) ? h.type : [h.type];
+    return types.includes("letter_count");
+  });
+  const letterCountHintIndex = wordData.hints.findIndex((h) => {
+    const types = Array.isArray(h.type) ? h.type : [h.type];
+    return types.includes("letter_count");
+  });
+  const isLastAttempt = attemptsLeft <= 1;
+  const revealButtonDisabledReason = !knowLength
+    ? `Disponible después de la ${ordinalPista(letterCountHintIndex + 1)} pista`
+    : isLastAttempt
+    ? "No disponible en el último intento"
+    : null;
+
+  const [showAlphabet, setShowAlphabet] = useState(false);
+
   // Extract multi-character prefix/suffix from revealed hints
   const { prefix: revealedPrefix, suffix: revealedSuffix } = extractRevealedPrefixSuffix(
     wordData.hints, revealedHints
   );
 
   // Template: array of fixed-letter | null per position
-  const template = knowLength ? buildTemplate(answer, revealedPrefix, revealedSuffix) : null;
+  const template = knowLength ? buildTemplate(answer, revealedPrefix, revealedSuffix, revealedLetters) : null;
   const editableSlots = template
     ? template.filter((x) => x === null).length
     : Infinity;
@@ -388,6 +440,25 @@ function GameView({
 
   function handleSkip() {
     submitGuess("");
+  }
+
+  function handleRevealLetter(letter: string) {
+    setShowAlphabet(false);
+    // If revealing this letter fills every remaining slot, the whole word is
+    // known — there's nothing left to type, so the player wins outright.
+    if (template) {
+      const nextTemplate = buildTemplate(
+        answer,
+        revealedPrefix,
+        revealedSuffix,
+        [...revealedLetters, letter]
+      );
+      if (nextTemplate.every((cell) => cell !== null)) {
+        submitGuess(answer);
+        return;
+      }
+    }
+    revealLetter(letter);
   }
 
   function handleTyping(value: string) {
@@ -434,6 +505,9 @@ function GameView({
     const emojiLine = guesses
       .map((g) => {
         if (g === "") return "➖";
+        if (isRevealGuess(g)) {
+          return "💬";
+        }
         const isWin =
           g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
           answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
@@ -455,16 +529,16 @@ function GameView({
 
   return (
     <>
-      <section className="etymology-path-section">
-        <EtymologyPath
-          etymology={wordData.etymology}
-          answer={answer}
-          revealedWords={revealedEtymWords}
-          showAnswer={status !== "playing"}
-        />
-      </section>
-
       <div className="game-layout">
+        <section className="etymology-path-section">
+          <EtymologyPath
+            etymology={wordData.etymology}
+            answer={answer}
+            revealedWords={revealedEtymWords}
+            showAnswer={status !== "playing"}
+          />
+        </section>
+
         <div className="game-col-left">
           <section className="hints-section">
             <h2>Pistas</h2>
@@ -508,12 +582,13 @@ function GameView({
                   <div className="word-cells" onClick={focusInput}>
                     {displayCells!.map((ch, i) => {
                       const isFixed = template[i] !== null;
+                      const isRevealedCell = isFixed && i >= revealedPrefix.length && i < answer.length - (revealedSuffix.length || 0) && revealedLetters.includes(ch);
                       const isEmpty = ch === "";
                       const isCaret = inputFocused && i === caretIndex;
                       return (
                         <span
                           key={i}
-                          className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}${isCaret ? " caret" : ""}`}
+                          className={`cell${isFixed ? " fixed" : ""}${isRevealedCell ? " revealed-cell" : ""}${isEmpty ? " empty" : ""}${isCaret ? " caret" : ""}`}
                         >
                           {isEmpty ? "_" : ch}
                         </span>
@@ -540,7 +615,7 @@ function GameView({
                       type="text"
                       className="word-input free-middle"
                       value={currentGuess}
-                      onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ˜~´`']/gi, "").toLowerCase())}
+                      onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ˜~´`']/gi, "").toLowerCase().slice(0, 12))}
                       placeholder="..."
                       size={Math.max(3, currentGuess.length + 1)}
                       autoFocus
@@ -554,23 +629,64 @@ function GameView({
                   <button type="submit" className="guess-button">
                     Adivinar
                   </button>
-                  <button type="button" className="skip-button" onClick={handleSkip}>
-                    Saltar
-                  </button>
+                  {hasLetterCountHint && (
+                    <span className="reveal-button-wrapper" data-tooltip={revealButtonDisabledReason ?? ""}>
+                      <button
+                        type="button"
+                        className={`reveal-button${revealButtonDisabledReason ? " disabled" : ""}${showAlphabet ? " open" : ""}`}
+                        aria-expanded={showAlphabet}
+                        onClick={() => !revealButtonDisabledReason && setShowAlphabet(!showAlphabet)}
+                      >
+                        Revelar letra
+                      </button>
+                    </span>
+                  )}
                 </div>
+                {showAlphabet && !revealButtonDisabledReason && (
+                  <div className="alphabet-picker">
+                    {SPANISH_ALPHABET.map((letter) => {
+                      const alreadyRevealed = revealedLetters.includes(letter);
+                      return (
+                        <button
+                          key={letter}
+                          type="button"
+                          className={`alphabet-letter${alreadyRevealed ? " used" : ""}`}
+                          disabled={alreadyRevealed}
+                          onClick={() => handleRevealLetter(letter)}
+                        >
+                          {letter}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </form>
               <p className="attempts-left">
                 {attemptsLeft === 1
                   ? "¡Último intento!"
                   : `${attemptsLeft} intentos restantes`}
               </p>
+              <button type="button" className="skip-button" onClick={handleSkip}>
+                {attemptsLeft <= 1 ? "Rendirse" : "Saltar"}
+              </button>
               {guesses.length > 0 && (
                 <div className="guess-chips">
-                  {guesses.map((g, i) => (
-                    <span key={i} className={`chip ${g === "" ? "skipped" : "wrong"}`}>
-                      {g === "" ? "—" : g}
-                    </span>
-                  ))}
+                  {guesses.map((g, i) => {
+                    if (isRevealGuess(g)) {
+                      const letter = getRevealedLetter(g);
+                      const isInAnswer = letterInAnswer(letter, answer);
+                      return (
+                        <span key={i} className={`chip ${isInAnswer ? "reveal-hit" : "reveal-miss"}`}>
+                          {letter}
+                        </span>
+                      );
+                    }
+                    return (
+                      <span key={i} className={`chip ${g === "" ? "skipped" : "wrong"}`}>
+                        {g === "" ? "—" : g}
+                      </span>
+                    );
+                  })}
                 </div>
               )}
             </section>
@@ -597,6 +713,15 @@ function GameView({
               </div>
               <div className="guess-chips result-chips">
                 {guesses.map((g, i) => {
+                  if (isRevealGuess(g)) {
+                    const letter = getRevealedLetter(g);
+                    const isInAnswer = letterInAnswer(letter, answer);
+                    return (
+                      <span key={i} className={`chip ${isInAnswer ? "reveal-hit" : "reveal-miss"}`}>
+                        {letter}
+                      </span>
+                    );
+                  }
                   const isCorrect =
                     g.length > 0 &&
                     g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
@@ -654,6 +779,15 @@ function GameView({
             </div>
             <div className="guess-chips result-chips">
               {guesses.map((g, i) => {
+                if (isRevealGuess(g)) {
+                  const letter = getRevealedLetter(g);
+                  const isInAnswer = letterInAnswer(letter, answer);
+                  return (
+                    <span key={i} className={`chip ${isInAnswer ? "reveal-hit" : "reveal-miss"}`}>
+                      {letter}
+                    </span>
+                  );
+                }
                 const isCorrect =
                   g.length > 0 &&
                   g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===

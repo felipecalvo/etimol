@@ -30,6 +30,18 @@ export interface HintDefinition {
 
 export type GameStatus = "playing" | "won" | "lost";
 
+/**
+ * A guess entry starting with "!" indicates a letter reveal.
+ * E.g. "!a" means the player revealed the letter "a".
+ */
+export function isRevealGuess(guess: string): boolean {
+  return guess.startsWith("!");
+}
+
+export function getRevealedLetter(guess: string): string {
+  return guess.slice(1);
+}
+
 export interface GameState {
   wordData: WordData;
   guesses: string[];

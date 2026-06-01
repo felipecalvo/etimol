@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import type { GameState, GameStatus, WordData } from "./types";
+import { isRevealGuess } from "./types";
 
 const OLD_STORAGE_KEY = "etimol-guesses";
 
@@ -62,7 +63,7 @@ export function useGame(wordData: WordData, date: string) {
 
     for (const guess of saved) {
       guesses = [...guesses, guess];
-      const isCorrect = guess.length > 0 && normalize(guess) === normalize(wordData.answer);
+      const isCorrect = guess.length > 0 && !isRevealGuess(guess) && normalize(guess) === normalize(wordData.answer);
       if (isCorrect) {
         status = "won";
         revealedHints = max;
@@ -99,7 +100,7 @@ export function useGame(wordData: WordData, date: string) {
       if (prev.status !== "playing") return prev;
       const guess = (fullGuessOverride ?? prev.currentGuess).trim();
 
-      const isCorrect = guess.length > 0 && normalize(guess) === normalize(prev.wordData.answer);
+      const isCorrect = guess.length > 0 && !isRevealGuess(guess) && normalize(guess) === normalize(prev.wordData.answer);
       const newGuesses = [...prev.guesses, guess.length > 0 ? guess : ""];
 
       let newStatus: GameStatus = "playing";
@@ -129,10 +130,40 @@ export function useGame(wordData: WordData, date: string) {
     });
   }, [maxGuesses]);
 
+  const revealLetter = useCallback((letter: string) => {
+    setState((prev) => {
+      if (prev.status !== "playing") return prev;
+      const marker = `!${letter.toLowerCase()}`;
+      const newGuesses = [...prev.guesses, marker];
+
+      let newStatus: GameStatus = "playing";
+      let newRevealed = prev.revealedHints;
+
+      if (newGuesses.length >= maxGuesses) {
+        newStatus = "lost";
+      } else {
+        newRevealed = Math.min(prev.revealedHints + 1, maxGuesses);
+      }
+
+      const nextState = {
+        ...prev,
+        guesses: newGuesses,
+        currentGuess: "",
+        revealedHints: newRevealed,
+        status: newStatus,
+      };
+
+      saveGuesses(date, nextState.guesses);
+
+      return nextState;
+    });
+  }, [maxGuesses]);
+
   return {
     state,
     setCurrentGuess,
     submitGuess,
+    revealLetter,
     maxGuesses,
   };
 }
