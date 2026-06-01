@@ -64,7 +64,7 @@ function getStoredGameResult(date: string, wordData: WordData): "won" | "lost" |
     const guesses: string[] = Array.isArray(data.guesses) ? data.guesses : [];
     if (guesses.length === 0) return "not_played";
     const norm = (s: string) =>
-      s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+      s.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC").trim();
     if (guesses.some((g) => g.length > 0 && norm(g) === norm(wordData.answer))) return "won";
     if (guesses.length >= wordData.hints.length) return "lost";
     return "in_progress";
@@ -431,8 +431,8 @@ function GameView({
       .map((g) => {
         if (g === "") return "➖";
         const isWin =
-          g.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
-          answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
+          answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
         return isWin ? "✅" : "❌";
       })
       .join("");
@@ -549,8 +549,8 @@ function GameView({
             {guesses.map((g, i) => {
               const isCorrect =
                 g.length > 0 &&
-                g.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
-                  answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
+                  answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
               return (
                 <span
                   key={i}
