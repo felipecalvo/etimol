@@ -198,7 +198,7 @@ function EtymologyPath({
             <span key={i}>
               {i > 0 && <span className="arrow"> → </span>}
               {step.parts.map((part, j) => {
-                const isRevealed = revealedWords.has(part);
+                const isRevealed = showAnswer || revealedWords.has(part);
                 return (
                   <span key={j}>
                     {j > 0 && <span className="compound-join"> {step.joiner ?? "+"} </span>}
@@ -212,7 +212,7 @@ function EtymologyPath({
             </span>
           );
         }
-        const isRevealed = revealedWords.has(step.word);
+        const isRevealed = showAnswer || revealedWords.has(step.word);
         return (
           <span key={i}>
             {i > 0 && <span className="arrow"> → </span>}
@@ -310,12 +310,10 @@ function GameView({
   wordData,
   date,
   isToday,
-  onOpenCalendar,
 }: {
   wordData: WordData;
   date: string;
   isToday: boolean;
-  onOpenCalendar: () => void;
 }) {
   const { state, setCurrentGuess, submitGuess, maxGuesses } = useGame(wordData, date);
   const { guesses, currentGuess, revealedHints, status } = state;
@@ -324,6 +322,12 @@ function GameView({
   const [inputFocused, setInputFocused] = useState(true);
 
   const [copied, setCopied] = useState(false);
+  // Only show the modal automatically if the game just ended (not if already finished on load).
+  // Note: an in-progress game must still return true, so finishing it mid-session pops the modal.
+  const [showResultModal, setShowResultModal] = useState(() => {
+    const result = getStoredGameResult(date, wordData);
+    return result !== "won" && result !== "lost";
+  });
 
   const answer = wordData.answer;
   const revealedTypes = new Set(
@@ -397,7 +401,7 @@ function GameView({
   }
 
   useEffect(() => {
-    if (status === "won") {
+    if (status === "won" && showResultModal) {
       confetti({
         particleCount: 120,
         spread: 80,
@@ -451,191 +455,255 @@ function GameView({
 
   return (
     <>
-      {status === "playing" ? (
-        <section className="word-input-section">
-          <form onSubmit={handleSubmit} className="word-input-form">
-            {template ? (
-              /* Cell-based input: fixed + editable in one row */
-              <div className="word-cells" onClick={focusInput}>
-                {displayCells!.map((ch, i) => {
-                  const isFixed = template[i] !== null;
-                  const isEmpty = ch === "";
-                  const isCaret = inputFocused && i === caretIndex;
+      <section className="etymology-path-section">
+        <EtymologyPath
+          etymology={wordData.etymology}
+          answer={answer}
+          revealedWords={revealedEtymWords}
+          showAnswer={status !== "playing"}
+        />
+      </section>
+
+      <div className="game-layout">
+        <div className="game-col-left">
+          <section className="hints-section">
+            <h2>Pistas</h2>
+            <ol className="hints-list">
+              {wordData.hints.map((hint, i) => {
+                const isRevealed = i < revealedHints;
+                const spoilers = Array.isArray(hint.spoilerText)
+                  ? hint.spoilerText
+                  : [hint.spoilerText];
+                const parts = hint.template.split("{spoiler}");
+                return (
+                  <li key={i} className={`hint ${isRevealed ? "revealed" : "locked"}`}>
+                    <span className="hint-number">{i + 1}.</span>
+                    <span className="hint-text">
+                      {parts.map((part, j) => (
+                        <Fragment key={j}>
+                          {part}
+                          {j < spoilers.length && (
+                            <span className={`spoiler ${isRevealed ? "open" : ""}`}>
+                              {isRevealed
+                                ? spoilers[j]
+                                : spoilers[j].replace(/\S/g, "•")}
+                            </span>
+                          )}
+                        </Fragment>
+                      ))}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        </div>
+
+        <div className="game-col-right">
+          {status === "playing" ? (
+            <section className="word-input-section">
+              <form onSubmit={handleSubmit} className="word-input-form">
+                {template ? (
+                  /* Cell-based input: fixed + editable in one row */
+                  <div className="word-cells" onClick={focusInput}>
+                    {displayCells!.map((ch, i) => {
+                      const isFixed = template[i] !== null;
+                      const isEmpty = ch === "";
+                      const isCaret = inputFocused && i === caretIndex;
+                      return (
+                        <span
+                          key={i}
+                          className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}${isCaret ? " caret" : ""}`}
+                        >
+                          {isEmpty ? "_" : ch}
+                        </span>
+                      );
+                    })}
+                    <input
+                      ref={hiddenInputRef}
+                      type="text"
+                      className="hidden-input"
+                      value={currentGuess}
+                      onChange={(e) => handleTyping(e.target.value)}
+                      onFocus={() => setInputFocused(true)}
+                      onBlur={() => setInputFocused(false)}
+                      autoFocus
+                      autoComplete="off"
+                      autoCapitalize="off"
+                    />
+                  </div>
+                ) : (
+                  /* Free-form input before letter count is known */
+                  <div className="free-input-row">
+                    {freePrefix && <span className="free-fixed">{freePrefix}</span>}
+                    <input
+                      type="text"
+                      className="word-input free-middle"
+                      value={currentGuess}
+                      onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ˜~´`']/gi, "").toLowerCase())}
+                      placeholder="..."
+                      size={Math.max(3, currentGuess.length + 1)}
+                      autoFocus
+                      autoComplete="off"
+                      autoCapitalize="off"
+                    />
+                    {freeSuffix && <span className="free-fixed">{freeSuffix}</span>}
+                  </div>
+                )}
+                <div className="action-buttons">
+                  <button type="submit" className="guess-button">
+                    Adivinar
+                  </button>
+                  <button type="button" className="skip-button" onClick={handleSkip}>
+                    Saltar
+                  </button>
+                </div>
+              </form>
+              <p className="attempts-left">
+                {attemptsLeft === 1
+                  ? "¡Último intento!"
+                  : `${attemptsLeft} intentos restantes`}
+              </p>
+              {guesses.length > 0 && (
+                <div className="guess-chips">
+                  {guesses.map((g, i) => (
+                    <span key={i} className={`chip ${g === "" ? "skipped" : "wrong"}`}>
+                      {g === "" ? "—" : g}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </section>
+          ) : !showResultModal ? (
+            /* Result content lands here after modal is dismissed */
+            <section className="word-input-section result-card-inline">
+              <div className={`result-banner ${status}`}>
+                {status === "won" ? (
+                  <>
+                    <h2>¡Correcto! 🎉</h2>
+                    <p>
+                      Adivinaste en {guesses.length}{" "}
+                      {guesses.length === 1 ? "intento" : "intentos"}.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h2>¡Se acabaron los intentos!</h2>
+                    <p>
+                      La palabra era: <strong>{wordData.answer}</strong>
+                    </p>
+                  </>
+                )}
+              </div>
+              <div className="guess-chips result-chips">
+                {guesses.map((g, i) => {
+                  const isCorrect =
+                    g.length > 0 &&
+                    g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
+                      answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
                   return (
                     <span
                       key={i}
-                      className={`cell${isFixed ? " fixed" : ""}${isEmpty ? " empty" : ""}${isCaret ? " caret" : ""}`}
+                      className={`chip ${g === "" ? "skipped" : isCorrect ? "correct" : "wrong"}`}
                     >
-                      {isEmpty ? "_" : ch}
+                      {g === "" ? "—" : g}
                     </span>
                   );
                 })}
-                <input
-                  ref={hiddenInputRef}
-                  type="text"
-                  className="hidden-input"
-                  value={currentGuess}
-                  onChange={(e) => handleTyping(e.target.value)}
-                  onFocus={() => setInputFocused(true)}
-                  onBlur={() => setInputFocused(false)}
-                  autoFocus
-                  autoComplete="off"
-                  autoCapitalize="off"
-                />
               </div>
-            ) : (
-              /* Free-form input before letter count is known */
-              <div className="free-input-row">
-                {freePrefix && <span className="free-fixed">{freePrefix}</span>}
-                <input
-                  type="text"
-                  className="word-input free-middle"
-                  value={currentGuess}
-                  onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ˜~´`']/gi, "").toLowerCase())}
-                  placeholder="..."
-                  size={Math.max(3, currentGuess.length + 1)}
-                  autoFocus
-                  autoComplete="off"
-                  autoCapitalize="off"
-                />
-                {freeSuffix && <span className="free-fixed">{freeSuffix}</span>}
+              <button ref={shareButtonRef} className="share-button" onClick={shareResult}>
+                {copied ? "✅ Copiado al portapapeles" : "🔗 Compartir mi resultado"}
+              </button>
+              <div className="word-detail">
+                <h3>{wordData.answer}</h3>
+                <p className="definition">{wordData.definition}</p>
               </div>
-            )}
-            <div className="action-buttons">
-              <button type="submit" className="guess-button">
-                Adivinar
-              </button>
-              <button type="button" className="skip-button" onClick={handleSkip}>
-                Saltar
-              </button>
-            </div>
-          </form>
-          <p className="attempts-left">
-            {attemptsLeft === 1
-              ? "¡Último intento!"
-              : `${attemptsLeft} intentos restantes`}
-          </p>
-          {guesses.length > 0 && (
-            <div className="guess-chips">
-              {guesses.map((g, i) => (
-                <span key={i} className={`chip ${g === "" ? "skipped" : "wrong"}`}>
-                  {g === "" ? "—" : g}
-                </span>
-              ))}
-            </div>
-          )}
-        </section>
-      ) : (
-        <section className="result-card">
-          <div className={`result-banner ${status}`}>
-            {status === "won" ? (
-              <>
-                <h2>¡Correcto! 🎉</h2>
-                <p>
-                  Adivinaste en {guesses.length}{" "}
-                  {guesses.length === 1 ? "intento" : "intentos"}.
-                </p>
-              </>
-            ) : (
-              <>
-                <h2>¡Se acabaron los intentos!</h2>
-                <p>
-                  La palabra era: <strong>{wordData.answer}</strong>
-                </p>
-              </>
-            )}
-          </div>
-          <div className="guess-chips result-chips">
-            {guesses.map((g, i) => {
-              const isCorrect =
-                g.length > 0 &&
-                g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
-                  answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
-              return (
-                <span
-                  key={i}
-                  className={`chip ${g === "" ? "skipped" : isCorrect ? "correct" : "wrong"}`}
-                >
-                  {g === "" ? "—" : g}
-                </span>
-              );
-            })}
-          </div>
-          <button ref={shareButtonRef} className="share-button" onClick={shareResult}>
-            {copied ? "✅ Copiado al portapapeles" : "🔗 Compartir mi resultado"}
-          </button>
-          <div className="word-detail">
-            <h3>{wordData.answer}</h3>
-            <p className="definition">{wordData.definition}</p>
-            <EtymologyChain
-              etymology={wordData.etymology}
-              answer={wordData.answer}
-            />
-          </div>
-          <div className="next-word-timer">
-            {isToday ? (
-              <>
-                <p>Próxima palabra en:</p>
-                <p className="countdown">{countdown}</p>
-              </>
-            ) : (
-              <p className="past-day-note">{formatSpanishDate(date)}</p>
-            )}
-          </div>
-          <button
-            className="calendar-open-btn result-calendar-btn"
-            onClick={onOpenCalendar}
-            aria-label="Ver palabras anteriores"
-            title="Ver palabras anteriores"
-          >
-            <CalendarHistoryIcon />
-            <span className="calendar-open-btn-label">Ver palabras anteriores</span>
-          </button>
-        </section>
-      )}
+              {isToday && (
+                <div className="next-word-timer">
+                  <p>Próxima palabra en:</p>
+                  <p className="countdown">{countdown}</p>
+                </div>
+              )}
+            </section>
+          ) : null}
+        </div>
+      </div>
 
-      {status === "playing" && (
-        <section className="etymology-path-section">
-          <EtymologyPath
-            etymology={wordData.etymology}
-            answer={answer}
-            revealedWords={revealedEtymWords}
-            showAnswer={false}
-          />
-        </section>
+      {/* Result modal (shown when game ends, until dismissed) */}
+      {status !== "playing" && showResultModal && (
+        <div className="result-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowResultModal(false); }}>
+          <div className="result-modal">
+            <button className="result-modal-close" onClick={() => setShowResultModal(false)} aria-label="Cerrar">✕</button>
+            <div className={`result-banner ${status}`}>
+              {status === "won" ? (
+                <>
+                  <h2>¡Correcto! 🎉</h2>
+                  <p>
+                    Adivinaste en {guesses.length}{" "}
+                    {guesses.length === 1 ? "intento" : "intentos"}.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2>¡Se acabaron los intentos!</h2>
+                  <p>
+                    La palabra era: <strong>{wordData.answer}</strong>
+                  </p>
+                </>
+              )}
+            </div>
+            <div className="guess-chips result-chips">
+              {guesses.map((g, i) => {
+                const isCorrect =
+                  g.length > 0 &&
+                  g.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC") ===
+                    answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u0302\u0304-\u036f]/g, "").normalize("NFC");
+                return (
+                  <span
+                    key={i}
+                    className={`chip ${g === "" ? "skipped" : isCorrect ? "correct" : "wrong"}`}
+                  >
+                    {g === "" ? "—" : g}
+                  </span>
+                );
+              })}
+            </div>
+            <button ref={shareButtonRef} className="share-button" onClick={shareResult}>
+              {copied ? "✅ Copiado al portapapeles" : "🔗 Compartir mi resultado"}
+            </button>
+            <div className="word-detail">
+              <h3>{wordData.answer}</h3>
+              <p className="definition">{wordData.definition}</p>
+              <EtymologyChain
+                etymology={wordData.etymology}
+                answer={wordData.answer}
+              />
+            </div>
+            <div className="next-word-timer">
+              {isToday ? (
+                <>
+                  <p className="past-day-note">
+                    <span className={`difficulty-label difficulty-${wordData.difficulty}`}>
+                      {DIFFICULTY_LABELS[wordData.difficulty]}
+                    </span>
+                  </p>
+                  <hr className="modal-divider" />
+                  <p>Próxima palabra en:</p>
+                  <p className="countdown">{countdown}</p>
+                </>
+              ) : (
+                <p className="past-day-note">
+                  {formatSpanishDate(date)}
+                  <span className="header-sep" aria-hidden="true"> | </span>
+                  <span className={`difficulty-label difficulty-${wordData.difficulty}`}>
+                    {DIFFICULTY_LABELS[wordData.difficulty]}
+                  </span>
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
       )}
-
-      <section className="hints-section">
-        <h2>Pistas</h2>
-        <ol className="hints-list">
-          {wordData.hints.map((hint, i) => {
-            const isRevealed = i < revealedHints;
-            const spoilers = Array.isArray(hint.spoilerText)
-              ? hint.spoilerText
-              : [hint.spoilerText];
-            const parts = hint.template.split("{spoiler}");
-            return (
-              <li key={i} className={`hint ${isRevealed ? "revealed" : "locked"}`}>
-                <span className="hint-number">{i + 1}.</span>
-                <span className="hint-text">
-                  {parts.map((part, j) => (
-                    <Fragment key={j}>
-                      {part}
-                      {j < spoilers.length && (
-                        <span className={`spoiler ${isRevealed ? "open" : ""}`}>
-                          {isRevealed
-                            ? spoilers[j]
-                            : spoilers[j].replace(/\S/g, "•")}
-                        </span>
-                      )}
-                    </Fragment>
-                  ))}
-                </span>
-              </li>
-            );
-          })}
-        </ol>
-      </section>
     </>
   );
 }
@@ -705,7 +773,6 @@ export default function App() {
           wordData={wordData}
           date={currentDate}
           isToday={isToday}
-          onOpenCalendar={() => setShowCalendar(true)}
         />
       ) : (
         <p className="no-word-msg">No hay palabra para este día.</p>
