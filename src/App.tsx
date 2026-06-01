@@ -387,7 +387,7 @@ function GameView({
   }
 
   function handleTyping(value: string) {
-    const lettersOnly = value.replace(/[^a-záéíóúüñ]/gi, "");
+    const lettersOnly = value.replace(/[^a-záéíóúüñ˜~´`']/gi, "");
     const clamped = lettersOnly.toLowerCase().slice(0, editableSlots);
     setCurrentGuess(clamped);
   }
@@ -491,7 +491,7 @@ function GameView({
                   type="text"
                   className="word-input free-middle"
                   value={currentGuess}
-                  onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ]/gi, "").toLowerCase())}
+                  onChange={(e) => setCurrentGuess(e.target.value.replace(/[^a-záéíóúüñ˜~´`']/gi, "").toLowerCase())}
                   placeholder="..."
                   size={Math.max(3, currentGuess.length + 1)}
                   autoFocus
