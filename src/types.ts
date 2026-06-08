@@ -1,6 +1,12 @@
 export interface EtymologyStep {
   word: string;
-  language: string;
+  /**
+   * A single language, or one language per part (parallel to `parts`, same
+   * length/order). Use an array for a cruce between words of different
+   * languages — each part then shows its own label. An empty string in the
+   * array omits the label for that part.
+   */
+  language: string | string[];
   /** For compound etymologies (e.g. xoco + atl = xocoatl). Each part is revealed independently in the path. */
   parts?: string[];
   /** Separator rendered between parts. Defaults to "+". Use "✕" for a cruce (crossing of words). */

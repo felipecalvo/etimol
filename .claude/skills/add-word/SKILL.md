@@ -95,6 +95,8 @@ For every word, write a single entry in `src/words.txt` matching the `data.ts` s
 
 For compound etymologies (e.g., `xocoatl = xoco + atl`), use the `parts` field — see the `chocolate` entry in `data.ts` for the exact shape.
 
+For words that come from combining two words (i.e. Tecla: Cruce del b. lat. *thecula, dim. del lat. theca 'caja', y el ár. hisp. táqra, y este del berb. tegra 'cuenco'.), you can use multiple `language` + `word` pairs in the `etymology` array. See `meñique` in `data.ts` for an example of a three-step chain with two pairs of etymons. In a more complex one like the `tecla` example, you can use `parts` to break down the compound etymon into its components, and then list the source languages for each component in the `etymology` array. The key is to capture all the etymological information RAE provides without losing any steps.
+
 ### 4. Design five clues per word
 
 Mirror the hint patterns already in `data.ts`. Every entry has exactly 5 hints; pick a mix from these types:

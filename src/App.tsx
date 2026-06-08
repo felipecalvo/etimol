@@ -162,6 +162,11 @@ function CalendarModal({
   );
 }
 
+/** Collapse a step's language(s) into a single label for non-compound rendering. */
+function langLabel(language: string | string[]): string {
+  return Array.isArray(language) ? language.filter(Boolean).join(" / ") : language;
+}
+
 function EtymologyChain({
   etymology,
   answer,
@@ -171,13 +176,34 @@ function EtymologyChain({
 }) {
   return (
     <div className="etymology-chain">
-      {etymology.map((step, i) => (
-        <span key={i}>
-          {i > 0 && <span className="arrow"> → </span>}
-          <em>{step.word}</em>
-          <span className="lang"> ({step.language})</span>
-        </span>
-      ))}
+      {etymology.map((step, i) => {
+        if (step.parts && Array.isArray(step.language)) {
+          // Compound with per-part languages: render each part with its own language.
+          const partLangs = step.language;
+          return (
+            <span key={i}>
+              {i > 0 && <span className="arrow"> → </span>}
+              {step.parts.map((part, j) => {
+                const partLang = partLangs[j];
+                return (
+                  <span key={j}>
+                    {j > 0 && <span className="compound-join"> {step.joiner ?? "+"} </span>}
+                    <em>{part}</em>
+                    {partLang && <span className="lang"> ({partLang})</span>}
+                  </span>
+                );
+              })}
+            </span>
+          );
+        }
+        return (
+          <span key={i}>
+            {i > 0 && <span className="arrow"> → </span>}
+            <em>{step.word}</em>
+            <span className="lang"> ({langLabel(step.language)})</span>
+          </span>
+        );
+      })}
       <span className="arrow"> → </span>
       <strong>{answer}</strong>
     </div>
@@ -200,21 +226,24 @@ function EtymologyPath({
       {etymology.map((step, i) => {
         if (step.parts) {
           // Compound etymology: render each part separately with "+"
+          const partLangs = Array.isArray(step.language) ? step.language : null;
           return (
             <span key={i}>
               {i > 0 && <span className="arrow"> → </span>}
               {step.parts.map((part, j) => {
                 const isRevealed = showAnswer || revealedWords.has(part);
+                const partLang = partLangs?.[j];
                 return (
                   <span key={j}>
                     {j > 0 && <span className="compound-join"> {step.joiner ?? "+"} </span>}
                     <span className={`spoiler ${isRevealed ? "open" : ""}`}>
                       {isRevealed ? part : part.replace(/./g, "•")}
                     </span>
+                    {partLang && <span className="lang"> ({partLang})</span>}
                   </span>
                 );
               })}
-              <span className="lang"> ({step.language})</span>
+              {!partLangs && <span className="lang"> ({langLabel(step.language)})</span>}
             </span>
           );
         }
@@ -225,7 +254,7 @@ function EtymologyPath({
             <span className={`spoiler ${isRevealed ? "open" : ""}`}>
               {isRevealed ? step.word : step.word.replace(/./g, "•")}
             </span>
-            <span className="lang"> ({step.language})</span>
+            <span className="lang"> ({langLabel(step.language)})</span>
           </span>
         );
       })}
