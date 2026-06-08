@@ -133,10 +133,8 @@ The "originalmente significaba" hint is a great way to convey a fun semantic shi
 - ❌ `Es una parte {spoiler} de un cuerpo` → reveals "body part" upfront.
 - ❌ `Sirve para desenredar el {spoiler}` → reveals the function.
 - ❌ `Es un rollo de hojas de {spoiler}` → basically tells the player "rolled leaves of X".
-- ✅ `Es un {spoiler}` with spoiler `"calzado que no pasa del tobillo"` — visible is just "Es un _".
+- ✅ `Es {spoiler}` with spoiler `"un calzado que no pasa del tobillo"` — visible is just "Es _". The gender is not revealed because it would be confusing; in this case, the word (bota) is feminine, but it would show "Es un" instead of "Es una".
 - ✅ `Significa «{spoiler}»` — visible is "Significa _".
-
-The article `un`/`una` matches the gender of the noun *inside* the spoiler, not the answer — so a feminine answer can still take `Es un {spoiler}` if the spoiler starts with a masculine noun. (Mixing genders can even be a small misdirection.)
 
 **4e. Words where the etymon equals/resembles the answer get special structure.** Examples: `tsunami` ← jp. *tsunami*, `sapo` ← prerr. *sapo*. A standard `Del X «{spoiler}»` hint would give it away with a flash of the answer-shaped word. Instead:
 - Lead with a `definition` hint about the *original meaning* (`"En japonés es una composición de «puerto» + «ola»"`).
@@ -153,15 +151,22 @@ The article `un`/`una` matches the gender of the noun *inside* the spoiler, not 
 
 ### 5. Assign difficulty (1-5)
 
-`difficulty` is the *expected number of guesses*, not the hint count:
+`difficulty` measures **how hard it is to land the answer from the clues** — not how rare the word is. The dominant axis is **etymon-to-answer distance**: if the revealed etymons don't resemble the answer, the etymology hints (most of the reveal) give the player no traction, and even a household word is hard. Word frequency and length are secondary modifiers.
 
-- **1 — muy fácil**: very common word + transparent etymology + short. The first hint usually gives it away. E.g., `feo` (← lat. *foedus*), `fe` (← lat. *fides*).
-- **2 — fácil**: common everyday word with a recognizable etymology. E.g., `peine`, `tejer`, `llave`.
-- **3 — media**: common word with a non-obvious etymology, or a less-frequent word with clear roots. Most words land here. E.g., `zapato` (turco), `cigarro` (maya), `golpe` (griego).
-- **4 — difícil**: surprising etymology that misleads (`tortuga` ← 'demonio'), unusual source language (`pizarra` ← vasco), or a long uncommon word.
-- **5 — muy difícil**: rare word, very obscure etymon, or one where every clue still leaves a lot of plausible options.
+The bands, calibrated against the entries in `data.ts`:
 
-When in doubt, lean to 3. Difficulty is meant to set expectations, not gatekeep.
+- **1 — muy fácil**: ubiquitous, short word that the clues converge on almost immediately — the definition is unmistakable and/or an etymon is close. The exotic source doesn't matter when the word is this common. E.g., `zapato` (← turco *zabata*), `bota` (← fr. *botte*).
+- **2 — fácil**: common, usually short word with one wrinkle — a slightly opaque etymon, or an etymon that equals the answer so it falls the moment any etymology shows. E.g., `feo` (← lat. *foedus*), `buzo`, `tsunami` (etymon = answer).
+- **3 — media**: common word whose single Latin/Romance root is recognizable *once shown* — you can work back from the etymon. E.g., `cocina` (← lat. *coquere*), `llave` (← lat. *clavis*), `imán` (← fr. *aimant*).
+- **4 — difícil** *(the default landing spot)*: any one of — an exotic/surprising source language (`cigarro` ← maya, `flecha` ← fráncico, `sandía` ← ár., vía topónimo *Sind*); a misleading semantic shift (`ángulo` ← 'encorvado', `rascar` ← 'raer, afeitar'); or an etymon you can't reverse-engineer the answer from, on a word of medium familiarity (`meñique`, `zanahoria`, `cetro`, `sembrar`).
+- **5 — muy difícil**: the clues leave the field wide open. This happens **even for common words** when the etymon is phonetically unrecognizable from the answer — the etymology hints do nothing and only the (late) definition pins it down: `peine` (← lat. *pecten*), `costumbre` (← lat. *consuetūdo*), `cerda` (← lat. *cirrus* 'rizo'), `buche` (← lat. *bucca* 'boca'), `hebilla` (← lat. *fibŭla*). Also: long all-foreign chains (`ajedrez`: sánscrito → pelvi → árabe) and proper-noun/toponym origins (`jinete` ← ár. hisp. *zanáti*, gentilicio of a Berber tribe).
+
+**Quick adjustments:**
+
+- Push **up** (land at 4–5): etymon shares few letters/sounds with the answer (`fibŭla`→hebilla, `pecten`→peine); exotic source language or proper-noun/toponym origin; original meaning misleads; the clued sense isn't the word's most common sense (`cerda`, `buche`); long multi-step foreign chain.
+- Push **down** (toward 1–3): a revealed etymon resembles or equals the answer (`tsunami`, `clavis`→llave); very common *and* short; single recognizable Latin/Romance root.
+
+When in doubt, lean to **4** — the 1–3 bands are reserved for words genuinely easy to land from the clues. A word's commonness does **not** rescue it from a 5 if its etymon is opaque (`peine`, `costumbre` are both 5).
 
 ### 6. Report unusual cases to the user
 
