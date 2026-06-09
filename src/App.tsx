@@ -548,13 +548,26 @@ function GameView({
       : `${window.location.origin}${window.location.pathname}#${date}`;
     const title = isToday ? "Etimol del día" : `Etimol del ${formatShortDate(date)}`;
     const score = status === "lost" ? "x" : guesses.length;
-    const text = `${title}: ${score}/${maxGuesses}\n${emojiLine}\n${url}`;
+    // First hint is shown by default, so revealing its spoiler here isn't a spoiler.
+    const firstHint = wordData.hints[0];
+    const firstSpoilers = Array.isArray(firstHint.spoilerText)
+      ? firstHint.spoilerText
+      : [firstHint.spoilerText];
+    let spoilerIdx = 0;
+    const firstHintText = firstHint.template.replace(
+      /\{spoiler\}/g,
+      () => firstSpoilers[spoilerIdx++] ?? ""
+    );
+    const clue = /(\.\.\.|…)$/.test(firstHintText.trimEnd())
+      ? firstHintText
+      : `${firstHintText}...`;
+    const text = `${title}: "${clue}"\n${score}/${maxGuesses} ${emojiLine}\n${url}`;
     shareButtonRef.current?.blur();
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
-  }, [guesses, answer, maxGuesses, status]);
+  }, [guesses, answer, maxGuesses, status, wordData]);
 
   return (
     <>
