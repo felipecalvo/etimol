@@ -2486,6 +2486,39 @@ const words: DailyWord[] = [
     },
   },
   {
+    date: "2026-05-23",
+    word: {
+      answer: "lengua",
+      definition:
+        "f. Órgano muscular situado en la cavidad de la boca de los vertebrados y que sirve para gustar y deglutir, así como para modular sonidos.",
+      difficulty: 1,
+      etymology: [{ word: "lingua", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "lingua" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "l" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "órgano muscular de la boca" },
+      ],
+    },
+  },
+  {
+    date: "2026-05-24",
+    word: {
+      answer: "penal",
+      definition: "adj. Perteneciente o relativo a la pena, o que la incluye.",
+      difficulty: 2,
+      etymology: [{ word: "poenālis", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "poenālis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "l" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "relativo a la pena o castigo" },
+      ],
+    },
+  },
+  {
     date: "2026-05-25",
     word: {
       answer: "ajedrez",
@@ -2819,6 +2852,154 @@ const words: DailyWord[] = [
         { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "s" },
         { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
         { type: "definition", template: "Significa «{spoiler}»", spoilerText: "esparcir semillas en la tierra" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-10",
+    word: {
+      answer: "tecla",
+      definition:
+        "f. Cada una de las piezas que, por la presión de los dedos, hacen sonar ciertos instrumentos musicales.",
+      difficulty: 3,
+      etymology: [
+        { word: "thecula ✕ táqra", language: ["bajo latín", "árabe hispánico"], parts: ["thecula", "táqra"], joiner: "✕" },
+      ],
+      hints: [
+        { type: "etymology", template: "Cruce de dos palabras: del bajo latín «{spoiler}», diminutivo del latín «{spoiler}»...", spoilerText: ["thecula", "theca"] },
+        { type: "etymology", template: "...y del árabe hispánico «{spoiler}», que viene del bereber «{spoiler}»", spoilerText: ["táqra", "tegra"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["t", "a"] },
+        { type: "definition", template: "«{spoiler}»", spoilerText: "Hace sonar instrumentos musicales" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-11",
+    word: {
+      answer: "espejo",
+      definition:
+        "m. Tabla de cristal azogado por la parte posterior, y también de acero u otro material bruñido, para que se reflejen en él los objetos que tenga delante.",
+      difficulty: 4,
+      etymology: [{ word: "specŭlum", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "specŭlum" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "e" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una superficie que refleja la imagen" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-12",
+    word: {
+      answer: "chico",
+      definition: "adj. De tamaño pequeño o menor que otros de su especie o tipo.",
+      difficulty: 2,
+      etymology: [{ word: "ciccum", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "De origen expresivo; se compara con el latín «{spoiler}»", spoilerText: "ciccum" },
+        { type: "definition", template: "Ese latín significaba «{spoiler}»", spoilerText: "cosa de poquísimo valor" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-13",
+    word: {
+      answer: "almendra",
+      definition: "f. Fruto del almendro.",
+      difficulty: 5,
+      etymology: [
+        { word: "ἀμυγδάλη (amygdálē)", language: "griego" },
+        { word: "amygdăla", language: "latín" },
+        { word: "amyndŭla", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}» y del latín «{spoiler}»", spoilerText: ["ἀμυγδάλη (amygdálē)", "amygdăla"] },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "amyndŭla" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "a"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un fruto color canela" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-14",
+    word: {
+      answer: "mochila",
+      definition:
+        "f. Bolsa de lona o de otro material resistente que, provista de correas para ser cargada a la espalda, sirve para llevar provisiones o equipos en excursiones, expediciones, viajes, etc.",
+      difficulty: 2,
+      etymology: [{ word: "mochil", language: "español" }],
+      hints: [
+        { type: "definition", template: "Deriva de una palabra que significa: «{spoiler}»", spoilerText: "Muchacho que sirve a los labradores para llevar o traer recados a los mozos del campo." },
+        { type: "etymology", template: "De «{spoiler}»", spoilerText: "mochil" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-15",
+    word: {
+      answer: "tortuga",
+      definition:
+        "f. Reptil marino del orden de los quelonios, que llega a tener hasta dos metros y medio de largo y uno de ancho, con las extremidades torácicas más desarrolladas que las abdominales, unas y otras en forma de paletas, que no pueden ocultarse, y coraza, cuyas láminas, más fuertes en el espaldar que en el peto, tienen manchas verdosas y rojizas.",
+      difficulty: 4,
+      etymology: [
+        { word: "ταρταροῦχος (tartaroûchos)", language: "griego" },
+        { word: "tartarūchus", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}» y del latín tardío «{spoiler}»", spoilerText: ["ταρταροῦχος (tartaroûchos)", "tartarūchus"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "En griego significaba «{spoiler}»", spoilerText: "habitante del Tártaro o infierno" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-16",
+    word: {
+      answer: "techo",
+      definition:
+        "m. Parte superior de un edificio, construcción, habitáculo, etc., que lo cubre y cierra.",
+      difficulty: 4,
+      etymology: [
+        { word: "tegĕre", language: "latín" },
+        { word: "tectum", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "tegĕre" },
+        { type: "definition", template: "Esa raíz significaba «{spoiler}» o «{spoiler}»", spoilerText: ["cubrir", "proteger"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "tectum" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["t", "o"] },
+      ],
+    },
+  },
+  {
+    date: "2026-06-17",
+    word: {
+      answer: "pulgar",
+      definition: "m. Dedo del lado interior de la mano, que en el hombre tiene solo dos falanges y se opone a los demás para asir.",
+      difficulty: 3,
+      etymology: [
+        { word: "pollex, -ĭcis", language: "latín" },
+        { word: "pollicāris", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "pollex, -ĭcis" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "pollicāris" },
+        { type: "definition", template: "Esa palabra significaba «{spoiler}»", spoilerText: "de una pulgada" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "r"] },
       ],
     },
   },
