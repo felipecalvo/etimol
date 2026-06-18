@@ -2950,7 +2950,7 @@ const words: DailyWord[] = [
       answer: "tortuga",
       definition:
         "f. Reptil marino del orden de los quelonios, que llega a tener hasta dos metros y medio de largo y uno de ancho, con las extremidades torácicas más desarrolladas que las abdominales, unas y otras en forma de paletas, que no pueden ocultarse, y coraza, cuyas láminas, más fuertes en el espaldar que en el peto, tienen manchas verdosas y rojizas.",
-      difficulty: 4,
+      difficulty: 5,
       etymology: [
         { word: "ταρταροῦχος (tartaroûchos)", language: "griego" },
         { word: "tartarūchus", language: "latín tardío" },
@@ -3000,6 +3000,250 @@ const words: DailyWord[] = [
         { type: "definition", template: "Esa palabra significaba «{spoiler}»", spoilerText: "de una pulgada" },
         { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
         { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "r"] },
+      ],
+    },
+  },
+  {
+    date: "2026-06-18",
+    word: {
+      answer: "golpe",
+      definition: "m. Acción de dar con violencia un cuerpo contra otro.",
+      difficulty: 5,
+      etymology: [
+        { word: "κόλαφος (kólaphos)", language: "griego" },
+        { word: "colăphus", language: "latín" },
+        { word: "colŭpus", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κόλαφος (kólaphos)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del latín «{spoiler}», y del latín vulgar «{spoiler}»", spoilerText: ["colăphus", "colŭpus"] },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["g", "e"] },
+        { type: "definition", template: "En griego significaba «{spoiler}»", spoilerText: "bofetón" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-19",
+    word: {
+      answer: "burbuja",
+      definition:
+        "f. Glóbulo de aire u otro gas que se forma en el interior de algún líquido y sale a la superficie.",
+      difficulty: 3,
+      etymology: [
+        { word: "bulla", language: "latín" },
+        { word: "bulbulliare", language: "latín vulgar" },
+        { word: "burbujar", language: "español" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bulla" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "bulbulliare" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["b", "a"] },
+        { type: "etymology", template: "Deriva de «{spoiler}»", spoilerText: "burbujar" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-20",
+    word: {
+      answer: "alhaja",
+      definition: "f. Joya; adorno de metales o piedras preciosas.",
+      difficulty: 4,
+      etymology: [
+        { word: "ḥāǧah", language: "árabe clásico" },
+        { word: "alḥáǧa", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "ḥāǧah" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "definition", template: "Originalmente significaba «{spoiler}»", spoilerText: "cosa necesaria o valiosa" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "alḥáǧa" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "a"] },
+      ],
+    },
+  },
+  {
+    date: "2026-06-21",
+    word: {
+      answer: "tabaco",
+      definition:
+        "m. Producto elaborado con las hojas curadas del tabaco y que suele fumarse.",
+      difficulty: 3,
+      etymology: [{ word: "ṭubbāq", language: "árabe clásico" }],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "ṭubbāq" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "producto que se fuma" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-22",
+    word: {
+      answer: "reír",
+      definition:
+        "intr. Manifestar regocijo mediante determinados movimientos del rostro, acompañados frecuentemente por sacudidas del cuerpo y emisión de peculiares sonidos inarticulados.",
+      difficulty: 4,
+      etymology: [{ word: "ridēre", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "ridēre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "r" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "manifestar regocijo" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-23",
+    word: {
+      answer: "pizarra",
+      definition:
+        "f. Placa de plástico blanco usada para escribir o dibujar en ella con un tipo especial de rotuladores cuya tinta se borra con facilidad.",
+      difficulty: 5,
+      etymology: [
+        { word: "lapitzarri", language: "vasco", parts: ["lapitz", "arri"] },
+      ],
+      hints: [
+        { type: "etymology", template: "Quizá del vasco «{spoiler}» + …", spoilerText: "lapitz" },
+        { type: "etymology", template: "… + del vasco «{spoiler}»", spoilerText: "arri" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "a"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "usada para escribir o dibujar" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-24",
+    word: {
+      answer: "sapo",
+      definition:
+        "m. Anfibio anuro de cuerpo rechoncho y robusto, ojos saltones, extremidades cortas y piel de aspecto verrugoso.",
+      difficulty: 5,
+      etymology: [{ word: "de origen onomatopéyico", language: "prerromano" }],
+      hints: [
+        { type: "etymology", template: "Voz prerromana, {spoiler}, por el ruido al caer al agua", spoilerText: "de origen onomatopéyico" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "s" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "anfibio de piel verrugosa" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-25",
+    word: {
+      answer: "guerra",
+      definition:
+        "f. Desavenencia y rompimiento de la paz entre dos o más potencias.",
+      difficulty: 2,
+      etymology: [{ word: "werra", language: "germánico" }],
+      hints: [
+        { type: "etymology", template: "Del germánico «{spoiler}»", spoilerText: "werra" },
+        { type: "definition", template: "Originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["pelea", "discordia"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-26",
+    word: {
+      answer: "goma",
+      definition:
+        "f. Sustancia viscosa e incristalizable que naturalmente, o mediante incisiones, fluye de diversos vegetales, después de seca es soluble en agua e insoluble en el alcohol y el éter, y que disuelta en agua sirve para pegar o adherir cosas.",
+      difficulty: 4,
+      etymology: [
+        { word: "κόμμι (kómmi)", language: "griego" },
+        { word: "gummi", language: "latín" },
+        { word: "gumma", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κόμμι (kómmi)" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gummi" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "gumma" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["g", "a"] },
+      ],
+    },
+  },
+  {
+    date: "2026-06-27",
+    word: {
+      answer: "ducha",
+      definition:
+        "f. Proyección de agua que, en forma de lluvia o de chorro, se hace caer en el cuerpo para limpiarlo o refrescarlo, o con propósito medicinal.",
+      difficulty: 2,
+      etymology: [
+        { word: "doccia", language: "italiano" },
+        { word: "douche", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del italiano «{spoiler}»", spoilerText: "doccia" },
+        { type: "definition", template: "Originalmente significaba «{spoiler}»", spoilerText: "caño de agua" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "douche" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["d", "a"] },
+      ],
+    },
+  },
+  {
+    date: "2026-06-28",
+    word: {
+      answer: "hermético",
+      definition:
+        "adj. Que se cierra de tal modo que no deja pasar el aire u otros fluidos.",
+      difficulty: 4,
+      etymology: [
+        { word: "Hermes", language: "latín tardío" },
+        { word: "hermeticus", language: "latín medieval" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín tardío «{spoiler}», nombre griego del dios egipcio Tot...", spoilerText: "Hermes" },
+        { type: "definition", template: "...«{spoiler}»", spoilerText: "a quien se le atribuyeron conocimientos esotéricos y de alquimia" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "que no deja pasar el aire ni fluidos" },
+        { type: "etymology", template: "Del latín medieval «{spoiler}»", spoilerText: "hermeticus" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-29",
+    word: {
+      answer: "pieza",
+      definition: "f. Pedazo o parte de una cosa.",
+      difficulty: 4,
+      etymology: [{ word: "pĕttĭa", language: "celta" }],
+      hints: [
+        { type: "etymology", template: "Del celta «{spoiler}»", spoilerText: "pĕttĭa" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "z" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "a"] },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "pedazo o parte de una cosa" },
+      ],
+    },
+  },
+  {
+    date: "2026-06-30",
+    word: {
+      answer: "flanco",
+      definition:
+        "m. Cada una de las dos partes laterales de un cuerpo considerado de frente.",
+      difficulty: 5,
+      etymology: [
+        { word: "hlanca", language: "alto alemán antiguo" },
+        { word: "flanc", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del alto alemán antiguo «{spoiler}»", spoilerText: "hlanca" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "definition", template: "En alto alemán significaba «{spoiler}»", spoilerText: "cadera" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["f", "o"] },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "flanc" },
       ],
     },
   },
