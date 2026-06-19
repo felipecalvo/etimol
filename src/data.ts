@@ -3247,6 +3247,625 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-07-01",
+    word: {
+      answer: "faraón",
+      definition:
+        "m. y f. Cada uno de los antiguos reyes de Egipto anteriores a la conquista de este país por los persas.",
+      difficulty: 4,
+      etymology: [
+        { word: "pr‘", language: "egipcio" },
+        { word: "par‘oh", language: "hebreo" },
+        { word: "Φαραώ (Pharaṓ)", language: "griego" },
+        { word: "Pharăo, -ōnis", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del egipcio «{spoiler}», que significaba «{spoiler}»", spoilerText: ["pr‘", "casa grande"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Del hebreo «{spoiler}»", spoilerText: ["par‘oh"] },
+        { type: "etymology", template: "Del griego «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["Φαραώ (Pharaṓ)", "Pharăo, -ōnis"] },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["f", "n"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-02",
+    word: {
+      answer: "naipe",
+      definition: "m. Carta de la baraja.",
+      difficulty: 5,
+      etymology: [
+        { word: "ma‘íb", language: "árabe" },
+        { word: "naip", language: "catalán" },
+      ],
+      hints: [
+        { type: "etymology", template: "Quizá del árabe «{spoiler}»", spoilerText: "ma‘íb" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["n", "e"] },
+        { type: "definition", template: "En árabe significaba «{spoiler}»", spoilerText: "censurable" },
+        { type: "etymology", template: "Del catalán «{spoiler}»", spoilerText: "naip" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-03",
+    word: {
+      answer: "tejer",
+      definition: "tr. Formar en el telar la tela con la trama y la urdimbre.",
+      difficulty: 4,
+      etymology: [{ word: "texĕre", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "texĕre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "formar tela en el telar" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-04",
+    word: {
+      answer: "cementerio",
+      definition:
+        "m. Terreno, generalmente cercado, destinado a enterrar cadáveres.",
+      difficulty: 4,
+      etymology: [
+        { word: "κοιμητήριον (koimētḗrion)", language: "griego bizantino" },
+        { word: "coemeterĭum", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego bizantino «{spoiler}»", spoilerText: "κοιμητήριον (koimētḗrion)" },
+        { type: "definition", template: "Originalmente significaba «{spoiler}»", spoilerText: "dormitorio" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "10" },
+        { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "coemeterĭum" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["c", "o"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-05",
+    word: {
+      answer: "colmillo",
+      definition:
+        "m. Diente agudo y fuerte, colocado en cada uno de los lados de las hileras que forman los dientes incisivos de los mamíferos, entre el más lateral de aquellos y la primera muela.",
+      difficulty: 2,
+      etymology: [
+        { word: "columella", language: "latín" },
+        { word: "columellus", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["columella", "columellus"] },
+        { type: "definition", template: "Es «{spoiler}»", spoilerText: "una palabra en masculino" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-06",
+    word: {
+      answer: "jugo",
+      definition:
+        "m. Zumo de las sustancias animales o vegetales sacado por presión, cocción o destilación.",
+      difficulty: 4,
+      etymology: [{ word: "sucus", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "sucus" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "j" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "el zumo de animales o vegetales" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-07",
+    word: {
+      answer: "emplear",
+      definition:
+        "tr. Ocupar a alguien, encargándole un negocio, comisión o puesto.",
+      difficulty: 4,
+      etymology: [
+        { word: "implicāre", language: "latín" },
+        { word: "empleiier", language: "francés antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "implicāre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Originalmente significaba «{spoiler}» o «{spoiler}»", spoilerText: ["entrelazar", "enredar"] },
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "empleiier" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["e", "r"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-08",
+    word: {
+      answer: "brote",
+      definition: "m. Pimpollo o renuevo que empieza a desarrollarse.",
+      difficulty: 5,
+      etymology: [{ word: "brŭt", language: "gótico" }],
+      hints: [
+        { type: "etymology", template: "Del gótico «{spoiler}»", spoilerText: "brŭt" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "e" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "pimpollo que empieza a desarrollarse" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-09",
+    word: {
+      answer: "fe",
+      definition: "f. Conjunto de creencias de una religión.",
+      difficulty: 2,
+      etymology: [{ word: "fides", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "fides" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "2" },
+        { type: "definition", template: "{spoiler}", spoilerText: "Empieza con consonante" },
+        { type: "definition", template: "{spoiler}", spoilerText: "Termina con vocal" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "el conjunto de creencias de una religión" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-10",
+    word: {
+      answer: "centro",
+      definition:
+        "m. Punto interior que se toma como equidistante de los límites de una línea, superficie o cuerpo.",
+      difficulty: 3,
+      etymology: [
+        { word: "κέντρον (kéntron)", language: "griego" },
+        { word: "centrum", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κέντρον (kéntron)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "centrum" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-11",
+    word: {
+      answer: "hueco",
+      definition: "adj. Que tiene vacío el interior.",
+      difficulty: 3,
+      etymology: [{ word: "occāre", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "occāre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "ahuecar la tierra rastrillándola" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "h" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-12",
+    word: {
+      answer: "gobernar",
+      definition: "tr. Mandar con autoridad o regir algo.",
+      difficulty: 4,
+      etymology: [
+        { word: "κυβερνᾶν (kybernân)", language: "griego" },
+        { word: "gubernāre", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κυβερνᾶν (kybernân)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "definition", template: "Propiamente significaba «{spoiler}»", spoilerText: "pilotar una nave" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["g", "r"] },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gubernāre" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-13",
+    word: {
+      answer: "tercero",
+      definition: "adj. Que ocupa en una serie el lugar número tres.",
+      difficulty: 3,
+      etymology: [{ word: "tertiarius", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "tertiarius" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "de un tercio" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "t" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-14",
+    word: {
+      answer: "baño",
+      definition:
+        "m. Acción y efecto de someter el cuerpo o parte de él al influjo intenso o prolongado de un agente físico, ya sea calor, frío, vapor, sol, lodo, etc.",
+      difficulty: 2,
+      etymology: [{ word: "balneum", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "balneum" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "sala de baños" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-15",
+    word: {
+      answer: "esmeralda",
+      definition:
+        "f. Gema transparente muy apreciada, variedad del berilo, teñida de verde por el óxido de cromo.",
+      difficulty: 4,
+      etymology: [
+        { word: "σμάραγδος (smáragdos)", language: "griego" },
+        { word: "smaragdus", language: "latín" },
+        { word: "esmeralde", language: "francés antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}», y del latín «{spoiler}»", spoilerText: ["σμάραγδος (smáragdos)", "smaragdus"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "9" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["e", "a"] },
+        { type: "definition", template: "Es una {spoiler}", spoilerText: "gema verde, variedad del berilo" },
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "esmeralde" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-16",
+    word: {
+      answer: "jardín",
+      definition: "m. Terreno donde se cultivan plantas con fines ornamentales.",
+      difficulty: 4,
+      etymology: [
+        { word: "gard", language: "fráncico" },
+        { word: "jart", language: "francés antiguo" },
+        { word: "jardin", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del fráncico «{spoiler}»", spoilerText: "gard" },
+        { type: "definition", template: "En fráncico, originalmente significaba «{spoiler}»", spoilerText: "cercado" },
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "jart" },
+        { type: "definition", template: "En francés antiguo, originalmente significaba «{spoiler}»", spoilerText: "huerto" },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "jardin" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-17",
+    word: {
+      answer: "pompa",
+      definition:
+        "f. Acompañamiento suntuoso, numeroso y de gran aparato, que se hace en una función, ya sea de regocijo o fúnebre.",
+      difficulty: 5,
+      etymology: [
+        { word: "πέμπειν (pémpein)", language: "griego" },
+        { word: "πομπή (pompḗ)", language: "griego" },
+        { word: "pompa", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Derivado del griego «{spoiler}»", spoilerText: "πέμπειν (pémpein)" },
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "πομπή (pompḗ)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "definition", template: "En latín significaba «{spoiler}», «{spoiler}»", spoilerText: ["procesión, cortejo", "boato, ostentación"] },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "pompa" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-18",
+    word: {
+      answer: "fuego",
+      definition:
+        "m. Fenómeno caracterizado por la emisión de calor y de luz, generalmente con llama.",
+      difficulty: 2,
+      etymology: [{ word: "focus", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "focus" },
+        { type: "definition", template: "Significaba «{spoiler}» u «{spoiler}»", spoilerText: ["hogar", "hoguera"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-19",
+    word: {
+      answer: "alacrán",
+      definition:
+        "m. Escorpión; arácnido con la cola terminada en un aguijón venenoso.",
+      difficulty: 3,
+      etymology: [
+        { word: "‘aqrab", language: "árabe clásico" },
+        { word: "al‘aqráb", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "‘aqrab" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "al‘aqráb" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "n" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un escorpión" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-20",
+    word: {
+      answer: "artesano",
+      definition:
+        "m. y f. Persona que ejercita un arte u oficio meramente mecánico.",
+      difficulty: 1,
+      etymology: [{ word: "artigiano", language: "italiano" }],
+      hints: [
+        { type: "etymology", template: "Del italiano «{spoiler}»", spoilerText: "artigiano" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una persona que ejerce un oficio manual" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-21",
+    word: {
+      answer: "bulbo",
+      definition:
+        "m. Yema gruesa, por lo común subterránea, cuyas hojas están cargadas con sustancias de reserva.",
+      difficulty: 4,
+      etymology: [
+        { word: "βολβός (bolbós)", language: "griego" },
+        { word: "bulbus", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "βολβός (bolbós)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "b" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "bulbus" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-22",
+    word: {
+      answer: "huevo",
+      definition:
+        "m. Cuerpo redondeado, de tamaño y dureza variables, que producen las hembras de las aves o de otras especies animales, y que contiene el germen del embrión y las sustancias destinadas a su nutrición durante la incubación.",
+      difficulty: 1,
+      etymology: [{ word: "ovum", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "ovum" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "h" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "cuerpo redondeado que ponen las aves" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-23",
+    word: {
+      answer: "mellizo",
+      definition:
+        "adj. Dicho de una persona o de un animal: Nacido del mismo parto que otro, especialmente cuando se ha originado por la fecundación de distinto óvulo.",
+      difficulty: 4,
+      etymology: [
+        { word: "gemellus", language: "latín" },
+        { word: "gemellicius", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gemellus" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "gemellicius" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-24",
+    word: {
+      answer: "hablar",
+      definition: "intr. Emitir palabras.",
+      difficulty: 4,
+      etymology: [{ word: "fabulāri", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "fabulāri" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "definition", template: "Es «{spoiler}»", spoilerText: "un verbo" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "h" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "ar" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-25",
+    word: {
+      answer: "tapiz",
+      definition:
+        "m. Paño grande, tejido con lana o seda, y algunas veces con oro y plata, en el que se copian cuadros y sirve de paramento.",
+      difficulty: 4,
+      etymology: [
+        { word: "τάπης (tápēs)", language: "griego" },
+        { word: "ταπήτιον (tapḗtion)", language: "griego bizantino" },
+        { word: "tapiz", language: "francés antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "τάπης (tápēs)" },
+        { type: "etymology", template: "Del griego bizantino «{spoiler}»", spoilerText: "ταπήτιον (tapḗtion)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["t", "z"] },
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "tapiz" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-26",
+    word: {
+      answer: "morocho",
+      definition:
+        "adj. Arg., Bol., Par., Perú y Ur. Dicho de una persona: Que tiene la piel morena.",
+      difficulty: 1,
+      etymology: [{ word: "muruch'u", language: "quechua" }],
+      hints: [
+        { type: "etymology", template: "Del quechua «{spoiler}»", spoilerText: "muruch'u" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "variedad de maíz muy duro" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-27",
+    word: {
+      answer: "apostar",
+      definition:
+        "tr. Dicho de una persona: Pactar con otra u otras que aquel que se equivoque o no tenga razón, perderá la cantidad de dinero que se determine o cualquier otra cosa.",
+      difficulty: 5,
+      etymology: [
+        { word: "apponĕre", language: "latín" },
+        { word: "apposĭtum", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "apponĕre" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "colocar" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "apposĭtum" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "r"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-28",
+    word: {
+      answer: "dinosaurio",
+      definition:
+        "m. Reptil fósil, propio del Mesozoico, generalmente de gran tamaño, cabeza pequeña, cuello largo, cola robusta y larga, y extremidades posteriores más largas que las anteriores.",
+      difficulty: 2,
+      etymology: [
+        { word: "δεινός + σαῦρος", language: "griego", parts: ["δεινός (deinós)", "σαῦρος (saûros)"] },
+        { word: "dinosaurus", language: "latín" },
+        { word: "dinosaurium", language: "latín científico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}» + …", spoilerText: "δεινός (deinós)" },
+        { type: "etymology", template: "… + del griego «{spoiler}»", spoilerText: "σαῦρος (saûros)" },
+        { type: "definition", template: "Originalmente significaban «{spoiler}» + «{spoiler}»", spoilerText: ["terrible", "lagarto"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "10" },
+        { type: "etymology", template: "Del latín «{spoiler}» y del latín científico «{spoiler}»", spoilerText: ["dinosaurus", "dinosaurium"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-29",
+    word: {
+      answer: "alcalde",
+      definition:
+        "m. y f. Autoridad municipal que preside un ayuntamiento y que ejecuta los acuerdos de esta corporación.",
+      difficulty: 5,
+      etymology: [
+        { word: "qāḍī", language: "árabe clásico" },
+        { word: "alqáḍi", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "qāḍī" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "juez" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "alqáḍi" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "e"] },
+      ],
+    },
+  },
+  {
+    date: "2026-07-30",
+    word: {
+      answer: "herir",
+      definition:
+        "tr. Dañar a una persona o a un animal produciéndole una herida o una contusión.",
+      difficulty: 3,
+      etymology: [{ word: "ferīre", language: "latín" }],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "ferīre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "h" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "r" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "producir una herida" },
+      ],
+    },
+  },
+  {
+    date: "2026-07-31",
+    word: {
+      answer: "farmacia",
+      definition:
+        "f. Laboratorio y despacho del farmacéutico.",
+      difficulty: 1,
+      etymology: [
+        { word: "φαρμακεία (pharmakeía)", language: "griego" },
+        { word: "farmacie", language: "francés antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "φαρμακεία (pharmakeía)" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "uso de medicinas" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["f", "a"] },
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "farmacie" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-01",
+    word: {
+      answer: "aldea",
+      definition:
+        "f. Pueblo de escaso vecindario y, por lo común, sin jurisdicción propia.",
+      difficulty: 5,
+      etymology: [
+        { word: "ḍay‘ah", language: "árabe clásico" },
+        { word: "aḍḍáy‘a", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "ḍay‘ah" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "aḍḍáy‘a" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "a"] },
+        { type: "definition", template: "Es un {spoiler}", spoilerText: "pueblo pequeño sin jurisdicción propia" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-02",
+    word: {
+      answer: "iglesia",
+      definition:
+        "f. Congregación de los fieles cristianos en virtud del bautismo.",
+      difficulty: 4,
+      etymology: [
+        { word: "ἐκκλησία (ekklēsía)", language: "griego" },
+        { word: "ecclesĭa", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}» y del latín tardío «{spoiler}»", spoilerText: ["ἐκκλησία (ekklēsía)", "ecclesĭa"] },
+        { type: "definition", template: "Propiamente significaba «{spoiler}»", spoilerText: "asamblea" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "i" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
 ];
 
 export const GAME_START_DATE = "2026-03-19";
