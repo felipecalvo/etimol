@@ -3866,6 +3866,198 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-08-03",
+    word: {
+      answer: "billete",
+      definition:
+        "m. Papel impreso que tiene curso legal como dinero; papel moneda.",
+      difficulty: 1,
+      etymology: [
+        { word: "bullete", language: "francés antiguo" },
+        { word: "billet", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del francés antiguo «{spoiler}»", spoilerText: "bullete" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "documento" },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "billet" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["b", "e"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-04",
+    word: {
+      answer: "frenesí",
+      definition: "m. Violenta exaltación y perturbación del ánimo.",
+      difficulty: 5,
+      etymology: [
+        { word: "φρήν, φρενός (phrḗn, phrenós)", language: "griego" },
+        { word: "φρένησις (phrénēsis)", language: "griego" },
+        { word: "phrenēsis", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "φρήν, φρενός (phrḗn, phrenós)" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "inteligencia, mente" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+        { type: "etymology", template: "Del griego «{spoiler}», y del latín «{spoiler}»", spoilerText: ["φρένησις (phrénēsis)", "phrenēsis"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-05",
+    word: {
+      answer: "ataúd",
+      definition:
+        "m. Caja, ordinariamente de madera, donde se pone un cadáver para enterrarlo o para incinerarlo.",
+      difficulty: 4,
+      etymology: [
+        { word: "ḏb't", language: "egipcio" },
+        { word: "tēbāh", language: "hebreo" },
+        { word: "tēbūtā", language: "arameo" },
+        { word: "attabút", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del egipcio «{spoiler}», del hebreo «{spoiler}» y del arameo «{spoiler}»", spoilerText: ["ḏb't", "tēbāh", "tēbūtā"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "attabút" },
+        { type: "definition", template: "Es una {spoiler}", spoilerText: "caja para enterrar a un muerto" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-06",
+    word: {
+      answer: "fresco",
+      definition: "adj. Moderadamente frío.",
+      difficulty: 2,
+      etymology: [{ word: "frĭsk", language: "germánico" }],
+      hints: [
+        { type: "etymology", template: "Del germánico «{spoiler}»", spoilerText: "frĭsk" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "definition", template: "Significaba «{spoiler}» o «{spoiler}»", spoilerText: ["nuevo", "ágil"] },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "f" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-07",
+    word: {
+      answer: "velcro",
+      definition:
+        "m. Sistema de cierre o sujeción formado por dos tiras de tejidos diferentes que se enganchan al entrar en contacto.",
+      difficulty: 5,
+      etymology: [
+        { word: "velours + crochet", language: "francés", parts: ["velours", "crochet"] },
+      ],
+      hints: [
+        { type: "etymology", template: "Del francés «{spoiler}» + …", spoilerText: "velours" },
+        { type: "etymology", template: "… + del francés «{spoiler}»", spoilerText: "crochet" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "definition", template: "Sus palabras originales significan «{spoiler}» + «{spoiler}»", spoilerText: ["terciopelo", "gancho"] },
+        { type: "definition", template: "Viene de {spoiler}", spoilerText: "una marca registrada" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-08",
+    word: {
+      answer: "punto",
+      definition:
+        "m. Señal de dimensiones pequeñas, ordinariamente circular, que, por contraste de color o de relieve, es perceptible en una superficie.",
+      difficulty: 4,
+      etymology: [
+        { word: "pungĕre", language: "latín" },
+        { word: "punctum", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Derivado del latín «{spoiler}»", spoilerText: "pungĕre" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "punzar, pinchar" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "punctum" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "o"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-09",
+    word: {
+      answer: "galería",
+      definition:
+        "f. Pieza o corredor largos y espaciosos, con muchas ventanas, o sostenidos por columnas o pilares.",
+      difficulty: 5,
+      etymology: [{ word: "galilaea", language: "bajo latín" }],
+      hints: [
+        { type: "etymology", template: "Del bajo latín «{spoiler}»", spoilerText: "galilaea" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Significaba «{spoiler}» o «{spoiler}»", spoilerText: ["pórtico", "atrio"] },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-10",
+    word: {
+      answer: "amarillo",
+      definition:
+        "adj. Dicho de un color: Semejante al del oro o al de la yema de huevo, y que ocupa el tercer lugar en el espectro luminoso.",
+      difficulty: 3,
+      etymology: [
+        { word: "amārus", language: "latín" },
+        { word: "amarellus", language: "bajo latín hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "amārus" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "amargo" },
+        { type: "etymology", template: "Del bajo latín hispánico «{spoiler}»", spoilerText: "amarellus" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "o"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-11",
+    word: {
+      answer: "albergar",
+      definition: "tr. Dar albergue u hospedaje a alguien.",
+      difficulty: 5,
+      etymology: [{ word: "haribaírgôn", language: "gótico" }],
+      hints: [
+        { type: "etymology", template: "Quizá del gótico «{spoiler}»", spoilerText: "haribaírgôn" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "alojar una tropa" },
+        { type: "definition", template: "Significa «{spoiler}»", spoilerText: "dar hospedaje a alguien" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-12",
+    word: {
+      answer: "batalla",
+      definition:
+        "f. Combate o serie de combates de un ejército con otro, o de una armada naval con otra.",
+      difficulty: 4,
+      etymology: [
+        { word: "battuĕre", language: "latín" },
+        { word: "battualia", language: "latín tardío" },
+        { word: "battalia", language: "latín vulgar" },
+        { word: "batalha", language: "occitano antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Derivado del latín «{spoiler}»", spoilerText: "battuĕre" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Significaba «{spoiler}» o «{spoiler}»", spoilerText: ["batir", "golpear"] },
+        { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "battualia" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}» y del occitano antiguo «{spoiler}»", spoilerText: ["battalia", "batalha"] },
+      ],
+    },
+  },
 ];
 
 export const GAME_START_DATE = "2026-03-19";
