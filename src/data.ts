@@ -4058,6 +4058,372 @@ const words: DailyWord[] = [
       ],
     },
   },
+  {
+    date: "2026-08-13",
+    word: {
+      answer: "engañar",
+      definition: "tr. Hacer creer a alguien que algo falso es verdadero.",
+      difficulty: 4,
+      etymology: [
+        { word: "gannīre", language: "latín" },
+        { word: "ingannāre", language: "latín vulgar" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gannīre" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "gañir, gruñir, refunfuñar, bromear" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "ingannāre" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-14",
+    word: {
+      answer: "vaivén",
+      definition:
+        "m. Movimiento alternativo de un cuerpo que después de recorrer una línea vuelve a describirla en sentido contrario.",
+      difficulty: 4,
+      etymology: [
+        { word: "ir y venir", language: "español", parts: ["ir", "venir"], joiner: "y" },
+      ],
+      hints: [
+        { type: "etymology", template: "Compuesto de «{spoiler}» y «{spoiler}»", spoilerText: ["ir", "venir"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["v", "n"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un movimiento de un lado a otro" },
+        { type: "definition", template: "{spoiler}", spoilerText: "Describe algo que va y viene" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-15",
+    word: {
+      answer: "alguien",
+      definition:
+        "pron. indef. m. sing. Designa una o varias personas cuya identidad no se conoce o no se desvela.",
+      difficulty: 4,
+      etymology: [
+        { word: "alĭquis", language: "latín" },
+        { word: "alĭquem", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Acusativo de «{spoiler}», del latín «{spoiler}»", spoilerText: ["alĭquis", "alĭquem"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "n" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un pronombre para una persona indeterminada" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-16",
+    word: {
+      answer: "párpado",
+      definition: "m. Pliegue cutáneo retráctil que protege el globo ocular.",
+      difficulty: 5,
+      etymology: [{ word: "palpĕtrum", language: "latín vulgar" }],
+      hints: [
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "palpĕtrum" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "o" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un pliegue que protege el ojo" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-17",
+    word: {
+      answer: "savia",
+      definition:
+        "f. Líquido que circula por los vasos de las plantas pteridofitas y fanerógamas y del cual toman las células las sustancias que necesitan para su nutrición.",
+      difficulty: 4,
+      etymology: [
+        { word: "sapa", language: "latín" },
+        { word: "sève", language: "francés" },
+        { word: "seiva", language: "portugués" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "sapa" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "vino cocido o arrope" },
+        { type: "etymology", template: "Del francés «{spoiler}», y del portugués «{spoiler}»", spoilerText: ["sève", "seiva"] },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["s", "a"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-18",
+    word: {
+      answer: "almacén",
+      definition:
+        "m. Edificio o local donde se depositan géneros de cualquier especie, generalmente mercancías.",
+      difficulty: 3,
+      etymology: [
+        { word: "maẖzan", language: "árabe clásico" },
+        { word: "almaẖzán", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "maẖzan" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "almaẖzán" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["a", "n"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un local donde se depositan mercancías" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-19",
+    word: {
+      answer: "maíz",
+      definition:
+        "m. Planta de la familia de las gramíneas, con el tallo grueso, de uno a tres metros de altura, hojas largas, planas y puntiagudas, flores masculinas en racimos terminales y las femeninas en espigas axilares resguardadas por una vaina.",
+      difficulty: 1,
+      etymology: [{ word: "mahís", language: "taíno" }],
+      hints: [
+        { type: "etymology", template: "Del taíno «{spoiler}»", spoilerText: "mahís" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "z" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una planta de granos amarillos en mazorca" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-20",
+    word: {
+      answer: "sidra",
+      definition:
+        "f. Bebida alcohólica, de color ambarino, que se obtiene por la fermentación del zumo de las manzanas exprimidas.",
+      difficulty: 4,
+      etymology: [
+        { word: "ṯkr", language: "egipcio" },
+        { word: "σίκερα (síkera)", language: "griego" },
+        { word: "sicĕra", language: "latín tardío" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del egipcio «{spoiler}»", spoilerText: "ṯkr" },
+        { type: "etymology", template: "Del griego «{spoiler}», y del latín tardío «{spoiler}»", spoilerText: ["σίκερα (síkera)", "sicĕra"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "bebida embriagadora" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["s", "a"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-21",
+    word: {
+      answer: "prenda",
+      definition:
+        "f. Cada una de las partes que componen el vestido y calzado del hombre o de la mujer.",
+      difficulty: 4,
+      etymology: [
+        { word: "pignŏra", language: "latín" },
+        { word: "péñora", language: "español antiguo" },
+        { word: "pendra", language: "español antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}» y del español antiguo «{spoiler}»", spoilerText: ["pignŏra", "péñora"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "etymology", template: "Por metátesis del antiguo «{spoiler}»", spoilerText: "pendra" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "p" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-22",
+    word: {
+      answer: "país",
+      definition: "m. Territorio constituido en Estado soberano.",
+      difficulty: 4,
+      etymology: [
+        { word: "pagensis", language: "latín medieval" },
+        { word: "pays", language: "francés" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín medieval «{spoiler}»", spoilerText: "pagensis" },
+        { type: "definition", template: "«{spoiler}» significaba «{spoiler}»", spoilerText: ["[territorium] pagense", "[territorio] de un pago"] },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "4" },
+        { type: "etymology", template: "Del francés «{spoiler}»", spoilerText: "pays" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["p", "s"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-23",
+    word: {
+      answer: "mariposa",
+      definition:
+        "f. Insecto de boca chupadora, con dos pares de alas cubiertas de escamas y generalmente de colores brillantes, que constituye la fase adulta de los lepidópteros.",
+      difficulty: 3,
+      etymology: [
+        { word: "Mari + posar", language: "español", parts: ["Mari", "posar"] },
+      ],
+      hints: [
+        { type: "etymology", template: "Compuesto de un apócope + «{spoiler}»", spoilerText: "posar" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "m" },
+        { type: "etymology", template: "El apócope es «{spoiler}»", spoilerText: "del nombre María" },
+        { type: "definition", template: "Es ", spoilerText: "un insecto de alas con escamas de colores" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-24",
+    word: {
+      answer: "cantidad",
+      definition: "f. Porción de una magnitud.",
+      difficulty: 2,
+      etymology: [
+        { word: "ποσότης (posótēs)", language: "griego" },
+        { word: "quantĭtas, -ātis", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Calco del griego «{spoiler}»", spoilerText: "ποσότης (posótēs)" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "quantĭtas, -ātis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "8" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "d" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-25",
+    word: {
+      answer: "ponzoña",
+      definition:
+        "f. Sustancia que tiene en sí cualidades nocivas para la salud, o destructivas de la vida.",
+      difficulty: 5,
+      etymology: [
+        { word: "potio, -ōnis", language: "latín" },
+        { word: "pozón", language: "español antiguo" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "potio, -ōnis" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "bebida o brebaje venenoso" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "etymology", template: "Del antiguo «{spoiler}»", spoilerText: "pozón" },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-26",
+    word: {
+      answer: "gentil",
+      definition: "adj. Hermoso, agradable o que tiene gracia.",
+      difficulty: 2,
+      etymology: [
+        { word: "gens, gentis", language: "latín" },
+        { word: "gentīlis", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gens, gentis" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "gentīlis" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "g" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "l" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-27",
+    word: {
+      answer: "clínico",
+      definition:
+        "adj. Perteneciente o relativo a la clínica (ejercicio práctico de la medicina).",
+      difficulty: 4,
+      etymology: [
+        { word: "κλίνη (klínē)", language: "griego" },
+        { word: "κλινικός (klinikós)", language: "griego" },
+        { word: "clinĭcus", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "κλίνη (klínē)" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "definition", template: "Significaba «{spoiler}»", spoilerText: "lecho, cama" },
+        { type: "etymology", template: "Del griego «{spoiler}», y del latín «{spoiler}»", spoilerText: ["κλινικός (klinikós)", "clinĭcus"] },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["c", "o"] },
+      ],
+    },
+  },
+  {
+    date: "2026-08-28",
+    word: {
+      answer: "galgo",
+      definition:
+        "m. y f. Perro muy veloz, de cabeza pequeña, cuerpo delgado y patas largas, usado para la caza.",
+      difficulty: 3,
+      etymology: [{ word: "Gallĭcus", language: "latín vulgar" }],
+      hints: [
+        { type: "etymology", template: "Del latín vulgar «{spoiler}»", spoilerText: "Gallĭcus" },
+        { type: "definition", template: "«{spoiler}» significaba «{spoiler}»", spoilerText: ["Gallĭcus [canis]", "perro de la Galia"] },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "un perro veloz y esbelto" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "5" },
+        { type: ["starts_with", "ends_with"], template: "Empieza con {spoiler} y termina con {spoiler}", spoilerText: ["g", "o"] },
+        
+      ],
+    },
+  },
+  {
+    date: "2026-08-29",
+    word: {
+      answer: "algodón",
+      definition:
+        "m. Fibra textil blanca y suave que envuelve las semillas de la planta homónima.",
+      difficulty: 2,
+      etymology: [
+        { word: "quṭn", language: "árabe clásico" },
+        { word: "alquṭún", language: "árabe hispánico" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del árabe clásico «{spoiler}»", spoilerText: "quṭn" },
+        { type: "etymology", template: "Del árabe hispánico «{spoiler}»", spoilerText: "alquṭún" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "7" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "a" },
+        { type: "definition", template: "Es {spoiler}", spoilerText: "una fibra blanca y suave de una planta" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-30",
+    word: {
+      answer: "cabaña",
+      definition:
+        "f. Construcción rústica pequeña, de materiales pobres, destinada a refugio o vivienda.",
+      difficulty: 5,
+      etymology: [{ word: "capanna", language: "latín tardío" }],
+      hints: [
+        { type: "etymology", template: "Del latín tardío «{spoiler}»", spoilerText: "capanna" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "definition", template: "Contiene la letra {spoiler}", spoilerText: "ñ" },
+        { type: "definition", template: "Es una {spoiler}", spoilerText: "construcción rústica pequeña" },
+      ],
+    },
+  },
+  {
+    date: "2026-08-31",
+    word: {
+      answer: "cuerda",
+      definition:
+        "f. Conjunto de hilos entrelazados que forman un solo cuerpo largo y flexible que sirve para atar, suspender pesos, etc.",
+      difficulty: 2,
+      etymology: [
+        { word: "χορδή (chordḗ)", language: "griego" },
+        { word: "chorda", language: "latín" },
+      ],
+      hints: [
+        { type: "etymology", template: "Del griego «{spoiler}»", spoilerText: "χορδή (chordḗ)" },
+        { type: "etymology", template: "Del latín «{spoiler}»", spoilerText: "chorda" },
+        { type: "letter_count", template: "Tiene {spoiler} letras", spoilerText: "6" },
+        { type: "starts_with", template: "Empieza con {spoiler}", spoilerText: "c" },
+        { type: "ends_with", template: "Termina con {spoiler}", spoilerText: "a" },
+      ],
+    },
+  },
 ];
 
 export const GAME_START_DATE = "2026-03-19";
