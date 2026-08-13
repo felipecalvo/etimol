@@ -458,7 +458,7 @@ function GameView({
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (template) {
-      if (currentGuess.trim().length === 0) return; // nothing typed → do nothing
+      if (currentGuess.trim().length === 0 && editableSlots > 0) return;
       const full = fullGuessFromTemplate(template, currentGuess);
       submitGuess(full);
     } else {
@@ -624,7 +624,7 @@ function GameView({
                   <div className="word-cells" onClick={focusInput}>
                     {displayCells!.map((ch, i) => {
                       const isFixed = template[i] !== null;
-                      const isRevealedCell = isFixed && i >= revealedPrefix.length && i < answer.length - (revealedSuffix.length || 0) && revealedLetters.includes(ch);
+                      const isRevealedCell = isFixed && i >= revealedPrefix.length && i < answer.length - (revealedSuffix.length || 0) && revealedLetters.includes(stripAccents(ch));
                       const isEmpty = ch === "";
                       const isCaret = inputFocused && i === caretIndex;
                       return (
